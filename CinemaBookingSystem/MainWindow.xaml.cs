@@ -22,7 +22,18 @@ namespace CinemaBookingSystem
     {
         public MainWindow()
         {
+            ShowRooms.Create(new List<Tuple<int, int, int>>().AddRange());
             InitializeComponent();
+        }
+
+        private void CreateFilm()
+        {
+            
+        }
+
+        private void ManageFilms()
+        {
+            
         }
     }
 }
