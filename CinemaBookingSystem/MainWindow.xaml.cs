@@ -22,6 +22,8 @@ namespace CinemaBookingSystem
     {
         public MainWindow()
         {
+            #region Setup
+
             var list = new List<Tuple<int, int, int>>();
             list.AddRange(new[]
             {
@@ -29,9 +31,28 @@ namespace CinemaBookingSystem
                 new Tuple<int, int, int>(2, 3, 5),
                 new Tuple<int, int, int>(3, 6, 15),
                 new Tuple<int, int, int>(5, 10, 18),
-                new Tuple<int, int, int>(7, 20, 30), 
+                new Tuple<int, int, int>(7, 20, 30),
             });
             ShowRooms.Create(list);
+
+
+            new Film("Solo: A Star Wars Story", new DateTime(0, 0, 0, 1, 40, 20),
+                new DateTime(2018, 05, 25, 19, 50, 0), ShowRooms.ShowRoomList[0], 7);
+
+            new Film("I Feel Pretty", new DateTime(0, 0, 0, 1, 50, 33), new DateTime(2018, 05, 25, 20, 45, 0),
+                ShowRooms.ShowRoomList[1]);
+
+            new Film("Avengers: Infinity War", new DateTime(0, 0, 0, 2, 40, 0), new DateTime(2018, 05, 25, 18, 45, 0),
+                ShowRooms.ShowRoomList[3]);
+
+            new Film("Deadpool 2", new DateTime(0, 0, 0, 2, 40, 0), new DateTime(2018, 05, 25, 19, 20, 0),
+                ShowRooms.ShowRoomList[2]);
+
+            new Film("Jim Knopf und Lukas der Lokomotivführer", new DateTime(0, 0, 0, 2, 30, 0), new DateTime(2018, 05, 25, 18, 45, 0),
+                ShowRooms.ShowRoomList[2]);
+
+
+            #endregion
 
             InitializeComponent();
         }

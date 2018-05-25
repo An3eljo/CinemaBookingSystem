@@ -8,6 +8,7 @@ namespace CinemaBookingSystem
 {
     class Seat
     {
+        private bool IsBooked;
         internal int Row;
         internal int Column;
 
