@@ -22,7 +22,17 @@ namespace CinemaBookingSystem
     {
         public MainWindow()
         {
-            ShowRooms.Create(new List<Tuple<int, int, int>>().AddRange());
+            var list = new List<Tuple<int, int, int>>();
+            list.AddRange(new[]
+            {
+                new Tuple<int, int, int>(1, 10, 40),
+                new Tuple<int, int, int>(2, 3, 5),
+                new Tuple<int, int, int>(3, 6, 15),
+                new Tuple<int, int, int>(5, 10, 18),
+                new Tuple<int, int, int>(7, 20, 30), 
+            });
+            ShowRooms.Create(list);
+
             InitializeComponent();
         }
 
