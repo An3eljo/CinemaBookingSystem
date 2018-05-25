@@ -54,6 +54,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Customer.cs" />
     <Compile Include="Seat.cs" />
     <Compile Include="ShowRoom.cs" />
     <Compile Include="ShowRooms.cs" />
