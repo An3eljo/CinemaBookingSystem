@@ -9,7 +9,7 @@ namespace CinemaBookingSystem
     class ShowRoom
     {
         internal int RoomNumber;
-        internal static List<Seat> ListOfSeats = new List<Seat>();
+        internal List<Seat> ListOfSeats = new List<Seat>();
 
         public ShowRoom(int roomNumber, int rows, int columns)
         {

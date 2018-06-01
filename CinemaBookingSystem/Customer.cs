@@ -20,9 +20,10 @@ namespace CinemaBookingSystem
             this.Seat = seat;
             this.Show = film;
 
+            Seat.IsBooked.Find().
+
             Seat.IsBooked.Add(new Tuple<Show, bool>(film, true));
 
-            Show.Customers.Add(this);
         }
     }
 }

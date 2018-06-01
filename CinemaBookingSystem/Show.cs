@@ -12,8 +12,7 @@ namespace CinemaBookingSystem
         internal DateTime Date;
         internal double Price;
         internal ShowRoom ShowRoom;
-        internal List<Customer> Customers;
-        public static List<Show> ListOfShows;
+        public static List<Show> ListOfShows = new List<Show>();
 
         public Show(Film film, DateTime date, ShowRoom showRoom, double price = 10)
         {
