@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CinemaBookingSystem
 {
-    class Film
+    class Show
     {
         internal string Title;
         internal DateTime Duration;
@@ -14,16 +14,16 @@ namespace CinemaBookingSystem
         internal double Price;
         internal ShowRoom ShowRoom;
         internal List<Customer> Customers;
-        public static List<Film> ListOFilms;
+        public static List<Show> ListOfShows;
 
-        public Film(string title, DateTime duration, DateTime date, ShowRoom showRoom, double price = 10)
+        public Show(string title, DateTime duration, DateTime date, ShowRoom showRoom, double price = 10)
         {
             this.Title = title;
             this.Duration = duration;
             this.Date = date;
             this.Price = price;
             this.ShowRoom = showRoom;
-            Film.ListOFilms.Add(this);
+            Show.ListOfShows.Add(this);
         }
     }
 }

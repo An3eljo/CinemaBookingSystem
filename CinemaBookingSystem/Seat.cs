@@ -8,7 +8,7 @@ namespace CinemaBookingSystem
 {
     class Seat
     {
-        internal List<Tuple<Film, bool>> IsBooked;
+        internal List<Tuple<Show, bool>> IsBooked;
         internal int Row;
         internal int Column;
 
@@ -16,7 +16,7 @@ namespace CinemaBookingSystem
         {
             this.Row = row;
             this.Column = column;
-            IsBooked = new List<Tuple<Film, bool>>();
+            IsBooked = new List<Tuple<Show, bool>>();
         }
     }
 }

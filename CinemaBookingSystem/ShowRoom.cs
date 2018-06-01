@@ -9,7 +9,7 @@ namespace CinemaBookingSystem
     class ShowRoom
     {
         internal int RoomNumber;
-        internal static List<Seat> ListOfSeats;
+        internal static List<Seat> ListOfSeats = new List<Seat>();
 
         public ShowRoom(int roomNumber, int rows, int columns)
         {
@@ -21,6 +21,8 @@ namespace CinemaBookingSystem
                     ListOfSeats.Add(new Seat(i, j));
                 }
             }
+
+            ShowRooms.ShowRoomList.Add(this);
         }
     }
 }

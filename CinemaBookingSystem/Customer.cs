@@ -11,18 +11,18 @@ namespace CinemaBookingSystem
         internal string Name;
         internal string Prename;
         internal Seat Seat;
-        internal Film Film;
+        internal Show Show;
 
-        public Customer(Seat seat, Film film, string name = null, string prename = null)
+        public Customer(Seat seat, Show film, string name = null, string prename = null)
         {
             this.Name = name;
             this.Prename = prename;
             this.Seat = seat;
-            this.Film = film;
+            this.Show = film;
 
-            Seat.IsBooked.Add(new Tuple<Film, bool>(film, true));
+            Seat.IsBooked.Add(new Tuple<Show, bool>(film, true));
 
-            Film.Customers.Add(this);
+            Show.Customers.Add(this);
         }
     }
 }

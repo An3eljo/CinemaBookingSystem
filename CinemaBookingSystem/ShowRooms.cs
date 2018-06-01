@@ -14,7 +14,7 @@ namespace CinemaBookingSystem
         {
             foreach (var showRoom in ListOfShowRooms)
             {
-                ShowRoomList.Add(new ShowRoom(showRoom.Item1, showRoom.Item2, showRoom.Item3));
+                new ShowRoom(showRoom.Item1, showRoom.Item2, showRoom.Item3);
             }
         }
     }
