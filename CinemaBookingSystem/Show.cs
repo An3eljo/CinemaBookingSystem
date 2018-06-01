@@ -8,22 +8,20 @@ namespace CinemaBookingSystem
 {
     class Show
     {
-        internal string Title;
-        internal DateTime Duration;
+        internal Film Film;
         internal DateTime Date;
         internal double Price;
         internal ShowRoom ShowRoom;
         internal List<Customer> Customers;
         public static List<Show> ListOfShows;
 
-        public Show(string title, DateTime duration, DateTime date, ShowRoom showRoom, double price = 10)
+        public Show(Film film, DateTime date, ShowRoom showRoom, double price = 10)
         {
-            this.Title = title;
-            this.Duration = duration;
+            this.Film = film;
             this.Date = date;
             this.Price = price;
             this.ShowRoom = showRoom;
-            Show.ListOfShows.Add(this);
+            ListOfShows.Add(this);
         }
     }
 }

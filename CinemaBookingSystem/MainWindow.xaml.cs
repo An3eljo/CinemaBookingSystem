@@ -36,20 +36,20 @@ namespace CinemaBookingSystem
             ShowRooms.Create(list);
 
 
-            new Show("Solo: A Star Wars Story", new DateTime(0, 0, 0, 1, 40, 20),
+            new Show(new Film("Solo: A Star Wars Story", new DateTime(0, 0, 0, 1, 40, 20)),
                 new DateTime(2018, 05, 25, 19, 50, 0), ShowRooms.ShowRoomList[0], 7);
 
-            new Show("I Feel Pretty", new DateTime(0, 0, 0, 1, 50, 33), new DateTime(2018, 05, 25, 20, 45, 0),
+            new Show(new Film("I Feel Pretty", new DateTime(0, 0, 0, 1, 50, 33)), new DateTime(2018, 05, 25, 20, 45, 0),
                 ShowRooms.ShowRoomList[1]);
 
-            new Show("Avengers: Infinity War", new DateTime(0, 0, 0, 2, 40, 0), new DateTime(2018, 05, 25, 18, 45, 0),
+            new Show(new Film("Avengers: Infinity War", new DateTime(0, 0, 0, 2, 40, 0)), new DateTime(2018, 05, 25, 18, 45, 0),
                 ShowRooms.ShowRoomList[3]);
 
-            new Show("Deadpool 2", new DateTime(0, 0, 0, 2, 40, 0), new DateTime(2018, 05, 25, 19, 20, 0),
+            new Show(new Film("Deadpool 2", new DateTime(0, 0, 0, 2, 40, 0)), new DateTime(2018, 05, 25, 19, 20, 0),
                 ShowRooms.ShowRoomList[2]);
 
-            new Show("Jim Knopf und Lukas der Lokomotivführer", new DateTime(0, 0, 0, 2, 30, 0), new DateTime(2018, 05, 25, 18, 45, 0),
-                ShowRooms.ShowRoomList[2]);
+            new Show(new Film("Jim Knopf und Lukas der Lokomotivführer", new DateTime(0, 0, 0, 2, 30, 0)), 
+                new DateTime(2018, 05, 25, 18, 45, 0), ShowRooms.ShowRoomList[2]);
 
 
             #endregion
