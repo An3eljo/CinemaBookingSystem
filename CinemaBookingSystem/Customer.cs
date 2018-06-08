@@ -20,12 +20,8 @@ namespace CinemaBookingSystem
             this.Seat = seat;
             this.Show = show;
 
-            Seat.IsBooked[Seat.IsBooked.IndexOf(new Tuple<Show, bool>(show, false))] = null;
-
-            var t = Show.ListOfShows[0].ShowRoom.ListOfSeats[0].IsBooked[0].Item1;
-
-            Seat.IsBooked.Add(new Tuple<Show, bool>(show, true));
-
+            Seat.IsBooked[Seat.IsBooked.IndexOf(new Tuple<Show, bool>(show, false))] = new Tuple<Show, bool>(show, true);
+            
         }
     }
 }

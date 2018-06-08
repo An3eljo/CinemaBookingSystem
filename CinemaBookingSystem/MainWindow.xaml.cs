@@ -36,19 +36,19 @@ namespace CinemaBookingSystem
             ShowRooms.Create(list);
 
 
-            new Show(new Film("Solo: A Star Wars Story", new DateTime(0, 0, 0, 1, 40, 20)),
+            new Show(new Film("Solo: A Star Wars Story", new DateTime().AddHours(1).AddMinutes(40).AddSeconds(20)),
                 new DateTime(2018, 05, 25, 19, 50, 0), ShowRooms.ShowRoomList[0], 7);
 
-            new Show(new Film("I Feel Pretty", new DateTime(0, 0, 0, 1, 50, 33)), new DateTime(2018, 05, 25, 20, 45, 0),
-                ShowRooms.ShowRoomList[1]);
+            new Show(new Film("I Feel Pretty", new DateTime().AddHours(1).AddMinutes(50).AddSeconds(33)), 
+                new DateTime(2018, 05, 25, 20, 45, 0), ShowRooms.ShowRoomList[1]);
 
-            new Show(new Film("Avengers: Infinity War", new DateTime(0, 0, 0, 2, 40, 0)), new DateTime(2018, 05, 25, 18, 45, 0),
-                ShowRooms.ShowRoomList[3]);
+            new Show(new Film("Avengers: Infinity War", new DateTime().AddHours(2).AddMinutes(40)),
+                new DateTime(2018, 05, 25, 18, 45, 0), ShowRooms.ShowRoomList[3]);
 
-            new Show(new Film("Deadpool 2", new DateTime(0, 0, 0, 2, 40, 0)), new DateTime(2018, 05, 25, 19, 20, 0),
+            new Show(new Film("Deadpool 2", new DateTime().AddHours(2).AddMinutes(13)), new DateTime(2018, 05, 25, 19, 20, 0),
                 ShowRooms.ShowRoomList[2]);
 
-            new Show(new Film("Jim Knopf und Lukas der Lokomotivführer", new DateTime(0, 0, 0, 2, 30, 0)), 
+            new Show(new Film("Jim Knopf und Lukas der Lokomotivführer", new DateTime().AddHours(2).AddMinutes(27)), 
                 new DateTime(2018, 05, 25, 18, 45, 0), ShowRooms.ShowRoomList[2]);
 
 
@@ -67,5 +67,31 @@ namespace CinemaBookingSystem
             
         }
 
+        private void ButtonBooking_OnClick(object sender, RoutedEventArgs e)
+        {
+            if (GridBooking.Visibility == Visibility.Hidden)
+            {
+                GridBooking.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                GridBooking.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private void LabelNewBooking_OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            
+        }
+
+        private void UIElement_OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            GridBooking.Visibility = Visibility.Hidden;
+        }
+
+        private void LabelCancelBooking_OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            
+        }
     }
 }

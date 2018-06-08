@@ -8,7 +8,7 @@ namespace CinemaBookingSystem
 {
     static class ShowRooms
     {
-        public static readonly List<ShowRoom> ShowRoomList;
+        public static readonly List<ShowRoom> ShowRoomList = new List<ShowRoom>();
 
         public static void Create(List<Tuple<int, int, int>> ListOfShowRooms)
         {
