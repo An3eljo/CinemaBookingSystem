@@ -8,6 +8,7 @@ namespace CinemaBookingSystem
 {
     sealed class ShowRoom
     {
+        //Singleton for ShowRoomList => replace ShowRooms.cs
         private static volatile ShowRoom _instance;
         private static object locker = new object();
 
