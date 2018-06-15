@@ -20,5 +20,6 @@
                 <Label Content="Cancel booking" Padding="5, 0" Margin="0" MouseLeftButtonUp="LabelCancelBooking_OnMouseLeftButtonUp" Grid.Row="1" VerticalAlignment="Center"/>
             </Grid>
         </StackPanel>
+        <Frame Width="100" Height="100" Margin="406,202,286,117" Source="Page1.xaml" NavigationUIVisibility="Hidden"></Frame>
     </Grid>
 </Window>
