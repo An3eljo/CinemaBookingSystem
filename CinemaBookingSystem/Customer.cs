@@ -13,7 +13,7 @@ namespace CinemaBookingSystem
         internal Seat Seat;
         internal Show Show;
 
-        public Customer(Seat seat, Show show, string name = null, string prename = null)
+        public Customer(Seat seat, Show show, string name, string prename)
         {
             this.Name = name;
             this.Prename = prename;
