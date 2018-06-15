@@ -7,17 +7,18 @@
         mc:Ignorable="d"
         Title="Cinema Management" Height="450" Width="800">
     <Grid MouseLeftButtonUp="UIElement_OnMouseLeftButtonUp">
-        <Button Content="Booking" Width="Auto" Margin="81,72,594,314" Name="ButtonBooking" Click="ButtonBooking_OnClick"/>
-        <Grid HorizontalAlignment="Left" Height="41" Margin="81,105,0,0" VerticalAlignment="Top" Width="117" Name="GridBooking" Visibility="Visible">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0"/>
-            <Border BorderBrush="Black" BorderThickness="1" Grid.Row="1"></Border>
-            <Label Content="New booking" Padding="0" Margin="1" MouseLeftButtonUp="LabelNewBooking_OnMouseLeftButtonUp" VerticalAlignment="Center" Grid.Row="0"/>
-            <Label Content="Cancel booking" Padding="0" Margin="1" MouseLeftButtonUp="LabelCancelBooking_OnMouseLeftButtonUp" Grid.Row="1" VerticalAlignment="Center"/>
-        </Grid>
-
+        <StackPanel Margin="100,68,0,0" HorizontalAlignment="Left" Width="145" Height="65" VerticalAlignment="Top">
+            <Button Content="Booking" Width="145" Margin="0" Name="ButtonBooking" Click="ButtonBooking_OnClick" HorizontalAlignment="Left"/>
+            <Grid HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" Name="GridBooking" Visibility="Hidden" Width="145">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Padding="0" Margin="0"/>
+                <Border BorderBrush="Black" BorderThickness="1" Grid.Row="1" Padding="0" Margin="0"></Border>
+                <Label Content="New booking" Padding="5, 0" Margin="0" MouseLeftButtonUp="LabelNewBooking_OnMouseLeftButtonUp" VerticalAlignment="Center" Grid.Row="0"/>
+                <Label Content="Cancel booking" Padding="5, 0" Margin="0" MouseLeftButtonUp="LabelCancelBooking_OnMouseLeftButtonUp" Grid.Row="1" VerticalAlignment="Center"/>
+            </Grid>
+        </StackPanel>
     </Grid>
 </Window>

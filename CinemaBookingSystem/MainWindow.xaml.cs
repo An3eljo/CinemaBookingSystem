@@ -69,14 +69,7 @@ namespace CinemaBookingSystem
 
         private void ButtonBooking_OnClick(object sender, RoutedEventArgs e)
         {
-            if (GridBooking.Visibility == Visibility.Hidden)
-            {
-                GridBooking.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                GridBooking.Visibility = Visibility.Hidden;
-            }
+            GridBooking.Visibility = GridBooking.Visibility == Visibility.Hidden ? Visibility.Visible : Visibility.Hidden;
         }
 
         private void LabelNewBooking_OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
