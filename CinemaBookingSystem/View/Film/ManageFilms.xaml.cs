@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace CinemaBookingSystem.View.Film
 {
     /// <summary>
-    /// Interaction logic for Manage_Films.xaml
+    /// Interaction logic for ManageFilms.xaml
     /// </summary>
-    public partial class Manage_Films : Page
+    public partial class ManageFilms : Page
     {
-        public Manage_Films()
+        public ManageFilms()
         {
             InitializeComponent();
         }
