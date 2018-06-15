@@ -7,7 +7,7 @@
       mc:Ignorable="d"
       Title="ManageFilms" Height="" Width="auto">
 
-    <Grid>
+    <Grid Width="386" Height="407">
         <TextBox HorizontalAlignment="Left" Height="23" Margin="102,78,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
 
     </Grid>
