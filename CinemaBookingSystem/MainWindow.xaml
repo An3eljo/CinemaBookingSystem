@@ -13,7 +13,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="0" Margin="0,10,0,-10">
             <StackPanel Margin="10,10,0,0" HorizontalAlignment="Left" Width="145" Height="65" VerticalAlignment="Top">
-                <Button Content="Booking" Width="145" Margin="0" Name="ButtonBooking" Click="ButtonBooking_OnClick" HorizontalAlignment="Left"/>
+                <Button Content="Booking" Width="145" Margin="0" Name="ButtonBooking" Click="ButtonBooking_OnClick"/>
                 <Grid HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" Name="GridBooking" Visibility="Hidden" Width="145">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
@@ -26,7 +26,7 @@
                 </Grid>
             </StackPanel>
             <StackPanel Margin="10,80,0,0" HorizontalAlignment="Left" Width="145" Height="65" VerticalAlignment="Top">
-                <Button Content="Booking" Width="145" Margin="0" Name="Button2" Click="ButtonBooking_OnClick" HorizontalAlignment="Left"/>
+                <Button Content="Manage Films" Width="145" Margin="0" x:Name="ButtonManageFilms" HorizontalAlignment="Left"/>
                 <Grid HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" Name="Grid2" Visibility="Hidden" Width="145">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
