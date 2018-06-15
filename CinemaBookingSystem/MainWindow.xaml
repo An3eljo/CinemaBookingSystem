@@ -53,7 +53,7 @@
             </StackPanel>
         </Grid>
         <Grid Grid.Column="1">
-            <Frame Margin="5" Source="Page1.xaml" NavigationUIVisibility="Hidden" Name="Frame1"/>
+            <Frame Margin="5" NavigationUIVisibility="Hidden" Name="Frame1"/>
         </Grid>
     </Grid>
 </Window>

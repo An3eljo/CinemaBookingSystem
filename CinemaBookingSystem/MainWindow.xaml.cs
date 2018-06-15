@@ -26,7 +26,6 @@ namespace CinemaBookingSystem
         {
             Init.Initialize();
             InitializeComponent();
-            Frame1.Navigate(Library.Navigation.PushPage(new CancelBooking()));
         }
 
         private void CreateFilm()
