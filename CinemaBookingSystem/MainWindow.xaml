@@ -11,8 +11,8 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Grid Grid.Column="0">
-            <StackPanel Margin="100,68,0,0" HorizontalAlignment="Left" Width="145" Height="65" VerticalAlignment="Top">
+        <Grid Grid.Column="0" Margin="0,10,0,-10">
+            <StackPanel Margin="10,10,0,0" HorizontalAlignment="Left" Width="145" Height="65" VerticalAlignment="Top">
                 <Button Content="Booking" Width="145" Margin="0" Name="ButtonBooking" Click="ButtonBooking_OnClick" HorizontalAlignment="Left"/>
                 <Grid HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" Name="GridBooking" Visibility="Hidden" Width="145">
                     <Grid.RowDefinitions>
@@ -25,9 +25,35 @@
                     <Label Content="Cancel booking" Padding="5, 0" Margin="0" MouseLeftButtonUp="LabelCancelBooking_OnMouseLeftButtonUp" Grid.Row="1" VerticalAlignment="Center"/>
                 </Grid>
             </StackPanel>
+            <StackPanel Margin="10,80,0,0" HorizontalAlignment="Left" Width="145" Height="65" VerticalAlignment="Top">
+                <Button Content="Booking" Width="145" Margin="0" Name="Button2" Click="ButtonBooking_OnClick" HorizontalAlignment="Left"/>
+                <Grid HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" Name="Grid2" Visibility="Hidden" Width="145">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Padding="0" Margin="0"/>
+                    <Border BorderBrush="Black" BorderThickness="1" Grid.Row="1" Padding="0" Margin="0"></Border>
+                    <Label Content="New booking" Padding="5, 0" Margin="0" MouseLeftButtonUp="LabelNewBooking_OnMouseLeftButtonUp" VerticalAlignment="Center" Grid.Row="0"/>
+                    <Label Content="Cancel booking" Padding="5, 0" Margin="0" MouseLeftButtonUp="LabelCancelBooking_OnMouseLeftButtonUp" Grid.Row="1" VerticalAlignment="Center"/>
+                </Grid>
+            </StackPanel>
+            <StackPanel Margin="10,145,0,0" HorizontalAlignment="Left" Width="145" Height="65" VerticalAlignment="Top">
+                <Button Content="Booking" Width="145" Margin="0" x:Name="Button3" Click="ButtonBooking_OnClick" HorizontalAlignment="Left"/>
+                <Grid HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" x:Name="Grid3" Visibility="Hidden" Width="145">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Padding="0" Margin="0"/>
+                    <Border BorderBrush="Black" BorderThickness="1" Grid.Row="1" Padding="0" Margin="0"/>
+                    <Label Content="New booking" Padding="5, 0" Margin="0" MouseLeftButtonUp="LabelNewBooking_OnMouseLeftButtonUp" VerticalAlignment="Center" Grid.Row="0"/>
+                    <Label Content="Cancel booking" Padding="5, 0" Margin="0" MouseLeftButtonUp="LabelCancelBooking_OnMouseLeftButtonUp" Grid.Row="1" VerticalAlignment="Center"/>
+                </Grid>
+            </StackPanel>
         </Grid>
         <Grid Grid.Column="1">
-            <Frame Margin="222,136,60,183" Source="Page1.xaml" NavigationUIVisibility="Hidden" Grid.Column="1"/>
+            <Frame Margin="5,5,5,5" Source="Page1.xaml" NavigationUIVisibility="Hidden" Grid.Column="1"/>
         </Grid>
     </Grid>
 </Window>
