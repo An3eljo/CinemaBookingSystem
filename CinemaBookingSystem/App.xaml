@@ -4,6 +4,6 @@
              xmlns:local="clr-namespace:CinemaBookingSystem"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary Source="/ResourcesDictionary.xaml"/>
     </Application.Resources>
 </Application>
