@@ -1,18 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace CinemaBookingSystem
+namespace CinemaBookingSystem.Model
 {
     public class Film
     {
         internal string Title;
-        internal DateTime Duration;
+        internal TimeSpan Duration;
         public static List<Film> ListOfFilms = new List<Film>();
 
-        public Film(string title, DateTime duration)
+        public Film(string title, TimeSpan duration)
         {
             this.Title = title;
             this.Duration = duration;

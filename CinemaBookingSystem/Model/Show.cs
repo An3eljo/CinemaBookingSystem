@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace CinemaBookingSystem
+namespace CinemaBookingSystem.Model
 {
-    class Show
+    public class Show
     {
         internal Film Film;
         internal DateTime Date;

@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace CinemaBookingSystem
+namespace CinemaBookingSystem.Model
 {
-    class Seat
+    public class Seat
     {
-        internal List<Tuple<Show, bool>> IsBooked;
+        public List<Tuple<Show, bool>> IsBooked;
         internal int Row;
         internal int Column;
 

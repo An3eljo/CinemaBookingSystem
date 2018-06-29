@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace CinemaBookingSystem
+namespace CinemaBookingSystem.Model
 {
-    class Customer
+    public class Customer
     {
         internal string Name;
         internal string Prename;
@@ -20,11 +16,20 @@ namespace CinemaBookingSystem
             this.Seat = seat;
             this.Show = show;
 
-            Show.ShowRoom.ListOfSeats
-                [Show.ShowRoom.ListOfSeats.IndexOf(Seat)]
-                .IsBooked[Seat.IsBooked.IndexOf
-                (new Tuple<Show, bool>(show, false))]
-                = new Tuple<Show, bool>(show, true);
+            try
+            {
+                Show.ShowRoom.ListOfSeats
+                            [Show.ShowRoom.ListOfSeats.IndexOf(Seat)]
+                        .IsBooked[Seat.IsBooked.IndexOf
+                            (new Tuple<Show, bool>(show, false))]
+                    = new Tuple<Show, bool>(show, true);
+            }
+            catch (Exception)
+            {
+                Show.ShowRoom.ListOfSeats
+                        [Show.ShowRoom.ListOfSeats.IndexOf(Seat)]
+                    .IsBooked.Add(new Tuple<Show, bool>(show, true));
+            }
         }
     }
 }

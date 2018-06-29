@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
-namespace CinemaBookingSystem
+namespace CinemaBookingSystem.Model
 {
     public sealed class ShowRoom
     {
@@ -36,7 +32,7 @@ namespace CinemaBookingSystem
         internal int RoomNumber;
         internal int RowsCount;
         internal int ColumnsCount;
-        internal List<Seat> ListOfSeats = new List<Seat>();
+        public List<Seat> ListOfSeats = new List<Seat>();
         public static List<ShowRoom> ShowRooms;
 
 
@@ -47,6 +43,10 @@ namespace CinemaBookingSystem
             this.ColumnsCount = columns;
             
             MakeShowRoomInterior(rows, columns);
+            if (ShowRooms == null)
+            {
+                ShowRooms = new List<ShowRoom>();
+            }
             ShowRooms.Add(this);
         }
 
