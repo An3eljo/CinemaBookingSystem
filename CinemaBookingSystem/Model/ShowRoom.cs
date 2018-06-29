@@ -6,32 +6,38 @@ using System.Threading.Tasks;
 
 namespace CinemaBookingSystem
 {
-    sealed class ShowRoom
+    public sealed class ShowRoom
     {
-        //Singleton for ShowRoomList => replace ShowRooms.cs
-        private static volatile ShowRoom _instance;
-        private static object locker = new object();
+        //Not used
+        #region Singleton
 
-        public static ShowRoom Instance
-        {
-            get
-            {
-                lock (locker)
-                {
-                    if (_instance == null)
-                    {
-                        _instance = new ShowRoom();
-                    }
-                }
+        //private static volatile ShowRoom _instance;
+        //private static object locker = new object();
 
-                return _instance;
-            }
-        }
+        //public static ShowRoom Instance
+        //{
+        //    get
+        //    {
+        //        lock (locker)
+        //        {
+        //            if (_instance == null)
+        //            {
+        //                _instance = new ShowRoom();
+        //            }
+        //        }
+
+        //        return _instance;
+        //    }
+        //}
+
+        #endregion
+
 
         internal int RoomNumber;
         internal int RowsCount;
         internal int ColumnsCount;
         internal List<Seat> ListOfSeats = new List<Seat>();
+        public static List<ShowRoom> ShowRooms;
 
 
         public ShowRoom(int roomNumber, int rows, int columns)
@@ -39,6 +45,13 @@ namespace CinemaBookingSystem
             this.RoomNumber = roomNumber;
             this.RowsCount = rows;
             this.ColumnsCount = columns;
+            
+            MakeShowRoomInterior(rows, columns);
+            ShowRooms.Add(this);
+        }
+
+        private void MakeShowRoomInterior(int rows, int columns)
+        {
             for (int i = 0; i < rows; i++)
             {
                 for (int j = 0; j < columns; j++)
@@ -46,10 +59,7 @@ namespace CinemaBookingSystem
                     ListOfSeats.Add(new Seat(i, j));
                 }
             }
-
-            ShowRooms.ShowRoomList.Add(this);
         }
-
 
         public ShowRoom()
         {

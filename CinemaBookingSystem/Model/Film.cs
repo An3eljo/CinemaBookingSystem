@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CinemaBookingSystem
 {
-    class Film
+    public class Film
     {
         internal string Title;
         internal DateTime Duration;

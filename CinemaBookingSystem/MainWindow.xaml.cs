@@ -28,14 +28,19 @@ namespace CinemaBookingSystem
             InitializeComponent();
         }
 
-        private void CreateFilm()
+        public void CreateFilm(string title, DateTime duration)
         {
             
         }
 
-        private void ManageFilms()
+        public void ManageFilms(Film film)
         {
             
+        }
+
+        public void CreateShow(Film film, DateTime date, ShowRoom showRoom, double price = 10)
+        {
+            new Show(film, date, showRoom, price);
         }
 
         private void ButtonBooking_OnClick(object sender, RoutedEventArgs e)
