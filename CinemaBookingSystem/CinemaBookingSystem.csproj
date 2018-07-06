@@ -61,6 +61,24 @@
     <Compile Include="Model\Seat.cs" />
     <Compile Include="Model\ShowRooms.cs" />
     <Compile Include="Model\ShowRoom.cs" />
+    <Compile Include="View\Customer\CancelCustomer.xaml.cs">
+      <DependentUpon>CancelCustomer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Customer\CreateCustomer.xaml.cs">
+      <DependentUpon>CreateCustomer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Film\CreateFilm.xaml.cs">
+      <DependentUpon>CreateFilm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Film\ShowFilm.xaml.cs">
+      <DependentUpon>ShowFilm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Show\CreateShow.xaml.cs">
+      <DependentUpon>CreateShow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Show\ShowShow.xaml.cs">
+      <DependentUpon>ShowShow.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -75,6 +93,30 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="ResourcesDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Customer\CancelCustomer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Customer\CreateCustomer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Film\CreateFilm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Film\ShowFilm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Show\CreateShow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Show\ShowShow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -105,10 +147,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="View\Costumer\" />
-    <Folder Include="View\Film\" />
-    <Folder Include="View\Show\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
