@@ -4,10 +4,12 @@ namespace CinemaBookingSystem.Model
 {
     public class Customer
     {
+        //todo: somwhere hold customer
         internal string Name;
         internal string Prename;
         internal Seat Seat;
         internal Show Show;
+
 
         public Customer(Seat seat, Show show, string name, string prename)
         {

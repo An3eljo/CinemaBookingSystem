@@ -72,7 +72,7 @@
             </Grid>
             
             <Grid HorizontalAlignment="Right" Margin="0,0,0,0" Grid.Column="1">
-                <Frame Margin="5" Source="/View/Film/ShowFilm.xaml" NavigationUIVisibility="Hidden" Name="Frame1"/>
+                <Frame Margin="5" Source="/View/Film/CreateFilm.xaml" NavigationUIVisibility="Hidden" Name="Frame1"/>
             </Grid>
         </Grid>
     </Grid>

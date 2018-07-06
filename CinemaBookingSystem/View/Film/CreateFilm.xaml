@@ -19,9 +19,11 @@
                 <RowDefinition Height="4*"/>
                 <RowDefinition Height="20*"/>
             </Grid.RowDefinitions>
-            <TextBox x:Name="TextBoxDuration" HorizontalAlignment="Left" Height="23" Margin="189,177,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+            <TextBox x:Name="TextBoxDurationHours" HorizontalAlignment="Left" Height="23" Margin="105,177,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="41"/>
+            <TextBox x:Name="TextBoxDurationMinutes" HorizontalAlignment="Left" Height="23" Margin="151,177,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="41"/>
+            <TextBox x:Name="TextBoxDurationSeconds" HorizontalAlignment="Left" Height="23" Margin="197,177,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="41"/>
             <TextBox x:Name="TextBoxTitle" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="91,177,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-
+            <Button Content="Add" Click="ButtonAdd_OnClick"></Button>
         </Grid>
     </Grid>
 </Page>

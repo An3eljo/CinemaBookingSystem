@@ -24,5 +24,50 @@ namespace CinemaBookingSystem.View.Film
         {
             InitializeComponent();
         }
+
+
+        private void ButtonAdd_OnClick(object sender, RoutedEventArgs e)
+        {
+            string title;
+            TimeSpan duration;
+            if (TextBoxTitle.Text != String.Empty)
+            {
+                title = TextBoxTitle.Text;
+            }
+            else
+            {
+                return;
+            }
+
+            if (TextBoxDurationHours.Text != String.Empty && TextBoxDurationMinutes.Text != String.Empty)
+            {
+                //todo: errorhandling
+                try
+                {
+                    var hours = int.Parse(TextBoxDurationHours.Text);
+                    var minutes = int.Parse(TextBoxDurationMinutes.Text);
+                    var seconds = 0;
+
+                    if (TextBoxDurationSeconds.Text != String.Empty)
+                    {
+                        seconds = int.Parse(TextBoxDurationSeconds.Text);
+                    }
+
+                    duration = new TimeSpan(hours, minutes, seconds);
+                }
+                catch (Exception)
+                {
+                    return;
+                }
+            }
+            else
+            {
+                return;
+            }
+
+            new Model.Film(title, duration);
+
+            var t = Model.Film.ListOfFilms;
+        }
     }
 }

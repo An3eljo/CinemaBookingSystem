@@ -38,7 +38,15 @@ namespace CinemaBookingSystem.View.Film
 
         private void ComboBoxFilms_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
+            var filmIndex = ((ComboBox) sender).SelectedIndex;
+            FillFilmProperties(filmIndex);
+        }
+
+        private void FillFilmProperties(int filmIndex)
+        {
+            var film = Model.Film.ListOfFilms[filmIndex];
+            TextBlockTitleProperty.Text = film.Title;
+            TextBlockDurationProperty.Text = film.Duration.ToString();
         }
     }
 }
