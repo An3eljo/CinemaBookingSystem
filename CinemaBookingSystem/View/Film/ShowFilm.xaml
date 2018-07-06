@@ -12,9 +12,20 @@
 
     <Grid>
         <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
             <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="70"/>
-            <TextBlock Text="Titel" Width="Auto" Height="Auto" Margin="10,100,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <TextBlock Text="Duration" Width="Auto" Height="Auto" Margin="10,250,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            
+            
+            <TextBlock Text="Titel" Width="Auto" Height="Auto" Margin="10,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1"/>
+            
+            <TextBlock Text="Duration" Width="Auto" Height="Auto" Margin="10,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"  Grid.Column="0" Grid.Row="1"/>
         </Grid>
     </Grid>
 </Page>

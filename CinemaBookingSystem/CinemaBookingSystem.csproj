@@ -76,9 +76,6 @@
     <Compile Include="View\Film\CreateFilm.xaml.cs">
       <DependentUpon>CreateFilm.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Film\ManageFilms.xaml.cs">
-      <DependentUpon>ManageFilms.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\Film\ShowFilm.xaml.cs">
       <DependentUpon>ShowFilm.xaml</DependentUpon>
     </Compile>
@@ -126,10 +123,6 @@
     <Page Include="View\Film\CreateFilm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Film\ManageFilms.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
     <Page Include="ResourcesDictionary.xaml">
       <SubType>Designer</SubType>
