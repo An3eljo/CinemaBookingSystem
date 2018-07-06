@@ -23,6 +23,22 @@ namespace CinemaBookingSystem.View.Film
         public ShowFilm()
         {
             InitializeComponent();
+            Init();
+        }
+
+        private void Init()
+        {
+            var filmList = Model.Film.ListOfFilms;
+
+            foreach (var film in filmList)
+            {
+                ComboBoxFilms.Items.Add(film.Title);
+            }
+        }
+
+        private void ComboBoxFilms_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
         }
     }
 }
