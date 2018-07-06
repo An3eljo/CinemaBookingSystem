@@ -10,6 +10,8 @@
       Background="{StaticResource backgroundDefault}">
 
     <Grid>
-        
+        <Grid>
+
+        </Grid>
     </Grid>
 </Page>

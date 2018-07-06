@@ -10,6 +10,18 @@
       Background="{StaticResource backgroundDefault}">
 
     <Grid>
-        
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="20*"/>
+            </Grid.RowDefinitions>
+            <TextBox x:Name="TextBoxDuration" HorizontalAlignment="Left" Height="23" Margin="189,177,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+            <TextBox x:Name="TextBoxTitle" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="91,177,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+
+        </Grid>
     </Grid>
 </Page>
