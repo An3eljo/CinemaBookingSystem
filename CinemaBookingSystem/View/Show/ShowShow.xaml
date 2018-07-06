@@ -11,6 +11,14 @@
 
     <Grid>
         <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="20*"/>
+            </Grid.RowDefinitions>
 
         </Grid>
     </Grid>
