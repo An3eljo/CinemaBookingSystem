@@ -50,15 +50,47 @@ namespace CinemaBookingSystem
 
         private void LabelNewBooking_OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            
+
         }
 
         private void UIElement_OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             GridBooking.Visibility = Visibility.Hidden;
+            GridShows.Visibility = Visibility.Hidden;
+            GridFilms.Visibility = Visibility.Hidden;
         }
 
         private void LabelCancelBooking_OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            
+        }
+
+        private void ButtonFilms_OnClick(object sender, RoutedEventArgs e)
+        {
+            GridFilms.Visibility = GridFilms.Visibility == Visibility.Hidden ? Visibility.Visible : Visibility.Hidden;
+        }
+
+        private void LabelAddFilm_OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            
+        }
+
+        private void LabelManageFilms_OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            
+        }
+
+        private void ButtonShows_OnClick(object sender, RoutedEventArgs e)
+        {
+            GridShows.Visibility = GridShows.Visibility == Visibility.Hidden ? Visibility.Visible : Visibility.Hidden;
+        }
+
+        private void LabelAddShow_OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            
+        }
+
+        private void LabelManageShows_OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             
         }

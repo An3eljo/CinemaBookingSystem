@@ -11,55 +11,66 @@
         Width="800"
         Background="{StaticResource backgroundDefault}">
 
-    <Grid MouseLeftButtonUp="UIElement_OnMouseLeftButtonUp">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <Grid Grid.Column="0" Margin="0,0,0,10">
-            <Grid Grid.Column="0" Margin="0">
-                <StackPanel Margin="10,10,0,0" HorizontalAlignment="Left" Width="145" Height="65" VerticalAlignment="Top">
-                    <Button Content="Booking" Width="145" Margin="0" Name="ButtonBooking" Click="ButtonBooking_OnClick"/>
-                    <Grid HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" Name="GridBooking" Visibility="Hidden" Width="145">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Padding="0" Margin="0"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Row="1" Padding="0" Margin="0"></Border>
-                        <Label Content="New booking" Padding="5, 0" Margin="0" MouseLeftButtonUp="LabelNewBooking_OnMouseLeftButtonUp" VerticalAlignment="Center" Grid.Row="0"/>
-                        <Label Content="Cancel booking" Padding="5, 0" Margin="0" MouseLeftButtonUp="LabelCancelBooking_OnMouseLeftButtonUp" Grid.Row="1" VerticalAlignment="Center"/>
-                    </Grid>
-                </StackPanel>
-                <StackPanel Margin="10,80,0,0" HorizontalAlignment="Left" Width="145" Height="65" VerticalAlignment="Top">
-                    <Button Content="Manage Films" Width="145" Margin="0" x:Name="ButtonManageFilms" HorizontalAlignment="Left"/>
-                    <Grid HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" Name="Grid2" Visibility="Hidden" Width="145">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Padding="0" Margin="0"/>
-                        <Border BorderBrush="Black" BorderThickness="1" Grid.Row="1" Padding="0" Margin="0"></Border>
-                        <Label Content="New booking" Padding="5, 0" Margin="0" MouseLeftButtonUp="LabelNewBooking_OnMouseLeftButtonUp" VerticalAlignment="Center" Grid.Row="0"/>
-                        <Label Content="Cancel booking" Padding="5, 0" Margin="0" MouseLeftButtonUp="LabelCancelBooking_OnMouseLeftButtonUp" Grid.Row="1" VerticalAlignment="Center"/>
-                    </Grid>
-                </StackPanel>
-                <StackPanel Margin="10,145,0,0" HorizontalAlignment="Left" Width="145" Height="65" VerticalAlignment="Top">
-                    <Button Content="Booking" Width="145" Margin="0" x:Name="Button3" Click="ButtonBooking_OnClick" HorizontalAlignment="Left"/>
-                    <Grid HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" x:Name="Grid3" Visibility="Hidden" Width="145">
+    <Grid>
+        <Grid MouseLeftButtonUp="UIElement_OnMouseLeftButtonUp">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" Margin="0,0,0,10">
+                <Grid Grid.Column="0" Margin="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Margin="30,0,0,0" HorizontalAlignment="Left" Width="145" Height="95" VerticalAlignment="Center" Grid.Row="0">
+                        <Button Content="Booking" Width="145" Margin="0" Name="ButtonBooking" Click="ButtonBooking_OnClick" Height="35"/>
+                        <Grid HorizontalAlignment="Left" Height="60" VerticalAlignment="Top" Name="GridBooking" Visibility="Hidden" Width="145">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Padding="0" Margin="0"/>
+                            <Border BorderBrush="Black" BorderThickness="1" Grid.Row="1" Padding="0" Margin="0"/>
+                            <Label Content="New booking" Padding="5, 0" Margin="0" MouseLeftButtonUp="LabelNewBooking_OnMouseLeftButtonUp" VerticalAlignment="Center" Grid.Row="0"/>
+                            <Label Content="Cancel booking" Padding="5, 0" Margin="0" MouseLeftButtonUp="LabelCancelBooking_OnMouseLeftButtonUp" Grid.Row="1" VerticalAlignment="Center"/>
+                        </Grid>
+                    </StackPanel>
+
+                    <StackPanel Margin="30,0,0,0" HorizontalAlignment="Left" Width="145" Height="95" VerticalAlignment="Center" Grid.Row="1">
+                        <Button Content="Films" Width="145" Margin="0" x:Name="ButtonFilms" Click="ButtonFilms_OnClick" Height="35"/>
+                        <Grid HorizontalAlignment="Left" Height="60" VerticalAlignment="Top" x:Name="GridFilms" Visibility="Hidden" Width="145">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Padding="0" Margin="0"/>
+                            <Border BorderBrush="Black" BorderThickness="1" Grid.Row="1" Padding="0" Margin="0"/>
+                            <Label Content="Add film" Padding="5, 0" Margin="0" MouseLeftButtonUp="LabelAddFilm_OnMouseLeftButtonUp" VerticalAlignment="Center" Grid.Row="0"/>
+                            <Label Content="Manage films" Padding="5, 0" Margin="0" MouseLeftButtonUp="LabelManageFilms_OnMouseLeftButtonUp" Grid.Row="1" VerticalAlignment="Center"/>
+                        </Grid>
+                    </StackPanel>
+
+                    <StackPanel Margin="30,0,0,0" HorizontalAlignment="Left" Width="145" Height="95" VerticalAlignment="Center" Grid.Row="2">
+                    <Button Content="Shows" Width="145" Margin="0" Name="ButtonShows" Click="ButtonShows_OnClick" Height="35"/>
+                    <Grid HorizontalAlignment="Left" Height="60" VerticalAlignment="Top" Name="GridShows" Visibility="Hidden" Width="145">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
                         <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Padding="0" Margin="0"/>
                         <Border BorderBrush="Black" BorderThickness="1" Grid.Row="1" Padding="0" Margin="0"/>
-                        <Label Content="New booking" Padding="5, 0" Margin="0" MouseLeftButtonUp="LabelNewBooking_OnMouseLeftButtonUp" VerticalAlignment="Center" Grid.Row="0"/>
-                        <Label Content="Cancel booking" Padding="5, 0" Margin="0" MouseLeftButtonUp="LabelCancelBooking_OnMouseLeftButtonUp" Grid.Row="1" VerticalAlignment="Center"/>
+                        <Label Content="Add show" Padding="5, 0" Margin="0" MouseLeftButtonUp="LabelAddShow_OnMouseLeftButtonUp" VerticalAlignment="Center" Grid.Row="0"/>
+                        <Label Content="Manage shows" Padding="5, 0" Margin="0" MouseLeftButtonUp="LabelManageShows_OnMouseLeftButtonUp" Name="LabelManageShows" Grid.Row="1" VerticalAlignment="Center"/>
                     </Grid>
-                </StackPanel>
-            </Grid>
-            <Grid HorizontalAlignment="Right" Margin="0,0,-155,0">
-                <Frame Margin="5" Source="/View/ManageFilms" NavigationUIVisibility="Hidden" Name="Frame1"/>
+                    </StackPanel>
+
+                </Grid>
+                <Grid HorizontalAlignment="Right" Margin="0,0,-155,0">
+                    <!--<Frame Margin="5" Source="/View/ManageFilms" NavigationUIVisibility="Hidden" Name="Frame1"/>-->
+                </Grid>
             </Grid>
         </Grid>
     </Grid>
