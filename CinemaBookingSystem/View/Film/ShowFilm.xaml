@@ -22,11 +22,12 @@
             <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="70" Margin="10,10,0,0"/>
 
 
-            <TextBlock Text="Titel" Width="Auto" Height="Auto" Margin="10,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1"/>
-
+            <TextBlock Text="Title" Width="Auto" Height="Auto" Margin="10,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1"/>
+            <TextBlock x:Name="TextBlockDurationProperty" HorizontalAlignment="Left" Height="23" Margin="80,10,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="310"/>
+            
+            
             <TextBlock Text="Duration" Width="Auto" Height="Auto" Margin="10,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"  Grid.Column="0" Grid.Row="1"/>
-            <TextBox HorizontalAlignment="Left" Height="23" Margin="80,10,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="310"/>
-            <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="80,10,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="310"/>
+            <TextBlock x:Name="TextBlockTitleProperty" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="80,10,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="310"/>
         </Grid>
     </Grid>
 </Page>
