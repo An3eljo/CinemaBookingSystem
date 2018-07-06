@@ -23,6 +23,12 @@ namespace CinemaBookingSystem.View.Show
         public CreateShow()
         {
             InitializeComponent();
+            Init();
+        }
+
+        private void Init()
+        {
+            DatePickerSelectDate.DisplayDate = DateTime.Now;
         }
     }
 }
