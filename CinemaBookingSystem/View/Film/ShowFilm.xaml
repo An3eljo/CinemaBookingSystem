@@ -19,7 +19,7 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="70" Margin="10,10,0,0"/>
+            <ComboBox x:Name="ComboBoxFilms" HorizontalAlignment="Left" VerticalAlignment="Top" Width="70" Margin="10,10,0,0"/>
 
 
             <TextBlock Text="Title" Width="Auto" Height="Auto" Margin="10,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1"/>
