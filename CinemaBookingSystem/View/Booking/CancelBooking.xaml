@@ -6,7 +6,8 @@
       xmlns:local="clr-namespace:CinemaBookingSystem.View.Booking"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="CancelBooking">
+      Title="CancelBooking"
+      Background="{StaticResource backgroundDefault}">
 
     <Grid>
         

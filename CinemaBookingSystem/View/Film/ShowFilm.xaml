@@ -6,13 +6,15 @@
       xmlns:local="clr-namespace:CinemaBookingSystem.View.Film"
       mc:Ignorable="d"
       Title="ManageFilms"
-      Height="Auto"
-      Width="auto"
+      Height="400"
+      Width="800"
       Background="{StaticResource backgroundDefault}">
 
     <Grid>
         <Grid>
-            <TextBox Width="70" Margin="0"></TextBox>
+            <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="70"/>
+            <TextBlock Text="Titel" Width="Auto" Height="Auto" Margin="10,100,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <TextBlock Text="Duration" Width="Auto" Height="Auto" Margin="10,250,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         </Grid>
     </Grid>
 </Page>

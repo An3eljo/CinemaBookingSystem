@@ -67,14 +67,32 @@
     <Compile Include="View\Booking\ChooseSeat.xaml.cs">
       <DependentUpon>ChooseSeat.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Costumer\CancelCustomer.xaml.cs">
+      <DependentUpon>CancelCustomer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Costumer\CreateCustomer.xaml.cs">
+      <DependentUpon>CreateCustomer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Film\CreateFilm.xaml.cs">
+      <DependentUpon>CreateFilm.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Film\ManageFilms.xaml.cs">
       <DependentUpon>ManageFilms.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Film\ShowFilm.xaml.cs">
+      <DependentUpon>ShowFilm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Show\CreateShow.xaml.cs">
+      <DependentUpon>CreateShow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Show\ManageShows.xaml.cs">
       <DependentUpon>ManageShows.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Show\SearchShow.xaml.cs">
       <DependentUpon>SearchShow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Show\ShowShow.xaml.cs">
+      <DependentUpon>ShowShow.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -97,11 +115,31 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="View\Costumer\CancelCustomer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Costumer\CreateCustomer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Film\CreateFilm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Film\ManageFilms.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Page Include="ResourcesDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Film\ShowFilm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Show\CreateShow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -112,6 +150,10 @@
     <Page Include="View\Show\SearchShow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Show\ShowShow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -140,5 +182,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
