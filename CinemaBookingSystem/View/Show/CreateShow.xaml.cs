@@ -25,6 +25,7 @@ namespace CinemaBookingSystem.View.Show
         {
             InitializeComponent();
             Init();
+            OnCreateClick(this, EventArgs.Empty);
         }
 
         private void Init()
@@ -52,15 +53,37 @@ namespace CinemaBookingSystem.View.Show
 
         private void OnCreateClick(object sender, EventArgs e)
         {
-            var dateTimeDatePicker = new DateTime();
+            var date = DatePickerSelectDate.DisplayDate;
+            double price = 0;
 
+            var film = Model.Film.ListOfFilms.First(flm => flm.Title == ComboBoxFilm.SelectionBoxItem.ToString());
+            var showRoom =
+                ShowRoom.ShowRooms.First(showroom => showroom.RoomNumber == (int) ComboBoxShowRoom.SelectionBoxItem);
 
+            try
+            {
+                var hour = int.Parse(TextBoxDurationHour.Text);
+                var minute = int.Parse(TextBoxDurationMinute.Text);
+                var second = int.Parse(TextBoxDurationSecond.Text);
+                date.AddHours(hour).AddMinutes(minute).AddSeconds(second);
+            }
+            catch (Exception)
+            {
+                //todo: errorhandling
+                return;
+            }
 
+            try
+            {
+                price = double.Parse(TextBoxPrice.Text);
+            }
+            catch (Exception)
+            {
+                //todo: errorhandling
+                return;
+            }
 
-            var choosenFilm = Model.Film.ListOfFilms[0]; //choosen film from dropdown
-            var parsedDateTime = new DateTime(); //parsed DateTime from DatePicker and Hours/Minutes/Seconds from inputfield
-            var choosenShowroom = ShowRoom.ShowRooms[0]; //choosen Showroom from dropdown
-            new Model.Show(choosenFilm, parsedDateTime, choosenShowroom);
+            new Model.Show(film, date, showRoom, price);
         }
     }
 }
