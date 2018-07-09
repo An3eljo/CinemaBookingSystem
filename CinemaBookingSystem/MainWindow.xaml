@@ -72,8 +72,9 @@
             </Grid>
             
             <Grid HorizontalAlignment="Right" Margin="0,0,0,0" Grid.Column="1">
-                <Frame Margin="5" Source="/View/Show/CreateShow.xaml" NavigationUIVisibility="Hidden" Name="Frame1"/>
+                <Frame Visibility="Visible" Margin="0" Source="View/Show/CreateShow.xaml"/>
             </Grid>
+            
         </Grid>
     </Grid>
 </Window>
