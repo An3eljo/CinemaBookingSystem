@@ -20,9 +20,19 @@ namespace CinemaBookingSystem.View.Show
     /// </summary>
     public partial class ShowShow : Page
     {
-        public ShowShow()
+        public ShowShow(Model.Show show)
         {
             InitializeComponent();
+        }
+
+        private void Init(Model.Show show)
+        {
+
+        }
+
+        private void OnEditClick(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -19,7 +19,14 @@
                 <RowDefinition Height="4*"/>
                 <RowDefinition Height="20*"/>
             </Grid.RowDefinitions>
-
+            <DatePicker Grid.Column="1" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Width="340" Margin="10" Name="DatePickerSelectDate"/>
+            <ComboBox x:Name="ComboBoxFilm"/>
+            <ComboBox x:Name="ComboBoxShowRoom"/>
+            <TextBox x:Name="TextBoxDurationHour"/>
+            <TextBox x:Name="TextBoxDurationMinute"/>
+            <TextBox x:Name="TextBoxDurationSecond"/>
+            <TextBox x:Name="TextBoxPrice"/>
+            <Button x:Name="ButtonCreate" Click="OnCreateClick"/>
         </Grid>
     </Grid>
 </Page>

@@ -21,14 +21,26 @@ namespace CinemaBookingSystem.View.Show
     /// </summary>
     public partial class CreateShow : Page
     {
-        public CreateShow()
+        public CreateShow(Model.Show show = null)
         {
             InitializeComponent();
-            Init();
+            Init(show);
             OnCreateClick(this, EventArgs.Empty);
         }
 
-        private void Init()
+        private void Init(Model.Show show)
+        {
+            if (show != null)
+            {
+                InitEdit(show);
+            }
+            else
+            {
+                InitNew();
+            }
+        }
+
+        private void InitNew()
         {
             DatePickerSelectDate.DisplayDate = DateTime.Now;
             TextBoxDurationHour.Text = "0";
@@ -49,6 +61,14 @@ namespace CinemaBookingSystem.View.Show
                 ComboBoxShowRoom.Items.Add(showRoom.RoomNumber);
             }
             ComboBoxShowRoom.SelectedIndex = 0;
+        }
+
+        private void InitEdit(Model.Show show)
+        {
+            DatePickerSelectDate.DisplayDate = show.Date;
+            TextBoxDurationHour.Text = show.Date.Hour.ToString();
+            TextBoxDurationMinute.Text = show.Date.Minute.ToString();
+            TextBoxDurationSecond.Text = show.Date.Minute.ToString();
         }
 
         private void OnCreateClick(object sender, EventArgs e)
