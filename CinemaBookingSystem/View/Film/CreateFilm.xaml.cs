@@ -23,6 +23,14 @@ namespace CinemaBookingSystem.View.Film
         public CreateFilm()
         {
             InitializeComponent();
+            Init();
+        }
+
+        private void Init()
+        {
+            TextBoxDurationHours.Text = "0";
+            TextBoxDurationMinutes.Text = "0";
+            TextBoxDurationSeconds.Text = "0";
         }
 
 

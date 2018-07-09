@@ -30,17 +30,32 @@ namespace CinemaBookingSystem.View.Show
         private void Init()
         {
             DatePickerSelectDate.DisplayDate = DateTime.Now;
-            //todo: set price to 10
+            TextBoxDurationHour.Text = "0";
+            TextBoxDurationMinute.Text = "0";
+            TextBoxDurationSecond.Text = "0";
+            TextBoxPrice.Text = "10.00";
+
+            var films = Model.Film.ListOfFilms;
+            foreach (var film in films)
+            {
+                ComboBoxFilm.Items.Add(film.Title);
+            }
+            ComboBoxFilm.SelectedIndex = 0;
+
+            var showRooms = ShowRoom.ShowRooms;
+            foreach (var showRoom in showRooms)
+            {
+                ComboBoxShowRoom.Items.Add(showRoom.RoomNumber);
+            }
+            ComboBoxShowRoom.SelectedIndex = 0;
         }
 
         private void OnCreateClick(object sender, EventArgs e)
         {
-            var everyFieldInUiIsFilled = true; //var to simulate state of all fields on Ui
-            if (!everyFieldInUiIsFilled)
-            {
-                //dislpay warning "not all fields are filled"
-                return;
-            }
+            var dateTimeDatePicker = new DateTime();
+
+
+
 
             var choosenFilm = Model.Film.ListOfFilms[0]; //choosen film from dropdown
             var parsedDateTime = new DateTime(); //parsed DateTime from DatePicker and Hours/Minutes/Seconds from inputfield
