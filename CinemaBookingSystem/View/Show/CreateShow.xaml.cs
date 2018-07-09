@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CinemaBookingSystem.Library;
 using CinemaBookingSystem.Model;
 
 namespace CinemaBookingSystem.View.Show
@@ -21,6 +22,13 @@ namespace CinemaBookingSystem.View.Show
     /// </summary>
     public partial class CreateShow : Page
     {
+        public CreateShow()
+        {
+            InitializeComponent();
+            Init(null);
+            OnCreateClick(this, EventArgs.Empty);
+        }
+
         public CreateShow(Model.Show show = null)
         {
             InitializeComponent();
@@ -30,6 +38,18 @@ namespace CinemaBookingSystem.View.Show
 
         private void Init(Model.Show show)
         {
+            var films = Model.Film.ListOfFilms;
+            foreach (var film in films)
+            {
+                ComboBoxFilm.Items.Add(film.Title);
+            }
+
+            var showRooms = ShowRoom.ShowRooms;
+            foreach (var showRoom in showRooms)
+            {
+                ComboBoxShowRoom.Items.Add(showRoom.RoomNumber);
+            }
+
             if (show != null)
             {
                 InitEdit(show);
@@ -43,32 +63,24 @@ namespace CinemaBookingSystem.View.Show
         private void InitNew()
         {
             DatePickerSelectDate.DisplayDate = DateTime.Now;
-            TextBoxDurationHour.Text = "0";
-            TextBoxDurationMinute.Text = "0";
-            TextBoxDurationSecond.Text = "0";
+            TextBoxDateHour.Text = "0";
+            TextBoxDateMinute.Text = "0";
+            TextBoxDateSecond.Text = "0";
             TextBoxPrice.Text = "10.00";
 
-            var films = Model.Film.ListOfFilms;
-            foreach (var film in films)
-            {
-                ComboBoxFilm.Items.Add(film.Title);
-            }
             ComboBoxFilm.SelectedIndex = 0;
-
-            var showRooms = ShowRoom.ShowRooms;
-            foreach (var showRoom in showRooms)
-            {
-                ComboBoxShowRoom.Items.Add(showRoom.RoomNumber);
-            }
             ComboBoxShowRoom.SelectedIndex = 0;
         }
 
         private void InitEdit(Model.Show show)
         {
             DatePickerSelectDate.DisplayDate = show.Date;
-            TextBoxDurationHour.Text = show.Date.Hour.ToString();
-            TextBoxDurationMinute.Text = show.Date.Minute.ToString();
-            TextBoxDurationSecond.Text = show.Date.Minute.ToString();
+            TextBoxDateHour.Text = show.Date.Hour.ToString();
+            TextBoxDateMinute.Text = show.Date.Minute.ToString();
+            TextBoxDateSecond.Text = show.Date.Minute.ToString();
+
+            ComboBoxFilm.SelectedIndex = Model.Film.ListOfFilms.IndexOf(show.Film);
+            ComboBoxShowRoom.SelectedIndex = ShowRoom.ShowRooms.IndexOf(show.ShowRoom);
         }
 
         private void OnCreateClick(object sender, EventArgs e)
@@ -82,9 +94,9 @@ namespace CinemaBookingSystem.View.Show
 
             try
             {
-                var hour = int.Parse(TextBoxDurationHour.Text);
-                var minute = int.Parse(TextBoxDurationMinute.Text);
-                var second = int.Parse(TextBoxDurationSecond.Text);
+                var hour = int.Parse(TextBoxDateHour.Text);
+                var minute = int.Parse(TextBoxDateMinute.Text);
+                var second = int.Parse(TextBoxDateSecond.Text);
                 date.AddHours(hour).AddMinutes(minute).AddSeconds(second);
             }
             catch (Exception)
@@ -104,6 +116,9 @@ namespace CinemaBookingSystem.View.Show
             }
 
             new Model.Show(film, date, showRoom, price);
+
+            MainWindow.PageChange.Invoke(this,
+                new PageEventArgs(new ShowShow(Model.Show.ListOfShows[Model.Show.ListOfShows.Count - 1])));
         }
     }
 }

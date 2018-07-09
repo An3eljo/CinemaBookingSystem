@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CinemaBookingSystem.Library;
 using CinemaBookingSystem.Model;
 
 namespace CinemaBookingSystem
@@ -21,10 +22,18 @@ namespace CinemaBookingSystem
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static EventHandler<PageEventArgs> PageChange;
         public MainWindow()
         {
             Init.Initialize();
             InitializeComponent();
+            PageChange += OnPageChanged;
+        }
+
+        private void OnPageChanged(object sender, PageEventArgs e)
+        {
+            var newPage = e.Page;
+            Frame1.Navigate(newPage);
         }
 
         public void CreateFilm(string title, DateTime duration)

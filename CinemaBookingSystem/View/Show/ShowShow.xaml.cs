@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CinemaBookingSystem.Library;
 
 namespace CinemaBookingSystem.View.Show
 {
@@ -20,19 +21,38 @@ namespace CinemaBookingSystem.View.Show
     /// </summary>
     public partial class ShowShow : Page
     {
-        public ShowShow(Model.Show show)
+        private Model.Show CurrentShow;
+        public ShowShow(Model.Show show = null)
         {
+            CurrentShow = show;
+
             InitializeComponent();
+            Init(show);
         }
 
         private void Init(Model.Show show)
         {
-
+            if (show != null)
+            {
+                ButtonEdit.IsEnabled = true;
+                TextBlockDate.Text = show.Date.ToString();
+                TextBlockFilm.Text = show.Film.Title;
+                TextBlockShowRoom.Text = show.ShowRoom.RoomNumber.ToString();
+                TextBlockPrice.Text = show.Price.ToString();
+            }
         }
 
         private void OnEditClick(object sender, EventArgs e)
         {
-
+            if (CurrentShow != null)
+            {
+                MainWindow.PageChange.Invoke(this, new PageEventArgs(new CreateShow(CurrentShow)));
+            }
+            else
+            {
+                //todo: errorhandling
+                return;
+            }
         }
     }
 }

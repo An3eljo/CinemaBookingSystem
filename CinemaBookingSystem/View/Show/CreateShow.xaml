@@ -22,9 +22,9 @@
             <DatePicker Grid.Column="1" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Width="340" Margin="10" Name="DatePickerSelectDate"/>
             <ComboBox x:Name="ComboBoxFilm"/>
             <ComboBox x:Name="ComboBoxShowRoom"/>
-            <TextBox x:Name="TextBoxDurationHour"/>
-            <TextBox x:Name="TextBoxDurationMinute"/>
-            <TextBox x:Name="TextBoxDurationSecond"/>
+            <TextBox x:Name="TextBoxDateHour"/>
+            <TextBox x:Name="TextBoxDateMinute"/>
+            <TextBox x:Name="TextBoxDateSecond"/>
             <TextBox x:Name="TextBoxPrice"/>
             <Button x:Name="ButtonCreate" Click="OnCreateClick"/>
         </Grid>

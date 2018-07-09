@@ -13,14 +13,8 @@ using System.Windows.Navigation;
 
 namespace CinemaBookingSystem.Library
 {
-    class Navigation
+    class Navigation : List<Page>
     {
-        public static List<Page> PagesStack { get; set; }
-
-        public static Page PushPage(Page page)
-        {
-            PagesStack.Add(page);
-            return page;
-        }
+        
     }
 }
