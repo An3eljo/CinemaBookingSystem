@@ -19,6 +19,7 @@
                 <RowDefinition Height="4*"/>
                 <RowDefinition Height="20*"/>
             </Grid.RowDefinitions>
+            <ComboBox x:Name="ComboBoxFilms" SelectionChanged="ComboBoxFilms_OnSelectionChanged"></ComboBox>
             <TextBox x:Name="TextBoxDurationHours" HorizontalAlignment="Left" Height="23" Margin="105,177,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="41"/>
             <TextBox x:Name="TextBoxDurationMinutes" HorizontalAlignment="Left" Height="23" Margin="151,177,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="41"/>
             <TextBox x:Name="TextBoxDurationSeconds" HorizontalAlignment="Left" Height="23" Margin="197,177,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="41"/>

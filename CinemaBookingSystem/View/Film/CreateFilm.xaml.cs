@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CinemaBookingSystem.Library;
 
 namespace CinemaBookingSystem.View.Film
 {
@@ -20,17 +21,48 @@ namespace CinemaBookingSystem.View.Film
     /// </summary>
     public partial class CreateFilm : Page
     {
+        private Model.Film CurrentFilm;
+
         public CreateFilm()
         {
             InitializeComponent();
             Init();
         }
 
-        private void Init()
+        public CreateFilm(Model.Film film)
         {
-            TextBoxDurationHours.Text = "0";
-            TextBoxDurationMinutes.Text = "0";
-            TextBoxDurationSeconds.Text = "0";
+            InitializeComponent();
+            CurrentFilm = film;
+            Init(film);
+        }
+
+        private void Init(Model.Film film = null)
+        {
+            var films = Model.Film.ListOfFilms;
+            foreach (var film1 in films)
+            {
+                ComboBoxFilms.Items.Add(film1.Title);
+            }
+
+            if (film != null)
+            {
+                FillFilmUi(film);
+            }
+            else
+            {
+                TextBoxDurationHours.Text = "0";
+                TextBoxDurationMinutes.Text = "0";
+                TextBoxDurationSeconds.Text = "0";
+                TextBoxTitle.Text = "Title";
+            }
+        }
+
+        private void FillFilmUi(Model.Film film)
+        {
+            TextBoxDurationHours.Text = film.Duration.Hours.ToString();
+            TextBoxDurationMinutes.Text = film.Duration.Minutes.ToString();
+            TextBoxDurationSeconds.Text = film.Duration.Seconds.ToString();
+            TextBoxTitle.Text = film.Title;
         }
 
 
@@ -73,9 +105,25 @@ namespace CinemaBookingSystem.View.Film
                 return;
             }
 
-            new Model.Film(title, duration);
+            if (CurrentFilm != null)
+            {
+                var index = Model.Film.ListOfFilms.IndexOf(CurrentFilm);
+                Model.Film.ListOfFilms[index].Title = title;
+                Model.Film.ListOfFilms[index].Duration = duration;
+                MainWindow.PageChange.Invoke(this, new PageEventArgs(new ShowFilm(Model.Film.ListOfFilms[index])));
+            }
+            else
+            {
+                new Model.Film(title, duration);
+                MainWindow.PageChange.Invoke(this,
+                    new PageEventArgs(new ShowFilm(Model.Film.ListOfFilms[Model.Film.ListOfFilms.Count - 1])));
+            }
+        }
 
-            var t = Model.Film.ListOfFilms;
+        private void ComboBoxFilms_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var film = Model.Film.ListOfFilms.First(flm => flm.Title == ComboBoxFilms.SelectionBoxItem.ToString());
+            FillFilmUi(film);
         }
     }
 }

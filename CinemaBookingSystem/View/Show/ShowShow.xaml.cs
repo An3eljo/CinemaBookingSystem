@@ -26,17 +26,17 @@ namespace CinemaBookingSystem.View.Show
         public ShowShow()
         {
             InitializeComponent();
-            Init(null);
+            Init();
         }
 
-        public ShowShow(Model.Show show = null)
+        public ShowShow(Model.Show show)
         {
             InitializeComponent();
             CurrentShow = show;
             Init(show);
         }
 
-        private void Init(Model.Show currentShow)
+        private void Init(Model.Show currentShow = null)
         {
             var shows = Model.Show.ListOfShows;
             foreach (var show in shows)
