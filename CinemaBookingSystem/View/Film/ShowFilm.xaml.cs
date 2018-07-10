@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CinemaBookingSystem.Library;
 
 namespace CinemaBookingSystem.View.Film
 {
@@ -21,6 +22,13 @@ namespace CinemaBookingSystem.View.Film
     public partial class ShowFilm : Page
     {
         private Model.Film CurrentFilm;
+
+        public ShowFilm()
+        {
+            InitializeComponent();
+            Init(null);
+        }
+
         public ShowFilm(Model.Film film = null)
         {
             InitializeComponent();
@@ -54,6 +62,14 @@ namespace CinemaBookingSystem.View.Film
             var film = Model.Film.ListOfFilms[filmIndex];
             TextBlockTitleProperty.Text = film.Title;
             TextBlockDurationProperty.Text = film.Duration.ToString();
+        }
+
+        private void ButtonEdit_OnClick(object sender, RoutedEventArgs e)
+        {
+            if (CurrentFilm != null)
+            {
+                MainWindow.PageChange.Invoke(this, new PageEventArgs(new CreateFilm()));
+            }
         }
     }
 }

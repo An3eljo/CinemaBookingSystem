@@ -28,6 +28,8 @@
             
             <TextBlock Text="Duration" Width="Auto" Height="Auto" Margin="10,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"  Grid.Column="0" Grid.Row="1"/>
             <TextBlock x:Name="TextBlockTitleProperty" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="80,10,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="310"/>
+            
+            <Button x:Name="ButtonEdit" Click="ButtonEdit_OnClick"></Button>
         </Grid>
     </Grid>
 </Page>

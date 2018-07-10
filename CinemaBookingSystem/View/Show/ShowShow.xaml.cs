@@ -22,11 +22,17 @@ namespace CinemaBookingSystem.View.Show
     public partial class ShowShow : Page
     {
         private Model.Show CurrentShow;
+
+        public ShowShow()
+        {
+            InitializeComponent();
+            Init(null);
+        }
+
         public ShowShow(Model.Show show = null)
         {
-            CurrentShow = show;
-
             InitializeComponent();
+            CurrentShow = show;
             Init(show);
         }
 
