@@ -27,15 +27,13 @@ namespace CinemaBookingSystem.View.Show
         {
             InitializeComponent();
             Init(null);
-            //OnCreateClick(this, EventArgs.Empty);
         }
 
-        public CreateShow(Model.Show show = null)
+        public CreateShow(Model.Show show)
         {
             InitializeComponent();
             Init(show);
             CurrentShow = show;
-            //OnCreateClick(this, EventArgs.Empty);
         }
 
         private void Init(Model.Show show)

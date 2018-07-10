@@ -19,7 +19,9 @@
                 <RowDefinition Height="4*"/>
                 <RowDefinition Height="20*"/>
             </Grid.RowDefinitions>
-
+            <ComboBox x:Name="ComboBoxFilm" SelectionChanged="ComboBoxFilm_OnSelectionChanged"/>
+            <ComboBox x:Name="ComboBoxShow" SelectionChanged="ComboBoxShow_OnSelectionChanged"/>
+            <ComboBox x:Name="ComboBoxCustomer" SelectionChanged="ComboBoxCustomer_OnSelectionChanged"/>
         </Grid>
     </Grid>
 </Page>

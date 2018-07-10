@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace CinemaBookingSystem.Model
 {
@@ -9,6 +10,7 @@ namespace CinemaBookingSystem.Model
         internal string Prename;
         internal Seat Seat;
         internal Show Show;
+        public static List<Customer> CustomerList = new List<Customer>();
 
 
         public Customer(Seat seat, Show show, string name, string prename)
@@ -32,6 +34,8 @@ namespace CinemaBookingSystem.Model
                         [Show.ShowRoom.ListOfSeats.IndexOf(Seat)]
                     .IsBooked.Add(new Tuple<Show, bool>(show, true));
             }
+
+            CustomerList.Add(this);
         }
     }
 }

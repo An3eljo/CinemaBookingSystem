@@ -46,7 +46,8 @@ namespace CinemaBookingSystem.View.Film
 
             if (film != null)
             {
-                FillFilmUi(film);
+                var index = films.IndexOf(film);
+                ComboBoxFilms.SelectedIndex = index;
             }
             else
             {
@@ -122,7 +123,7 @@ namespace CinemaBookingSystem.View.Film
 
         private void ComboBoxFilms_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var film = Model.Film.ListOfFilms.First(flm => flm.Title == ComboBoxFilms.SelectionBoxItem.ToString());
+            var film = Model.Film.ListOfFilms[((ComboBox)sender).SelectedIndex];
             FillFilmUi(film);
         }
     }
