@@ -30,16 +30,30 @@ namespace CinemaBookingSystem.View.Show
             Init(show);
         }
 
-        private void Init(Model.Show show)
+        private void Init(Model.Show currentShow)
         {
-            if (show != null)
+            var shows = Model.Show.ListOfShows;
+            foreach (var show in shows)
             {
-                ButtonEdit.IsEnabled = true;
-                TextBlockDate.Text = show.Date.ToString();
-                TextBlockFilm.Text = show.Film.Title;
-                TextBlockShowRoom.Text = show.ShowRoom.RoomNumber.ToString();
-                TextBlockPrice.Text = show.Price.ToString();
+                ComboBoxShows.Items.Add(show.Date.ToString() + ": " + show.Film);
             }
+
+            if (currentShow != null)
+            {
+                var index = shows.IndexOf(currentShow);
+                FillShowUi(index);
+            }
+        }
+
+        private void FillShowUi(int indexInList)
+        {
+            var show = Model.Show.ListOfShows[indexInList];
+
+            ButtonEdit.IsEnabled = true;
+            TextBlockDate.Text = show.Date.ToString();
+            TextBlockFilm.Text = show.Film.Title;
+            TextBlockShowRoom.Text = show.ShowRoom.RoomNumber.ToString();
+            TextBlockPrice.Text = show.Price.ToString();
         }
 
         private void OnEditClick(object sender, EventArgs e)
@@ -48,11 +62,12 @@ namespace CinemaBookingSystem.View.Show
             {
                 MainWindow.PageChange.Invoke(this, new PageEventArgs(new CreateShow(CurrentShow)));
             }
-            else
-            {
-                //todo: errorhandling
-                return;
-            }
+        }
+
+        private void ComboBoxShows_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var index = ((ComboBox)sender).SelectedIndex;
+            FillShowUi(index);
         }
     }
 }

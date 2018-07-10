@@ -20,19 +20,26 @@ namespace CinemaBookingSystem.View.Film
     /// </summary>
     public partial class ShowFilm : Page
     {
-        public ShowFilm()
+        private Model.Film CurrentFilm;
+        public ShowFilm(Model.Film film = null)
         {
             InitializeComponent();
-            Init();
+            CurrentFilm = film;
+            Init(film);
         }
 
-        private void Init()
+        private void Init(Model.Film currentFilm)
         {
             var filmList = Model.Film.ListOfFilms;
-
             foreach (var film in filmList)
             {
                 ComboBoxFilms.Items.Add(film.Title);
+            }
+
+            if (currentFilm != null)
+            {
+                var index = filmList.IndexOf(currentFilm);
+                FillFilmProperties(index);
             }
         }
 

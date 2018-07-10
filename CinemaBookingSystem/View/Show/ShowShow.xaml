@@ -19,7 +19,7 @@
                 <RowDefinition Height="4*"/>
                 <RowDefinition Height="20*"/>
             </Grid.RowDefinitions>
-            <ComboBox x:Name="ComboBoxShows"/>
+            <ComboBox x:Name="ComboBoxShows" SelectionChanged="ComboBoxShows_OnSelectionChanged"/>
             <TextBlock x:Name="TextBlockFilm"/>
             <TextBlock x:Name="TextBlockShowRoom"/>
             <TextBlock x:Name="TextBlockDate"/>

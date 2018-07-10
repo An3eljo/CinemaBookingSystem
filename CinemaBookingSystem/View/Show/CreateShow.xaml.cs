@@ -22,18 +22,20 @@ namespace CinemaBookingSystem.View.Show
     /// </summary>
     public partial class CreateShow : Page
     {
+        private Model.Show CurrentShow;
         public CreateShow()
         {
             InitializeComponent();
             Init(null);
-            OnCreateClick(this, EventArgs.Empty);
+            //OnCreateClick(this, EventArgs.Empty);
         }
 
         public CreateShow(Model.Show show = null)
         {
             InitializeComponent();
             Init(show);
-            OnCreateClick(this, EventArgs.Empty);
+            CurrentShow = show;
+            //OnCreateClick(this, EventArgs.Empty);
         }
 
         private void Init(Model.Show show)
@@ -115,10 +117,22 @@ namespace CinemaBookingSystem.View.Show
                 return;
             }
 
-            new Model.Show(film, date, showRoom, price);
+            if (CurrentShow != null)
+            {
+                var index = Model.Show.ListOfShows.IndexOf(CurrentShow);
+                Model.Show.ListOfShows[index].Film = film;
+                Model.Show.ListOfShows[index].Date = date;
+                Model.Show.ListOfShows[index].Price = price;
+                Model.Show.ListOfShows[index].ShowRoom = showRoom;
+                MainWindow.PageChange.Invoke(this, new PageEventArgs(new ShowShow(Model.Show.ListOfShows[index])));
+            }
+            else
+            {
+                new Model.Show(film, date, showRoom, price);
 
-            MainWindow.PageChange.Invoke(this,
-                new PageEventArgs(new ShowShow(Model.Show.ListOfShows[Model.Show.ListOfShows.Count - 1])));
+                MainWindow.PageChange.Invoke(this,
+                    new PageEventArgs(new ShowShow(Model.Show.ListOfShows[Model.Show.ListOfShows.Count - 1])));
+            }
         }
     }
 }
