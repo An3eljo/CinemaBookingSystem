@@ -26,7 +26,6 @@
             </Grid>
             
             <StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="1">
-                <ComboBox x:Name="ComboBoxFilms" Margin="5"  SelectionChanged="ComboBoxFilms_OnSelectionChanged"></ComboBox>
                 <StackPanel Orientation="Horizontal" Margin="5">
                     <TextBlock Text="hh" Margin="5" Height="23" Width="60" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap"/>
                     <TextBlock Text="mm" Margin="5" Height="23" Width="60" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap"/>
