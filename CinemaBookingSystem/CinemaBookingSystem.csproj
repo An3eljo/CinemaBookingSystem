@@ -69,11 +69,17 @@
     <Compile Include="View\Customer\CreateCustomer.xaml.cs">
       <DependentUpon>CreateCustomer.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Customer\EditCustomer.xaml.cs">
+      <DependentUpon>EditCustomer.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Error.xaml.cs">
       <DependentUpon>Error.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Film\CreateFilm.xaml.cs">
       <DependentUpon>CreateFilm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Film\EditFilm.xaml.cs">
+      <DependentUpon>EditFilm.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Film\ShowFilm.xaml.cs">
       <DependentUpon>ShowFilm.xaml</DependentUpon>
@@ -81,10 +87,21 @@
     <Compile Include="View\Show\CreateShow.xaml.cs">
       <DependentUpon>CreateShow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Show\EditShow.xaml.cs">
+      <DependentUpon>EditShow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Show\ShowShow.xaml.cs">
       <DependentUpon>ShowShow.xaml</DependentUpon>
     </Compile>
+    <Page Include="View\Customer\EditCustomer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Error.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Film\EditFilm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -122,6 +139,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Show\CreateShow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Show\EditShow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
