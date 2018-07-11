@@ -22,7 +22,7 @@ namespace CinemaBookingSystem.View
         private void OnPageChanged(object sender, PageEventArgs e)
         {
             var newPage = e.Page;
-            Frame1.Navigate(newPage);
+            FrameDisplayContent.Navigate(newPage);
         }
 
         public void CreateFilm(string title, DateTime duration)
@@ -47,7 +47,7 @@ namespace CinemaBookingSystem.View
 
         private void LabelNewBooking_OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-
+            FrameDisplayContent.Source = new Uri ("Customer/CreateCustomer.xaml", UriKind.Relative);
         }
 
         private void UIElement_OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -59,7 +59,7 @@ namespace CinemaBookingSystem.View
 
         private void LabelCancelBooking_OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            
+            FrameDisplayContent.Source = new Uri("Customer/CancelCustomer.xaml", UriKind.Relative);
         }
 
         private void ButtonFilms_OnClick(object sender, RoutedEventArgs e)
@@ -69,12 +69,12 @@ namespace CinemaBookingSystem.View
 
         private void LabelAddFilm_OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            
+            FrameDisplayContent.Source = new Uri("Film/CreateFilm.xaml", UriKind.Relative);
         }
 
         private void LabelManageFilms_OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            
+            FrameDisplayContent.Source = new Uri("Film/ShowFilm.xaml", UriKind.Relative);
         }
 
         private void ButtonShows_OnClick(object sender, RoutedEventArgs e)
@@ -84,12 +84,12 @@ namespace CinemaBookingSystem.View
 
         private void LabelAddShow_OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            
+            FrameDisplayContent.Source = new Uri("Show/CreateShow.xaml", UriKind.Relative);
         }
 
         private void LabelManageShows_OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            
+            FrameDisplayContent.Source = new Uri("Show/ShowShow.xaml", UriKind.Relative);
         }
     }
 }
