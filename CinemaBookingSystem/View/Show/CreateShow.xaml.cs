@@ -26,7 +26,7 @@ namespace CinemaBookingSystem.View.Show
         public CreateShow()
         {
             InitializeComponent();
-            Init(null);
+            Init();
         }
 
         public CreateShow(Model.Show show)
@@ -36,7 +36,7 @@ namespace CinemaBookingSystem.View.Show
             CurrentShow = show;
         }
 
-        private void Init(Model.Show show)
+        private void Init(Model.Show show = null)
         {
             var films = Model.Film.ListOfFilms;
             foreach (var film in films)
