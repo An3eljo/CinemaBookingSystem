@@ -106,13 +106,13 @@ namespace CinemaBookingSystem.View.Film
                 Errors.ErrorHandler.Invoke(this, new ErrorEventArgs());
             }
 
-            if (CurrentFilm != null)
-            {
-                var index = Model.Film.ListOfFilms.IndexOf(CurrentFilm);
-                Model.Film.ListOfFilms[index].Title = title;
-                Model.Film.ListOfFilms[index].Duration = duration;
-                Navigation.PageChange.Invoke(this, new PageEventArgs(new ShowFilm(Model.Film.ListOfFilms[index])));
-            }
+            //if (CurrentFilm != null)
+            //{
+            //    var index = Model.Film.ListOfFilms.IndexOf(CurrentFilm);
+            //    Model.Film.ListOfFilms[index].Title = title;
+            //    Model.Film.ListOfFilms[index].Duration = duration;
+            //    Navigation.PageChange.Invoke(this, new PageEventArgs(new ShowFilm(Model.Film.ListOfFilms[index])));
+            //}
             else
             {
                 new Model.Film(title, duration);
