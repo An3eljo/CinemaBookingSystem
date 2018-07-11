@@ -116,8 +116,6 @@ namespace CinemaBookingSystem.View.Film
             else
             {
                 new Model.Film(title, duration);
-                MainWindow.PageChange.Invoke(this,
-                    new PageEventArgs(new ShowFilm(Model.Film.ListOfFilms[Model.Film.ListOfFilms.Count - 1])));
             }
         }
 
