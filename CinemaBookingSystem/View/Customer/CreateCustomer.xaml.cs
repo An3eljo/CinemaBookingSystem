@@ -21,7 +21,7 @@ namespace CinemaBookingSystem.View.Customer
     public partial class CreateCustomer : Page
     {
         private Model.Customer CurrentCustomer;
-        public CreateCustomer(Model.Customer customer)
+        public CreateCustomer(Model.Customer customer = null)
         {
             InitializeComponent();
             CurrentCustomer = customer;
@@ -77,7 +77,7 @@ namespace CinemaBookingSystem.View.Customer
             var show = Model.Show.ListOfShows[ComboBoxShow.SelectedIndex];
 
             //todo: choose seat
-            //var seatsWindow = new SeatsWindow(prename, name, show);
+            //var seatsWindow = new SeatsWindow(prename, name, show, CurrentCustomer);
             //seatsWindow.Show();
         }
     }

@@ -24,6 +24,7 @@
             <ComboBox x:Name="ComboBoxCustomer" SelectionChanged="ComboBoxCustomer_OnSelectionChanged"/>
             
             <Button x:Name="ButtonDeleteCustomer" Click="ButtonDeleteCustomer_OnClick" IsEnabled="False"/>
+            <Button x:Name="ButtonEdit" Click="ButtonEdit_OnClick" IsEnabled="False"></Button>
         </Grid>
     </Grid>
 </Page>

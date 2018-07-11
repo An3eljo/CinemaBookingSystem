@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CinemaBookingSystem.Library;
 
 namespace CinemaBookingSystem.View.Customer
 {
@@ -38,6 +39,8 @@ namespace CinemaBookingSystem.View.Customer
         private void ComboBoxFilm_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ButtonDeleteCustomer.IsEnabled = false;
+            ButtonEdit.IsEnabled = false;
+
             ComboBoxShow.Items.Clear();
             ComboBoxCustomer.Items.Clear();
 
@@ -56,7 +59,10 @@ namespace CinemaBookingSystem.View.Customer
         private void ComboBoxShow_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ButtonDeleteCustomer.IsEnabled = false;
+            ButtonEdit.IsEnabled = false;
+
             ComboBoxCustomer.Items.Clear();
+
             var choosenShow = Model.Show.ListOfShows[((ComboBox)sender).SelectedIndex];
 
             var customers = Model.Customer.CustomerList;
@@ -73,6 +79,7 @@ namespace CinemaBookingSystem.View.Customer
         private void ComboBoxCustomer_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ButtonDeleteCustomer.IsEnabled = true;
+            ButtonEdit.IsEnabled = true;
         }
 
         private void ButtonDeleteCustomer_OnClick(object sender, RoutedEventArgs e)
@@ -80,6 +87,13 @@ namespace CinemaBookingSystem.View.Customer
             var choosenCustomer = Model.Customer.CustomerList[((ComboBox)sender).SelectedIndex];
 
             choosenCustomer.Delete();
+        }
+
+        private void ButtonEdit_OnClick(object sender, RoutedEventArgs e)
+        {
+            var choosenCustomer = Model.Customer.CustomerList[((ComboBox)sender).SelectedIndex];
+
+            MainWindow.PageChange.Invoke(this, new PageEventArgs(new CreateCustomer(choosenCustomer)));
         }
     }
 }

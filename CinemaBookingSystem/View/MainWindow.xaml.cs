@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Input;
 using CinemaBookingSystem.Library;
 using CinemaBookingSystem.Model;
+using CinemaBookingSystem.View.Customer;
 
 namespace CinemaBookingSystem.View
 {
@@ -25,21 +26,6 @@ namespace CinemaBookingSystem.View
             FrameDisplayContent.Navigate(newPage);
         }
 
-        public void CreateFilm(string title, DateTime duration)
-        {
-            
-        }
-
-        public void ManageFilms(Model.Film film)
-        {
-            
-        }
-
-        public void CreateShow(Model.Film film, DateTime date, ShowRoom showRoom, double price = 10)
-        {
-            new Model.Show(film, date, showRoom, price);
-        }
-
         private void ButtonBooking_OnClick(object sender, RoutedEventArgs e)
         {
             GridBooking.Visibility = GridBooking.Visibility == Visibility.Hidden ? Visibility.Visible : Visibility.Hidden;
@@ -47,7 +33,7 @@ namespace CinemaBookingSystem.View
 
         private void LabelNewBooking_OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            FrameDisplayContent.Source = new Uri ("Customer/CreateCustomer.xaml", UriKind.Relative);
+            MainWindow.PageChange.Invoke(this, new PageEventArgs(new CreateCustomer()));
         }
 
         private void UIElement_OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
