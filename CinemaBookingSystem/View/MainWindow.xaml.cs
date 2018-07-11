@@ -1,21 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using CinemaBookingSystem.Library;
 using CinemaBookingSystem.Model;
 
-namespace CinemaBookingSystem
+namespace CinemaBookingSystem.View
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -41,14 +30,14 @@ namespace CinemaBookingSystem
             
         }
 
-        public void ManageFilms(Film film)
+        public void ManageFilms(Model.Film film)
         {
             
         }
 
-        public void CreateShow(Film film, DateTime date, ShowRoom showRoom, double price = 10)
+        public void CreateShow(Model.Film film, DateTime date, ShowRoom showRoom, double price = 10)
         {
-            new Show(film, date, showRoom, price);
+            new Model.Show(film, date, showRoom, price);
         }
 
         private void ButtonBooking_OnClick(object sender, RoutedEventArgs e)

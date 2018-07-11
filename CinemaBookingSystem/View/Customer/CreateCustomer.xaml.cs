@@ -75,8 +75,10 @@ namespace CinemaBookingSystem.View.Customer
             var prename = TextBoxPrename.Text;
             var name = TextBoxName.Text;
             var show = Model.Show.ListOfShows[ComboBoxShow.SelectedIndex];
-            
+
             //todo: choose seat
+            //var seatsWindow = new SeatsWindow(prename, name, show);
+            //seatsWindow.Show();
         }
     }
 }
