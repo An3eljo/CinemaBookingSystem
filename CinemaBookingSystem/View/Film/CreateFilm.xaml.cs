@@ -111,7 +111,6 @@ namespace CinemaBookingSystem.View.Film
             //    var index = Model.Film.ListOfFilms.IndexOf(CurrentFilm);
             //    Model.Film.ListOfFilms[index].Title = title;
             //    Model.Film.ListOfFilms[index].Duration = duration;
-            //    MainWindow.PageChange.Invoke(this, new PageEventArgs(new ShowFilm(Model.Film.ListOfFilms[index])));
             //}
             else
             {
