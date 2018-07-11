@@ -4,6 +4,8 @@ using System.Windows.Input;
 using CinemaBookingSystem.Library;
 using CinemaBookingSystem.Model;
 using CinemaBookingSystem.View.Customer;
+using CinemaBookingSystem.View.Film;
+using CinemaBookingSystem.View.Show;
 
 namespace CinemaBookingSystem.View
 {
@@ -33,7 +35,7 @@ namespace CinemaBookingSystem.View
 
         private void LabelNewBooking_OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            MainWindow.PageChange.Invoke(this, new PageEventArgs(new CreateCustomer()));
+            PageChange.Invoke(this, new PageEventArgs(new CreateCustomer()));
         }
 
         private void UIElement_OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -45,7 +47,7 @@ namespace CinemaBookingSystem.View
 
         private void LabelCancelBooking_OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            FrameDisplayContent.Source = new Uri("Customer/CancelCustomer.xaml", UriKind.Relative);
+            PageChange.Invoke(this, new PageEventArgs(new CancelCustomer()));
         }
 
         private void ButtonFilms_OnClick(object sender, RoutedEventArgs e)
@@ -55,12 +57,12 @@ namespace CinemaBookingSystem.View
 
         private void LabelAddFilm_OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            FrameDisplayContent.Source = new Uri("Film/CreateFilm.xaml", UriKind.Relative);
+            PageChange.Invoke(this, new PageEventArgs(new CreateFilm()));
         }
 
         private void LabelManageFilms_OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            FrameDisplayContent.Source = new Uri("Film/ShowFilm.xaml", UriKind.Relative);
+            PageChange.Invoke(this, new PageEventArgs(new ShowFilm()));
         }
 
         private void ButtonShows_OnClick(object sender, RoutedEventArgs e)
@@ -70,12 +72,12 @@ namespace CinemaBookingSystem.View
 
         private void LabelAddShow_OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            FrameDisplayContent.Source = new Uri("Show/CreateShow.xaml", UriKind.Relative);
+            PageChange.Invoke(this, new PageEventArgs(new ShowFilm()));
         }
 
         private void LabelManageShows_OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            FrameDisplayContent.Source = new Uri("Show/ShowShow.xaml", UriKind.Relative);
+            PageChange.Invoke(this, new PageEventArgs(new ShowShow()));
         }
     }
 }
