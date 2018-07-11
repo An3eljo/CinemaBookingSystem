@@ -14,13 +14,15 @@ namespace CinemaBookingSystem.View
     /// </summary>
     public partial class MainWindow : Window
     {
-        public static EventHandler<PageEventArgs> PageChange;
         public MainWindow()
         {
-            Init.Initialize();
             InitializeComponent();
-            PageChange += OnPageChanged;
+            Init.Initialize();
+            Navigation.Initialize(ref FrameDisplayContent);
+            Navigation.PageChange += OnPageChanged;
         }
+
+        
 
         private void OnPageChanged(object sender, PageEventArgs e)
         {
@@ -35,7 +37,7 @@ namespace CinemaBookingSystem.View
 
         private void LabelNewBooking_OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            PageChange.Invoke(this, new PageEventArgs(new CreateCustomer()));
+            Navigation.PageChange.Invoke(this, new PageEventArgs(new CreateCustomer()));
         }
 
         private void UIElement_OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -47,7 +49,7 @@ namespace CinemaBookingSystem.View
 
         private void LabelCancelBooking_OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            PageChange.Invoke(this, new PageEventArgs(new CancelCustomer()));
+            Navigation.PageChange.Invoke(this, new PageEventArgs(new CancelCustomer()));
         }
 
         private void ButtonFilms_OnClick(object sender, RoutedEventArgs e)
@@ -57,12 +59,12 @@ namespace CinemaBookingSystem.View
 
         private void LabelAddFilm_OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            PageChange.Invoke(this, new PageEventArgs(new CreateFilm()));
+            Navigation.PageChange.Invoke(this, new PageEventArgs(new CreateFilm()));
         }
 
         private void LabelManageFilms_OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            PageChange.Invoke(this, new PageEventArgs(new ShowFilm()));
+            Navigation.PageChange.Invoke(this, new PageEventArgs(new ShowFilm()));
         }
 
         private void ButtonShows_OnClick(object sender, RoutedEventArgs e)
@@ -72,12 +74,12 @@ namespace CinemaBookingSystem.View
 
         private void LabelAddShow_OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            PageChange.Invoke(this, new PageEventArgs(new ShowFilm()));
+            Navigation.PageChange.Invoke(this, new PageEventArgs(new ShowFilm()));
         }
 
         private void LabelManageShows_OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            PageChange.Invoke(this, new PageEventArgs(new ShowShow()));
+            Navigation.PageChange.Invoke(this, new PageEventArgs(new ShowShow()));
         }
     }
 }

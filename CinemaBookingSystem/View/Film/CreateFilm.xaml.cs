@@ -103,7 +103,7 @@ namespace CinemaBookingSystem.View.Film
             }
             else
             {
-                return;
+                MainWindow.ErrorHandler.Invoke(this, new ErrorEventArgs());
             }
 
             if (CurrentFilm != null)
@@ -111,12 +111,12 @@ namespace CinemaBookingSystem.View.Film
                 var index = Model.Film.ListOfFilms.IndexOf(CurrentFilm);
                 Model.Film.ListOfFilms[index].Title = title;
                 Model.Film.ListOfFilms[index].Duration = duration;
-                MainWindow.PageChange.Invoke(this, new PageEventArgs(new ShowFilm(Model.Film.ListOfFilms[index])));
+                Navigation.PageChange.Invoke(this, new PageEventArgs(new ShowFilm(Model.Film.ListOfFilms[index])));
             }
             else
             {
                 new Model.Film(title, duration);
-                MainWindow.PageChange.Invoke(this,
+                Navigation.PageChange.Invoke(this,
                     new PageEventArgs(new ShowFilm(Model.Film.ListOfFilms[Model.Film.ListOfFilms.Count - 1])));
             }
         }

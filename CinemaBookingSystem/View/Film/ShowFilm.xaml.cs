@@ -68,7 +68,7 @@ namespace CinemaBookingSystem.View.Film
         {
             if (CurrentFilm != null)
             {
-                MainWindow.PageChange.Invoke(this, new PageEventArgs(new CreateFilm()));
+                Navigation.PageChange.Invoke(this, new PageEventArgs(new CreateFilm()));
             }
         }
     }
