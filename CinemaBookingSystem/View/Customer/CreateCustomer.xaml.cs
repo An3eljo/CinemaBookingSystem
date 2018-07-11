@@ -80,5 +80,10 @@ namespace CinemaBookingSystem.View.Customer
             //var seatsWindow = new SeatsWindow(prename, name, show, CurrentCustomer);
             //seatsWindow.Show();
         }
+
+        private void ButtonSelectSeat_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
