@@ -37,5 +37,14 @@ namespace CinemaBookingSystem.Model
 
             CustomerList.Add(this);
         }
+
+        public void Delete()
+        {
+            Show.ShowRoom.ListOfSeats[Show.ShowRoom.ListOfSeats.IndexOf(Seat)]
+                    .IsBooked[Seat.IsBooked.IndexOf(new Tuple<Show, bool>(Show, true))] =
+                new Tuple<Show, bool>(Show, false);
+
+            CustomerList.Remove(this);
+        }
     }
 }

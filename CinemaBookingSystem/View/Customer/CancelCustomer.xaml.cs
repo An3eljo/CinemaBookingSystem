@@ -37,6 +37,10 @@ namespace CinemaBookingSystem.View.Customer
 
         private void ComboBoxFilm_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            ButtonDeleteCustomer.IsEnabled = false;
+            ComboBoxShow.Items.Clear();
+            ComboBoxCustomer.Items.Clear();
+
             var choosenFilm = Model.Film.ListOfFilms[((ComboBox) sender).SelectedIndex];
 
             var shows = Model.Show.ListOfShows;
@@ -51,21 +55,31 @@ namespace CinemaBookingSystem.View.Customer
 
         private void ComboBoxShow_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            ButtonDeleteCustomer.IsEnabled = false;
+            ComboBoxCustomer.Items.Clear();
             var choosenShow = Model.Show.ListOfShows[((ComboBox)sender).SelectedIndex];
 
-            var shows = Model.Show.ListOfShows;
-            foreach (var show in shows)
+            var customers = Model.Customer.CustomerList;
+            foreach (var customer in customers)
             {
-                if (show.Film == choosenShow)
+                if (customer.Show == choosenShow)
                 {
-                    ComboBoxShow.Items.Add(show.Date.ToString());
+                    ComboBoxCustomer.Items.Add(customer.Seat.Row + "/" + customer.Seat.Column + ": " + customer.Name +
+                                               ", " + customer.Prename);
                 }
             }
         }
 
         private void ComboBoxCustomer_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
+            ButtonDeleteCustomer.IsEnabled = true;
+        }
+
+        private void ButtonDeleteCustomer_OnClick(object sender, RoutedEventArgs e)
+        {
+            var choosenCustomer = Model.Customer.CustomerList[((ComboBox)sender).SelectedIndex];
+
+            choosenCustomer.Delete();
         }
     }
 }

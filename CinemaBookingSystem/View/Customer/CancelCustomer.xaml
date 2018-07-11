@@ -22,6 +22,8 @@
             <ComboBox x:Name="ComboBoxFilm" SelectionChanged="ComboBoxFilm_OnSelectionChanged"/>
             <ComboBox x:Name="ComboBoxShow" SelectionChanged="ComboBoxShow_OnSelectionChanged"/>
             <ComboBox x:Name="ComboBoxCustomer" SelectionChanged="ComboBoxCustomer_OnSelectionChanged"/>
+            
+            <Button x:Name="ButtonDeleteCustomer" Click="ButtonDeleteCustomer_OnClick" IsEnabled="False"/>
         </Grid>
     </Grid>
 </Page>
