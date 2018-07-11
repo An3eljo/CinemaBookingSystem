@@ -122,13 +122,13 @@ namespace CinemaBookingSystem.View.Show
                 Model.Show.ListOfShows[index].Date = date;
                 Model.Show.ListOfShows[index].Price = price;
                 Model.Show.ListOfShows[index].ShowRoom = showRoom;
-                MainWindow.PageChange.Invoke(this, new PageEventArgs(new ShowShow(Model.Show.ListOfShows[index])));
+                Navigation.PageChange.Invoke(this, new PageEventArgs(new ShowShow(Model.Show.ListOfShows[index])));
             }
             else
             {
                 new Model.Show(film, date, showRoom, price);
 
-                MainWindow.PageChange.Invoke(this,
+                Navigation.PageChange.Invoke(this,
                     new PageEventArgs(new ShowShow(Model.Show.ListOfShows[Model.Show.ListOfShows.Count - 1])));
             }
         }

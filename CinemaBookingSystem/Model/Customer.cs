@@ -5,11 +5,12 @@ namespace CinemaBookingSystem.Model
 {
     public class Customer
     {
-        //todo: somwhere hold customer
         internal string Name;
         internal string Prename;
         internal Seat Seat;
         internal Show Show;
+
+        //todo: better hold Customers
         public static List<Customer> CustomerList = new List<Customer>();
 
 

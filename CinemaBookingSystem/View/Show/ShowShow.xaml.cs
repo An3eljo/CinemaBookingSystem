@@ -66,7 +66,7 @@ namespace CinemaBookingSystem.View.Show
         {
             if (CurrentShow != null)
             {
-                MainWindow.PageChange.Invoke(this, new PageEventArgs(new CreateShow(CurrentShow)));
+                Navigation.PageChange.Invoke(this, new PageEventArgs(new CreateShow(CurrentShow)));
             }
         }
 

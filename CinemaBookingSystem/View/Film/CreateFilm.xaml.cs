@@ -70,7 +70,7 @@ namespace CinemaBookingSystem.View.Film
         private void ButtonAdd_OnClick(object sender, RoutedEventArgs e)
         {
             string title;
-            TimeSpan duration;
+            TimeSpan duration = new TimeSpan();
             if (TextBoxTitle.Text != String.Empty)
             {
                 title = TextBoxTitle.Text;
@@ -103,7 +103,7 @@ namespace CinemaBookingSystem.View.Film
             }
             else
             {
-                return;
+                Errors.ErrorHandler.Invoke(this, new ErrorEventArgs());
             }
 
             //if (CurrentFilm != null)
@@ -116,7 +116,7 @@ namespace CinemaBookingSystem.View.Film
             else
             {
                 new Model.Film(title, duration);
-                MainWindow.PageChange.Invoke(this,
+                Navigation.PageChange.Invoke(this,
                     new PageEventArgs(new ShowFilm(Model.Film.ListOfFilms[Model.Film.ListOfFilms.Count - 1])));
             }
         }

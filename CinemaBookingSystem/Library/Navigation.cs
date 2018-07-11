@@ -13,8 +13,20 @@ using System.Windows.Navigation;
 
 namespace CinemaBookingSystem.Library
 {
-    class Navigation : List<Page>
+    public static class Navigation
     {
-        
+        public static EventHandler<PageEventArgs> PageChange;
+        private static Frame _frame;
+
+        public static void Initialize(ref Frame frame)
+        {
+            _frame = frame;
+        }
+
+        public static void OnPageChanged(object sender, PageEventArgs e)
+        {
+            var newPage = e.Page;
+            _frame.Navigate(newPage);
+        }
     }
 }
