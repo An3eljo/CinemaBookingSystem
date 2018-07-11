@@ -19,15 +19,6 @@ namespace CinemaBookingSystem.View
             InitializeComponent();
             Init.Initialize();
             Navigation.Initialize(ref FrameDisplayContent);
-            Navigation.PageChange += OnPageChanged;
-        }
-
-        
-
-        private void OnPageChanged(object sender, PageEventArgs e)
-        {
-            var newPage = e.Page;
-            FrameDisplayContent.Navigate(newPage);
         }
 
         private void ButtonBooking_OnClick(object sender, RoutedEventArgs e)

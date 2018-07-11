@@ -9,6 +9,7 @@ namespace CinemaBookingSystem.Library
 {
     public static class Errors
     {
+        //todo: error Table
         public static EventHandler<ErrorEventArgs> ErrorHandler;
 
         public static void OnErrorThrow(object sender, ErrorEventArgs e)
