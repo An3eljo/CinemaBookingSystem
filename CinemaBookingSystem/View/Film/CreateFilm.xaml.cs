@@ -1,17 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using CinemaBookingSystem.Library;
 
 namespace CinemaBookingSystem.View.Film
@@ -51,22 +40,25 @@ namespace CinemaBookingSystem.View.Film
 
             if (TextBoxDurationHours.Text != String.Empty && TextBoxDurationMinutes.Text != String.Empty)
             {
-                //todo: errorhandling
                 try
                 {
                     var hours = int.Parse(TextBoxDurationHours.Text);
                     var minutes = int.Parse(TextBoxDurationMinutes.Text);
                     var seconds = 0;
 
-                    if (TextBoxDurationSeconds.Text != String.Empty)
+                    if (int.TryParse(TextBoxDurationSeconds.Text, out seconds))
                     {
-                        seconds = int.Parse(TextBoxDurationSeconds.Text);
+                        duration = new TimeSpan(hours, minutes, seconds);
+                    }
+                    else
+                    {
+                        duration = new TimeSpan(hours, minutes, 00);
                     }
 
-                    duration = new TimeSpan(hours, minutes, seconds);
                 }
                 catch (Exception)
                 {
+                    Errors.ErrorHandler.Invoke(this, new ErrorEventArgs(Errors.ErrorMessages[0]));
                     return;
                 }
             }

@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using CinemaBookingSystem.Library;
-using CinemaBookingSystem.View;
 
 namespace CinemaBookingSystem.Model
 {
@@ -12,7 +8,7 @@ namespace CinemaBookingSystem.Model
     {
         public static void Initialize()
         {
-            Errors.ErrorHandler += Errors.OnErrorThrow;
+            Errors.Init();
             Navigation.PageChange += Navigation.OnPageChanged;
 
             //todo: remove when program is finished
