@@ -21,13 +21,13 @@ namespace CinemaBookingSystem.View.Customer
     /// </summary>
     public partial class EditCustomer : Page
     {
-        public EditCustomer()
+        public EditCustomer(Model.Customer customer)
         {
             InitializeComponent();
-            Init();
+            Init(customer);
         }
 
-        private void Init()
+        private void Init(Model.Customer customer)
         {
             var films = Model.Film.ListOfFilms;
             foreach (var film in films)

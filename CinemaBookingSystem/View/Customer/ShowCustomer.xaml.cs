@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using System;
+using System.Linq;
+using System.Windows;
 using System.Windows.Controls;
 using CinemaBookingSystem.Library;
 
@@ -82,6 +84,12 @@ namespace CinemaBookingSystem.View.Customer
 
         private void ComboBoxCustomer_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            var customer = Model.Customer.CustomerList[((ComboBox) sender).SelectedIndex];
+
+            LabelName.Content = customer.Name;
+            LabelPrename.Content = customer.Prename;
+            LabelShow.Content = customer.Show.Date + ": " + customer.Show.Film.Title;
+            LabelPrice.Content = customer.Show.Price;
 
             ButtonDeleteCustomer.IsEnabled = true;
             ButtonEdit.IsEnabled = true;
@@ -96,7 +104,7 @@ namespace CinemaBookingSystem.View.Customer
         {
             var choosenCustomer = Model.Customer.CustomerList[((ComboBox)sender).SelectedIndex];
 
-            Navigation.PageChange.Invoke(this, new PageEventArgs(new CreateCustomer(choosenCustomer)));
+            Navigation.PageChange.Invoke(this, new PageEventArgs(new EditCustomer(choosenCustomer)));
         }
     }
 }

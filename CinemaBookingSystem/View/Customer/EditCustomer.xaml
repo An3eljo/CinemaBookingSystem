@@ -32,6 +32,11 @@
 
             <Button Content="Delet" Grid.Column="1" Grid.Row="2" Margin="10" x:Name="ButtonDeleteCustomer" Click="ButtonDeleteCustomer_OnClick" IsEnabled="False"/>
             <Button Content="Edit"  Grid.Column="2" Grid.Row="2" Margin="10" x:Name="ButtonEdit" Click="ButtonEdit_OnClick" IsEnabled="False"></Button>
+
+            <Label x:Name="LabelName"/>
+            <Label x:Name="LabelPrename"/>
+            <Label x:Name="LabelShow"/>
+            <Label x:Name="LabelPrice"/>
         </Grid>
     </Grid>
 </Page>
