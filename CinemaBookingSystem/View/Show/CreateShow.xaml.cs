@@ -96,13 +96,18 @@ namespace CinemaBookingSystem.View.Show
             {
                 var hour = int.Parse(TextBoxDateHour.Text);
                 var minute = int.Parse(TextBoxDateMinute.Text);
-                var second = int.Parse(TextBoxDateSecond.Text);
-                date.AddHours(hour).AddMinutes(minute).AddSeconds(second);
+                var second = 0;
+
+                if (int.TryParse(TextBoxDateSecond.Text, out second))
+                {
+                    date.AddHours(hour).AddMinutes(minute).AddSeconds(second);
+                }
+
+                date.AddHours(hour).AddMinutes(minute);
             }
             catch (Exception)
             {
-                //todo: errorhandling
-
+                Errors.ErrorHandler.Invoke(this, new ErrorEventArgs(Errors.ErrorMessages[0]));
                 return;
             }
 
@@ -112,7 +117,7 @@ namespace CinemaBookingSystem.View.Show
             }
             catch (Exception)
             {
-                //todo: errorhandling
+                Errors.ErrorHandler.Invoke(this, new ErrorEventArgs(Errors.ErrorMessages[2]));
                 return;
             }
 

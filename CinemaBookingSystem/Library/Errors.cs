@@ -26,7 +26,7 @@ namespace CinemaBookingSystem.Library
             {
                 {0, "Hours and minutes have to be in a valid Format" },
                 {1, "Hours and minutes are required" },
-                {2, "" }
+                {2, "Price have to be in a valid Format" }
             };
         }
 
