@@ -18,7 +18,7 @@ namespace CinemaBookingSystem.View
         {
             InitializeComponent();
             Init.Initialize();
-            Navigation.Initialize(ref FrameDisplayContent);
+            Navigation.Init(ref FrameDisplayContent);
         }
 
         private void ButtonBooking_OnClick(object sender, RoutedEventArgs e)

@@ -9,13 +9,30 @@ namespace CinemaBookingSystem.Library
 {
     public static class Errors
     {
-        //todo: error Table
         public static EventHandler<ErrorEventArgs> ErrorHandler;
+        public static Dictionary<int, string> ErrorMessages;
 
-        public static void OnErrorThrow(object sender, ErrorEventArgs e)
+        private static void OnErrorThrow(object sender, ErrorEventArgs e)
         {
             var errorWindow = new Error(e.Message);
             errorWindow.Show();
+        }
+
+        public static void Init()
+        {
+            ErrorHandler += OnErrorThrow;
+
+            ErrorMessages = new Dictionary<int, string>()
+            {
+                {0, "Hours and minutes have to be in a valid Format" },
+                {1, "Hours and minutes are required" },
+                {2, "" }
+            };
+        }
+
+        private static void InitMessages()
+        {
+
         }
     }
 }

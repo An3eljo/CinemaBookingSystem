@@ -23,19 +23,24 @@ namespace CinemaBookingSystem.View
         public Error(string message)
         {
             InitializeComponent();
-
+            Init(message);
         }
 
         private void Init(string message)
         {
             if (message != null)
             {
-                //todo: set text of labelerror
+                LabelError.Content = "An error occured: " + message;
             }
             else
             {
-                //todo: set errormessage "no errormessage"
+                LabelError.Content = "An unhandled error occured";
             }
+        }
+
+        private void ButtonClose_OnClick(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

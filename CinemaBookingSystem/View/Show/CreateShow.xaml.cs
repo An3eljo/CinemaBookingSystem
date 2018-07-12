@@ -102,6 +102,7 @@ namespace CinemaBookingSystem.View.Show
             catch (Exception)
             {
                 //todo: errorhandling
+
                 return;
             }
 

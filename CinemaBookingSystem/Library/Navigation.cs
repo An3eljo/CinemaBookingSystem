@@ -18,7 +18,7 @@ namespace CinemaBookingSystem.Library
         public static EventHandler<PageEventArgs> PageChange;
         private static Frame _frame;
 
-        public static void Initialize(ref Frame frame)
+        public static void Init(ref Frame frame)
         {
             _frame = frame;
         }

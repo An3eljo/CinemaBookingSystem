@@ -12,7 +12,7 @@ namespace CinemaBookingSystem.Model
     {
         public static void Initialize()
         {
-            Errors.ErrorHandler += Errors.OnErrorThrow;
+            Errors.Init();
             Navigation.PageChange += Navigation.OnPageChanged;
 
             //todo: remove when program is finished
