@@ -44,7 +44,7 @@
             </StackPanel>
 
 
-            <Button Content="Add" Margin="10" Grid.Column="1" Grid.Row="2" Click="ButtonAdd_OnClick"></Button>
+            <!--<Button Content="Add" Margin="10" Grid.Column="1" Grid.Row="2" Click="ButtonAdd_OnClick"></Button>-->
         </Grid>
     </Grid>
 </Page>
