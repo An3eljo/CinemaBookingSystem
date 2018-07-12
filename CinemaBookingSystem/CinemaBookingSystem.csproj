@@ -90,11 +90,7 @@
     <Compile Include="View\Show\ShowShow.xaml.cs">
       <DependentUpon>ShowShow.xaml</DependentUpon>
     </Compile>
-	<Page Include="View\Customer\EditCustomer.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\ChooseSeat.xaml">
+	
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
