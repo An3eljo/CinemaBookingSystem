@@ -13,6 +13,10 @@ namespace CinemaBookingSystem.View
     /// </summary>
     public partial class MainWindow : Window
     {
+        //Cool
+        //todo: return at throw error
+        //todo: errorhandling
+        //Flückiger
         //todo: einheitliches design
         //todo: UI allgemein
         //todo: Create/edit code behind

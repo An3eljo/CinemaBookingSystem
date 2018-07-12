@@ -10,7 +10,6 @@ namespace CinemaBookingSystem.View.Film
     /// </summary>
     public partial class CreateFilm : Page
     {
-
         public CreateFilm()
         {
             InitializeComponent();

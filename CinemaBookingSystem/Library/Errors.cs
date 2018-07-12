@@ -30,8 +30,7 @@ namespace CinemaBookingSystem.Library
                 {1, "Hours and minutes are required" },
                 {2, "Price have to be in a valid Format" },
                 {3, "Not a valid seat" },
-                {4, "No current film" }, //todo: better error message
-
+                {4, "An unexpected error occured" }, //todo: better error message
             };
         }
     }
