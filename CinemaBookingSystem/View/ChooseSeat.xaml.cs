@@ -4,6 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Media;
+using CinemaBookingSystem.Library;
 using CinemaBookingSystem.Model;
 
 namespace CinemaBookingSystem.View
@@ -86,22 +87,31 @@ namespace CinemaBookingSystem.View
 
         private void ButtonCreate_OnClick(object sender, RoutedEventArgs e)
         {
-            var choosenToggleButton = GridMain.Children.Cast<ToggleButton>().First(chsn => chsn.IsEnabled);
+            int? row = null;
+            int? column = null;
 
-            var row = Grid.GetRow((Grid) choosenToggleButton.Parent);
-            var column = Grid.GetColumn((Grid)choosenToggleButton.Parent);
+            foreach (var grid in GridMain.Children.OfType<Grid>())
+            {
+                foreach (var toggleButton in grid.Children.OfType<ToggleButton>())
+                {
+                    if (toggleButton.IsChecked == true)
+                    {
+                        row = Grid.GetRow(grid);
+                        column = Grid.GetColumn(grid);
+                    }
+                }
+            }
 
-            ChoosenSeat = ChoosenShow.ShowRoom.ListOfSeats.First(seat => seat.Column == column && seat.Row == row);
+            if (row != null && column != null)
+            {
+                ChoosenSeat = ChoosenShow.ShowRoom.ListOfSeats.First(seat => seat.Column == column && seat.Row == row);
+            }
+            else
+            {
+                Errors.ErrorHandler.Invoke(this, new ErrorEventArgs(Errors.ErrorMessages[3]));
+            }
 
-            //todo: in create and edit
-            //if (Customer != null)
-            //{
-            //    Model.Customer.CustomerList.First(customer => customer == Customer)
-            //}
-            //else
-            //{
-            //    new Model.Customer(choosenSeat, ChoosenShow, ChoosenName, Prename);
-            //}
+            this.Close();
         }
     }
 }

@@ -30,11 +30,7 @@ namespace CinemaBookingSystem.View
 
         private void LabelNewBooking_OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            var t = new ChooseSeat("", "", Model.Show.ListOfShows[0]);
-            t.ShowDialog();
-
-            int f = 0;
-            //Navigation.PageChange.Invoke(this, new PageEventArgs(new CreateCustomer()));
+            Navigation.PageChange.Invoke(this, new PageEventArgs(new CreateCustomer()));
         }
 
         private void UIElement_OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
