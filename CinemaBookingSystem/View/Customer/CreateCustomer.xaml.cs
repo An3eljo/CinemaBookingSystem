@@ -60,7 +60,7 @@ namespace CinemaBookingSystem.View.Customer
             FillUi(null, show);
         }
 
-        private void ButtonCreate_OnClick(object sender, RoutedEventArgs e)
+        private void ButtonSelectSeat_Click(object sender, RoutedEventArgs e)
         {
             var prename = TextBoxPrename.Text;
             var name = TextBoxName.Text;
@@ -72,11 +72,6 @@ namespace CinemaBookingSystem.View.Customer
             var seat = chooseSeat.ChoosenSeat;
 
             new Model.Customer(seat, show, name, prename);
-        }
-
-        private void ButtonSelectSeat_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

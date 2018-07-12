@@ -42,7 +42,7 @@ namespace CinemaBookingSystem.View
 
         private void LabelCancelBooking_OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            Navigation.PageChange.Invoke(this, new PageEventArgs(new CancelCustomer()));
+            Navigation.PageChange.Invoke(this, new PageEventArgs(new ShowCustomer()));
         }
 
         private void ButtonFilms_OnClick(object sender, RoutedEventArgs e)
