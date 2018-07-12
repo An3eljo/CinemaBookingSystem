@@ -3,6 +3,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
+using System.Windows.Media;
 
 namespace CinemaBookingSystem.View
 {
@@ -50,8 +51,15 @@ namespace CinemaBookingSystem.View
                     grid.Margin = new Thickness(5);
 
                     var button = new ToggleButton();
-                    button.Content = i + "/" + j;
+                    button.Content = (i +1) + "/" + (j + 1);
                     button.Click += OnSeatClick;
+
+
+                    Grid.SetColumn(grid, j);
+                    Grid.SetRow(grid, i);
+
+                    grid.Children.Add(button);
+                    GridMain.Children.Add(grid);
                 }
             }
         }
@@ -63,11 +71,14 @@ namespace CinemaBookingSystem.View
             if (sendr.IsChecked == true)
             {
                 ButtonCreate.IsEnabled = true;
-                foreach (var toggleButton in GridMain.Children.Cast<ToggleButton>())
+                foreach (var item in GridMain.Children.OfType<Grid>())
                 {
-                    if (!Equals(toggleButton, sendr))
+                    foreach (var toggleButton in item.Children.OfType<ToggleButton>())
                     {
-                        toggleButton.IsChecked = false;
+                        if (!Equals(toggleButton, sendr))
+                        {
+                            toggleButton.IsChecked = false;
+                        }
                     }
                 }
             }
@@ -86,6 +97,7 @@ namespace CinemaBookingSystem.View
 
             var choosenSeat = ChoosenShow.ShowRoom.ListOfSeats.First(seat => seat.Column == column && seat.Row == row);
 
+            //todo: edit
             new Model.Customer(choosenSeat, ChoosenShow, ChoosenName, Prename);
         }
     }
