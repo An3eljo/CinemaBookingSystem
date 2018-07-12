@@ -63,6 +63,9 @@
     <Compile Include="Model\Init.cs" />
     <Compile Include="Model\Seat.cs" />
     <Compile Include="Model\ShowRoom.cs" />
+	<Compile Include="View\ChooseSeat.xaml.cs">
+      <DependentUpon>ChooseSeat.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Customer\CancelCustomer.xaml.cs">
       <DependentUpon>CancelCustomer.xaml</DependentUpon>
     </Compile>
