@@ -1,5 +1,7 @@
-﻿using System.Windows;
+﻿using System.Linq;
+using System.Windows;
 using System.Windows.Controls;
+using CinemaBookingSystem.Model;
 
 namespace CinemaBookingSystem.View.Customer
 {
@@ -8,11 +10,11 @@ namespace CinemaBookingSystem.View.Customer
     /// </summary>
     public partial class CreateCustomer : Page
     {
-        private Model.Customer CurrentCustomer;
+        //private Model.Customer CurrentCustomer;
         public CreateCustomer(Model.Customer customer = null)
         {
             InitializeComponent();
-            CurrentCustomer = customer;
+            //CurrentCustomer = customer;
             Init(customer);
         }
 
@@ -32,7 +34,7 @@ namespace CinemaBookingSystem.View.Customer
             }
             else
             {
-                
+
             }
         }
 
@@ -64,9 +66,12 @@ namespace CinemaBookingSystem.View.Customer
             var name = TextBoxName.Text;
             var show = Model.Show.ListOfShows[ComboBoxShow.SelectedIndex];
 
-            //todo: choose seat
-            //var seatsWindow = new SeatsWindow(prename, name, show, CurrentCustomer);
-            //seatsWindow.Show();
+            var chooseSeat = new ChooseSeat(show);
+            chooseSeat.ShowDialog();
+
+            var seat = chooseSeat.ChoosenSeat;
+
+            new Model.Customer(seat, show, name, prename);
         }
 
         private void ButtonSelectSeat_Click(object sender, RoutedEventArgs e)

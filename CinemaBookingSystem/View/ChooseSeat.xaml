@@ -10,6 +10,6 @@
         <Grid x:Name="GridMain">
             
         </Grid>
-        <Button Content="Create customer" x:Name="ButtonCreate" Click="ButtonCreate_OnClick" IsEnabled="False"/>
+        <Button Content="Create customer" x:Name="ButtonCreate" Click="ButtonCreate_OnClick" IsEnabled="False" Margin="624,354,33,23"/>
     </Grid>
 </Window>
