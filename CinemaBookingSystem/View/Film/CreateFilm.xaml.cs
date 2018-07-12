@@ -72,7 +72,7 @@ namespace CinemaBookingSystem.View.Film
             }
             else
             {
-                //Errors.ErrorHandler.Invoke(this, new ErrorEventArgs());
+                Errors.ErrorHandler.Invoke(this, new ErrorEventArgs(Errors.ErrorMessages[1]));
             }
                 new Model.Film(title, duration);
                 Navigation.PageChange.Invoke(this,
