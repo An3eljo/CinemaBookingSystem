@@ -4,6 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Media;
+using CinemaBookingSystem.Model;
 
 namespace CinemaBookingSystem.View
 {
@@ -12,16 +13,11 @@ namespace CinemaBookingSystem.View
     /// </summary>
     public partial class ChooseSeat : Window
     {
-        private string Prename;
-        private string ChoosenName;
         private Model.Show ChoosenShow;
-        private Model.Customer Customer;
-        public ChooseSeat(string prename, string name, Model.Show show, Model.Customer customer = null)
+        public Seat ChoosenSeat;
+        public ChooseSeat(Model.Show show)
         {
-            this.Prename = prename;
-            this.ChoosenName = name;
             this.ChoosenShow = show;
-            this.Customer = customer;
             InitializeComponent();
             Init(show);
         }
@@ -95,10 +91,17 @@ namespace CinemaBookingSystem.View
             var row = Grid.GetRow((Grid) choosenToggleButton.Parent);
             var column = Grid.GetColumn((Grid)choosenToggleButton.Parent);
 
-            var choosenSeat = ChoosenShow.ShowRoom.ListOfSeats.First(seat => seat.Column == column && seat.Row == row);
+            ChoosenSeat = ChoosenShow.ShowRoom.ListOfSeats.First(seat => seat.Column == column && seat.Row == row);
 
-            //todo: edit
-            new Model.Customer(choosenSeat, ChoosenShow, ChoosenName, Prename);
+            //todo: in create and edit
+            //if (Customer != null)
+            //{
+            //    Model.Customer.CustomerList.First(customer => customer == Customer)
+            //}
+            //else
+            //{
+            //    new Model.Customer(choosenSeat, ChoosenShow, ChoosenName, Prename);
+            //}
         }
     }
 }

@@ -64,9 +64,7 @@ namespace CinemaBookingSystem.View.Customer
             var name = TextBoxName.Text;
             var show = Model.Show.ListOfShows[ComboBoxShow.SelectedIndex];
 
-            //todo: choose seat
-            //var seatsWindow = new SeatsWindow(prename, name, show, CurrentCustomer);
-            //seatsWindow.Show();
+            
         }
 
         private void ButtonSelectSeat_Click(object sender, RoutedEventArgs e)
