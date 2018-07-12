@@ -22,17 +22,17 @@ namespace CinemaBookingSystem.Library
         {
             ErrorHandler += OnErrorThrow;
 
+            InitErrorMessages();
+        }
+
+        private static void InitErrorMessages()
+        {
             ErrorMessages = new Dictionary<int, string>()
             {
                 {0, "Hours and minutes have to be in a valid Format" },
                 {1, "Hours and minutes are required" },
                 {2, "Price have to be in a valid Format" }
             };
-        }
-
-        private static void InitMessages()
-        {
-
         }
     }
 }
