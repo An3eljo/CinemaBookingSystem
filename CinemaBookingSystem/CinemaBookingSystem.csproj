@@ -54,19 +54,26 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Library\ErrorEventArgs.cs" />
+    <Compile Include="Library\Errors.cs" />
     <Compile Include="Library\PageEventArgs.cs" />
     <Compile Include="Model\Customer.cs" />
     <Compile Include="Model\Film.cs" />
     <Compile Include="Library\Navigation.cs" />
     <Compile Include="Model\Init.cs" />
     <Compile Include="Model\Seat.cs" />
-    <Compile Include="Model\ShowRooms.cs" />
     <Compile Include="Model\ShowRoom.cs" />
+    <Compile Include="View\ChooseSeat.xaml.cs">
+      <DependentUpon>ChooseSeat.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Customer\CancelCustomer.xaml.cs">
       <DependentUpon>CancelCustomer.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Customer\CreateCustomer.xaml.cs">
       <DependentUpon>CreateCustomer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Error.xaml.cs">
+      <DependentUpon>Error.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Film\CreateFilm.xaml.cs">
       <DependentUpon>CreateFilm.xaml</DependentUpon>
@@ -80,6 +87,14 @@
     <Compile Include="View\Show\ShowShow.xaml.cs">
       <DependentUpon>ShowShow.xaml</DependentUpon>
     </Compile>
+    <Page Include="View\ChooseSeat.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Error.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
