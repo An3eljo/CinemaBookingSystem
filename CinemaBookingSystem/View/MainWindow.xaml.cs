@@ -14,6 +14,9 @@ namespace CinemaBookingSystem.View
     /// </summary>
     public partial class MainWindow : Window
     {
+        //todo: einheitliches design
+        //todo: UI allgemein
+        //todo: Create/edit code behind
         public MainWindow()
         {
             InitializeComponent();
