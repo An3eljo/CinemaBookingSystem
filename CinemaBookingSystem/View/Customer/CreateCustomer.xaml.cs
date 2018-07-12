@@ -20,11 +20,11 @@ namespace CinemaBookingSystem.View.Customer
     /// </summary>
     public partial class CreateCustomer : Page
     {
-        private Model.Customer CurrentCustomer;
+        //private Model.Customer CurrentCustomer;
         public CreateCustomer(Model.Customer customer = null)
         {
             InitializeComponent();
-            CurrentCustomer = customer;
+            //CurrentCustomer = customer;
             Init(customer);
         }
 
@@ -44,7 +44,7 @@ namespace CinemaBookingSystem.View.Customer
             }
             else
             {
-                
+
             }
         }
 

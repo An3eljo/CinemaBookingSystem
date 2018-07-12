@@ -5,6 +5,8 @@ namespace CinemaBookingSystem.Model
 {
     public class Customer
     {
+        private static int IdCounter = 0;
+        internal int Id;
         internal string Name;
         internal string Prename;
         internal Seat Seat;
@@ -16,6 +18,7 @@ namespace CinemaBookingSystem.Model
 
         public Customer(Seat seat, Show show, string name, string prename)
         {
+            this.Id = IdCounter;
             this.Name = name;
             this.Prename = prename;
             this.Seat = seat;
@@ -37,6 +40,7 @@ namespace CinemaBookingSystem.Model
             }
 
             CustomerList.Add(this);
+            IdCounter++;
         }
 
         public void Delete()
