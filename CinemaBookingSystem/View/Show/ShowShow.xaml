@@ -20,7 +20,12 @@
                 <RowDefinition Height="16*"/>
                 <RowDefinition Height="4*"/>
             </Grid.RowDefinitions>
-            <ComboBox Grid.Column="0" Grid.Row="1" Margin="10" x:Name="ComboBoxShows" SelectionChanged="ComboBoxShows_OnSelectionChanged"/>
+
+            <Grid Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2">
+                <TextBlock Text="Manage shows" FontWeight="Bold" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Grid>
+            
+            <ComboBox Grid.Column="0" Grid.Row="1" Margin="10" x:Name="ComboBoxShows" SelectionChanged="ComboBoxShows_OnSelectionChanged" HorizontalAlignment="Stretch" VerticalAlignment="Top"/>
             <StackPanel Grid.Column="1" Grid.Row="1" Margin="10">
                 <TextBox Tag="Film" IsReadOnly="True"  Style="{StaticResource WatermarkedTextBox}" x:Name="TextBlockFilm" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                 <TextBox Tag="Showroom" IsReadOnly="True"  Style="{StaticResource WatermarkedTextBox}" x:Name="TextBlockShowRoom" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
@@ -28,7 +33,7 @@
                 <TextBox Tag="Price" IsReadOnly="True"  Style="{StaticResource WatermarkedTextBox}" x:Name="TextBlockPrice" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
             </StackPanel>
 
-            <Button x:Name="ButtonEdit" Click="OnEditClick" Margin="10" IsEnabled="False" Grid.Column="1" Grid.Row="2"/>
+            <Button Content="Edit" x:Name="ButtonEdit" Click="OnEditClick" Margin="10" IsEnabled="False" Grid.Column="1" Grid.Row="2"/>
         </Grid>
     </Grid>
 </Page>
