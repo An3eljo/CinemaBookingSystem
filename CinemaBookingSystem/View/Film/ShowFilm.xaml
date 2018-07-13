@@ -38,12 +38,9 @@
                     <TextBlock Margin="5" x:Name="TextBlockDurationProperty" Width="300" HorizontalAlignment="Center" VerticalAlignment="Stretch" TextWrapping="Wrap"/>
                 </StackPanel>
             </StackPanel>
-                
-                <StackPanel Grid.Column="1" Grid.Row="1" Margin="5">
-                
-                </StackPanel>
-            
-            <Button Content="Edit" Grid.Column="1" Grid.Row="2" Margin="10" x:Name="ButtonEdit" Click="ButtonEdit_OnClick" IsEnabled="False"/>            
+                            
+            <Button Content="Edit" Grid.Column="1" Grid.Row="2" Margin="10" x:Name="ButtonEdit" Click="ButtonEdit_OnClick" IsEnabled="False"/>
+            <Button Content="Delet" Grid.Column="0" Grid.Row="2" Margin="10" x:Name="ButtonDelet" Click="ButtonDelet_OnClick" IsEnabled="False"/>
         </Grid>
     </Grid>
 </Page>
