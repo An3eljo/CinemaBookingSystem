@@ -38,11 +38,18 @@
                 <TextBlock Margin="5" Text="Select date"/>
                 <DatePicker Grid.Column="1"  Grid.Row="1" Margin="5" Name="DatePickerSelectDate"/>
                 <TextBlock Margin="5" Text="Select hour"/>
-                <TextBox Tag="Hour"   x:Name="TextBoxDateHour"   Margin="5" Style="{StaticResource WatermarkedTextBox}"/>
-                <TextBlock Margin="5" Text="Select minute"/>
-                <TextBox Tag="Minute" x:Name="TextBoxDateMinute" Margin="5" Style="{StaticResource WatermarkedTextBox}"/>
-                <TextBlock Margin="5" Text="Select select second"/>
-                <TextBox Tag="Second" x:Name="TextBoxDateSecond" Margin="5" Style="{StaticResource WatermarkedTextBox}"/>
+
+                <StackPanel Orientation="Horizontal" Margin="5">
+                    <TextBlock Text="hh" Margin="5" Height="23" Width="60" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap"/>
+                    <TextBlock Text="mm" Margin="5" Height="23" Width="60" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap"/>
+                    <TextBlock Text="ss" Margin="5" Height="23" Width="60" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="5">
+                    <TextBox Margin="5" Tag="Hours"   Style="{StaticResource WatermarkedTextBox}"  x:Name="TextBoxDateHour"   Height="23" Width="60" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap"/>
+                    <TextBox Margin="5" Tag="Minutes" Style="{StaticResource WatermarkedTextBox}"  x:Name="TextBoxDateMinute" Height="23" Width="60" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap"/>
+                    <TextBox Margin="5" Tag="Seconds" Style="{StaticResource WatermarkedTextBox}"  x:Name="TextBoxDateSecond" Height="23" Width="60" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap"/>
+                </StackPanel>
+
             </StackPanel>
             
             <Button Content="Creat" Grid.Column="1" Grid.Row="2" x:Name="ButtonCreate" Margin="10" Click="OnCreateClick"/>
