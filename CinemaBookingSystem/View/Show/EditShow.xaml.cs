@@ -75,7 +75,7 @@ namespace CinemaBookingSystem.View.Show
 
         private void InitEdit(Model.Show show)
         {
-            DatePickerSelectDate.DisplayDate = show.Date;
+            DatePickerSelectDate.SelectedDate = show.Date;
             TextBoxDateHour.Text = show.Date.Hour.ToString();
             TextBoxDateMinute.Text = show.Date.Minute.ToString();
             TextBoxDateSecond.Text = show.Date.Minute.ToString();
