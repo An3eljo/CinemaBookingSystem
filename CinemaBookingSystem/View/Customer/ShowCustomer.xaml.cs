@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using System;
+using System.Linq;
+using System.Windows;
 using System.Windows.Controls;
 using CinemaBookingSystem.Library;
 
@@ -7,24 +9,35 @@ namespace CinemaBookingSystem.View.Customer
     /// <summary>
     /// Interaction logic for CancelCustomer.xaml
     /// </summary>
-    public partial class CancelCustomer : Page
+    public partial class ShowCustomer : Page
     {
-        public CancelCustomer()
+        public ShowCustomer(Model.Customer customer = null)
         {
             InitializeComponent();
-            Init();
+            Init(customer);
         }
 
-        private void Init()
+        private void Init(Model.Customer customer)
         {
             var films = Model.Film.ListOfFilms;
             foreach (var film in films)
             {
                 ComboBoxFilm.Items.Add(film.Title);
             }
+
+            if (customer != null)
+            {
+                InsertShows(Model.Show.ListOfShows.IndexOf(customer.Show));
+                InsertCustomers(Model.Customer.CustomerList.IndexOf(customer));
+            }
         }
 
         private void ComboBoxFilm_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            InsertShows(((ComboBox)sender).SelectedIndex);
+        }
+
+        private void InsertShows(int index)
         {
             ButtonDeleteCustomer.IsEnabled = false;
             ButtonEdit.IsEnabled = false;
@@ -32,7 +45,7 @@ namespace CinemaBookingSystem.View.Customer
             ComboBoxShow.Items.Clear();
             ComboBoxCustomer.Items.Clear();
 
-            var choosenFilm = Model.Film.ListOfFilms[((ComboBox) sender).SelectedIndex];
+            var choosenFilm = Model.Film.ListOfFilms[index];
 
             var shows = Model.Show.ListOfShows;
             foreach (var show in shows)
@@ -44,14 +57,14 @@ namespace CinemaBookingSystem.View.Customer
             }
         }
 
-        private void ComboBoxShow_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void InsertCustomers(int index)
         {
             ButtonDeleteCustomer.IsEnabled = false;
             ButtonEdit.IsEnabled = false;
 
             ComboBoxCustomer.Items.Clear();
 
-            var choosenShow = Model.Show.ListOfShows[((ComboBox)sender).SelectedIndex];
+            var choosenShow = Model.Show.ListOfShows[index];
 
             var customers = Model.Customer.CustomerList;
             foreach (var customer in customers)
@@ -64,24 +77,34 @@ namespace CinemaBookingSystem.View.Customer
             }
         }
 
+        private void ComboBoxShow_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            InsertCustomers(((ComboBox)sender).SelectedIndex);
+        }
+
         private void ComboBoxCustomer_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            var customer = Model.Customer.CustomerList[((ComboBox) sender).SelectedIndex];
+
+            LabelName.Content = customer.Name;
+            LabelPrename.Content = customer.Prename;
+            LabelShow.Content = customer.Show.Date + ": " + customer.Show.Film.Title;
+            LabelPrice.Content = customer.Show.Price;
+
             ButtonDeleteCustomer.IsEnabled = true;
             ButtonEdit.IsEnabled = true;
         }
 
         private void ButtonDeleteCustomer_OnClick(object sender, RoutedEventArgs e)
         {
-            var choosenCustomer = Model.Customer.CustomerList[((ComboBox)sender).SelectedIndex];
-
-            choosenCustomer.Delete();
+            Model.Customer.CustomerList[((ComboBox)sender).SelectedIndex].Delete();
         }
 
         private void ButtonEdit_OnClick(object sender, RoutedEventArgs e)
         {
             var choosenCustomer = Model.Customer.CustomerList[((ComboBox)sender).SelectedIndex];
 
-            Navigation.PageChange.Invoke(this, new PageEventArgs(new CreateCustomer(choosenCustomer)));
+            Navigation.PageChange.Invoke(this, new PageEventArgs(new EditCustomer(choosenCustomer)));
         }
     }
 }

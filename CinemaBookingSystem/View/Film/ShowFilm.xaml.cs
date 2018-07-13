@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using CinemaBookingSystem.Library;
+using CinemaBookingSystem.View.Customer;
 
 namespace CinemaBookingSystem.View.Film
 {
@@ -10,13 +11,6 @@ namespace CinemaBookingSystem.View.Film
     public partial class ShowFilm : Page
     {
         private Model.Film CurrentFilm;
-
-        public ShowFilm()
-        {
-            InitializeComponent();
-            Init(null);
-        }
-
         public ShowFilm(Model.Film film = null)
         {
             InitializeComponent();
@@ -41,6 +35,7 @@ namespace CinemaBookingSystem.View.Film
 
         private void ComboBoxFilms_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            ButtonEdit.IsEnabled = true;
             var filmIndex = ((ComboBox) sender).SelectedIndex;
             FillFilmProperties(filmIndex);
         }
@@ -56,7 +51,11 @@ namespace CinemaBookingSystem.View.Film
         {
             if (CurrentFilm != null)
             {
-                Navigation.PageChange.Invoke(this, new PageEventArgs(new CreateFilm()));
+                Navigation.PageChange.Invoke(this, new PageEventArgs(new EditFilm(CurrentFilm)));
+            }
+            else
+            {
+                Errors.ErrorHandler.Invoke(this, new ErrorEventArgs(Errors.ErrorMessages[4]));
             }
         }
     }
