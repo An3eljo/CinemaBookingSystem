@@ -24,28 +24,25 @@
                 <TextBlock Text="Manage Films" FontWeight="Bold" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
             </Grid>
 
-            <Grid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-
-                <TextBlock Grid.Column="0" Grid.Row="0" Text="Select Film"                                                          Height="23" Width="310" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                <ComboBox  Grid.Column="1" Grid.Row="0" x:Name="ComboBoxFilms"  SelectionChanged="ComboBoxFilms_OnSelectionChanged"             Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
-
-                <TextBlock Grid.Column="0" Grid.Row="1" Text="Title"                       Height="23"  Width="310" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap"/>
-                <TextBlock Grid.Column="1" Grid.Row="1" x:Name="TextBlockDurationProperty" Height="23"  Width="310" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap"/>
-
-
-                <TextBlock Grid.Column="0" Grid.Row="2" Text="Duration"                  Height="23" Width="310" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap"/>
-                <TextBlock Grid.Column="1" Grid.Row="2" x:Name="TextBlockTitleProperty"  Height="23" Width="310" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap"/>
-
-            </Grid>
+            <StackPanel Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="21" Margin="5">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Stretch">
+                    <TextBlock Margin="5" Text="Select Film" Width="100" HorizontalAlignment="Center" VerticalAlignment="Stretch"/>
+                    <ComboBox  Margin="5" x:Name="ComboBoxFilms" Width="300" SelectionChanged="ComboBoxFilms_OnSelectionChanged" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Stretch">
+                    <TextBlock Margin="5" Text="Title" Width="100" HorizontalAlignment="Center" VerticalAlignment="Stretch" TextWrapping="Wrap"/>
+                    <TextBlock Margin="5" x:Name="TextBlockTitleProperty" Width="300" HorizontalAlignment="Center" VerticalAlignment="Stretch" TextWrapping="Wrap"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Stretch">
+                    <TextBlock Margin="5" Text="Duration" Width="100" HorizontalAlignment="Center" VerticalAlignment="Stretch" TextWrapping="Wrap"/>
+                    <TextBlock Margin="5" x:Name="TextBlockDurationProperty" Width="300" HorizontalAlignment="Center" VerticalAlignment="Stretch" TextWrapping="Wrap"/>
+                </StackPanel>
+            </StackPanel>
+                
+                <StackPanel Grid.Column="1" Grid.Row="1" Margin="5">
+                
+                </StackPanel>
+            
             <Button Content="Edit" Grid.Column="1" Grid.Row="2" Margin="10" x:Name="ButtonEdit" Click="ButtonEdit_OnClick" IsEnabled="False"/>            
         </Grid>
     </Grid>

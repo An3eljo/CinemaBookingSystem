@@ -22,21 +22,33 @@
                 <RowDefinition Height="4*"/>
             </Grid.RowDefinitions>
 
-            <TextBlock  Text="Select Film"      Grid.Column="0" Grid.Row="0" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-            <TextBlock  Text="Select Show"      Grid.Column="1" Grid.Row="0" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-            <TextBlock  Text="Select Customer"  Grid.Column="2" Grid.Row="0" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <StackPanel Margin="5" Grid.Column="0" Grid.Row="1">
+                <TextBlock Margin="5" Text="Select Film"     TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <ComboBox Margin="5" x:Name="ComboBoxFilm"     SelectionChanged="ComboBoxFilm_OnSelectionChanged"/>
+            </StackPanel>
 
-            <ComboBox Margin="10" Grid.Column="0" Grid.Row="1" x:Name="ComboBoxFilm"     SelectionChanged="ComboBoxFilm_OnSelectionChanged"/>
-            <ComboBox Margin="10" Grid.Column="1" Grid.Row="1" x:Name="ComboBoxShow"     SelectionChanged="ComboBoxShow_OnSelectionChanged"/>
-            <ComboBox Margin="10" Grid.Column="2" Grid.Row="1" x:Name="ComboBoxCustomer" SelectionChanged="ComboBoxCustomer_OnSelectionChanged"/>
+            <StackPanel Margin="5" Grid.Column="1" Grid.Row="1">
+                <TextBlock Margin="5" Text="Select Show"     TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <ComboBox Margin="5" x:Name="ComboBoxShow"     SelectionChanged="ComboBoxShow_OnSelectionChanged"/>
+            </StackPanel>
+
+            <StackPanel Margin="5" Grid.Column="2" Grid.Row="1">
+                <TextBlock Margin="5" Text="Select Customer" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <ComboBox Margin="5" x:Name="ComboBoxCustomer" SelectionChanged="ComboBoxCustomer_OnSelectionChanged"/>
+                
+                <TextBlock Margin="5" Text="Name" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <Label Margin="5" x:Name="LabelName"/>
+                <TextBlock Margin="5" Text="Prename" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <Label Margin="5" x:Name="LabelPrename"/>
+                <TextBlock Margin="5" Text="Show" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <Label Margin="5" x:Name="LabelShow"/>
+                <TextBlock Margin="5" Text="Price" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <Label Margin="5" x:Name="LabelPrice"/>
+            </StackPanel>
 
             <Button Content="Delet" Grid.Column="1" Grid.Row="2" Margin="10" x:Name="ButtonDeleteCustomer" Click="ButtonDeleteCustomer_OnClick" IsEnabled="False"/>
             <Button Content="Edit"  Grid.Column="2" Grid.Row="2" Margin="10" x:Name="ButtonEdit" Click="ButtonEdit_OnClick" IsEnabled="False"></Button>
-            
-            <Label x:Name="LabelName"/>
-            <Label x:Name="LabelPrename"/>
-            <Label x:Name="LabelShow"/>
-            <Label x:Name="LabelPrice"/>
+
             
         </Grid>
     </Grid>

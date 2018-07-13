@@ -88,5 +88,10 @@ namespace CinemaBookingSystem.View.Customer
 
             Navigation.PageChange.Invoke(this, new PageEventArgs(new EditCustomer(choosenCustomer)));
         }
+
+        private void ButtonSelectSeat_Click(object sender, RoutedEventArgs e)
+        {
+        
+        }
     }
 }
