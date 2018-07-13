@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Controls;
 using CinemaBookingSystem.Library;
+using CinemaBookingSystem.View.Customer;
 
 namespace CinemaBookingSystem.View.Show
 {
@@ -54,7 +55,19 @@ namespace CinemaBookingSystem.View.Show
         {
             if (CurrentShow != null)
             {
-                Navigation.PageChange.Invoke(this, new PageEventArgs(new CreateShow(CurrentShow)));
+                Navigation.PageChange.Invoke(this, new PageEventArgs(new EditShow(CurrentShow)));
+            }
+            else
+            {
+                try
+                {
+                    Navigation.PageChange.Invoke(this, new PageEventArgs(new EditShow(Model.Show.ListOfShows[ComboBoxShows.SelectedIndex])));
+                }
+                catch (Exception)
+                {
+                    Errors.ErrorHandler.Invoke(this, new ErrorEventArgs(Errors.ErrorMessages[4]));
+                    return;
+                }
             }
         }
 
