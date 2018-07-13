@@ -7,13 +7,13 @@
         mc:Ignorable="d"
         Title="Error" Height="197.899" Width="452.101">
     <Grid>
-        <StackPanel>
-            <Label x:Name="LabelError">
-                <Label Content="Label"/>
-            </Label>
-            <Button x:Name="ButtonClose" Click="ButtonClose_OnClick" RenderTransformOrigin="0.086,0.185" Margin="0,0,0.6,0">
-                <Label Content="Label"/>
-            </Button>
-        </StackPanel>
+        <Grid Margin="0,0,-0.4,0" Grid.RowSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="23*"/>
+                <RowDefinition Height="145*"/>
+            </Grid.RowDefinitions>
+            <Label x:Name="LabelError" Margin="0,-1,-1,1" Grid.RowSpan="2"/>
+            <Button x:Name="ButtonClose" Click="ButtonClose_OnClick" RenderTransformOrigin="0.086,0.185" Margin="164,113.8,186,10" Content="Close" Grid.Row="1"/>
+        </Grid>
     </Grid>
 </Window>
