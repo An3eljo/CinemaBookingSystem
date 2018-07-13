@@ -71,7 +71,7 @@ namespace CinemaBookingSystem.View.Customer
 
             if (index == -1)
             {
-                Errors.ErrorHandler.Invoke(this, new ErrorEventArgs(Errors.ErrorMessages[6]));
+                return;
             }
             var choosenShow = Model.Show.ListOfShows[index];
             var customers = Model.Customer.CustomerList;
@@ -93,6 +93,11 @@ namespace CinemaBookingSystem.View.Customer
 
         private void ComboBoxCustomer_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (((ComboBox)sender).SelectedIndex == -1)
+            {
+                return;
+            }
+
             var customer = Model.Customer.CustomerList[((ComboBox) sender).SelectedIndex];
 
             LabelName.Content = customer.Name;
