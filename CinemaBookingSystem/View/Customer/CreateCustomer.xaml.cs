@@ -68,9 +68,9 @@ namespace CinemaBookingSystem.View.Customer
             var name = TextBoxName.Text;
             var show = Model.Show.ListOfShows[ComboBoxShow.SelectedIndex];
 
-            new Model.Customer(ChoosenSeat, show, name, prename);
+            var cust = new Model.Customer(ChoosenSeat, show, name, prename);
 
-            Navigation.PageChange.Invoke(this, new PageEventArgs(new EmptyPage()));
+            Navigation.PageChange.Invoke(this, new PageEventArgs(new ShowCustomer(Model.Customer.CustomerList.Find(cus => cus == cust))));
         }
     }
 }
