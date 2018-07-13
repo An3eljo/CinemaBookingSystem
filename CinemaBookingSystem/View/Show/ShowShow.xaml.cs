@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Controls;
 using CinemaBookingSystem.Library;
+using CinemaBookingSystem.View.Customer;
 
 namespace CinemaBookingSystem.View.Show
 {
@@ -11,31 +12,26 @@ namespace CinemaBookingSystem.View.Show
     {
         private Model.Show CurrentShow;
 
-        public ShowShow()
-        {
-            InitializeComponent();
-            Init();
-        }
-
-        public ShowShow(Model.Show show)
+        public ShowShow(Model.Show show = null)
         {
             InitializeComponent();
             CurrentShow = show;
             Init(show);
         }
 
-        private void Init(Model.Show currentShow = null)
+        private void Init(Model.Show currentShow)
         {
             var shows = Model.Show.ListOfShows;
             foreach (var show in shows)
             {
-                ComboBoxShows.Items.Add(show.Date.ToString() + ": " + show.Film);
+                ComboBoxShows.Items.Add(show.Date.ToString() + ": " + show.Film.Title);
             }
 
             if (currentShow != null)
             {
-                var index = shows.IndexOf(currentShow);
-                FillShowUi(index);
+                //var index = shows.IndexOf(currentShow);
+                //FillShowUi(index);
+                ComboBoxShows.SelectedIndex = shows.IndexOf(currentShow);
             }
         }
 
@@ -54,7 +50,19 @@ namespace CinemaBookingSystem.View.Show
         {
             if (CurrentShow != null)
             {
-                Navigation.PageChange.Invoke(this, new PageEventArgs(new CreateShow(CurrentShow)));
+                Navigation.PageChange.Invoke(this, new PageEventArgs(new EditShow(CurrentShow)));
+            }
+            else
+            {
+                try
+                {
+                    Navigation.PageChange.Invoke(this, new PageEventArgs(new EditShow(Model.Show.ListOfShows[ComboBoxShows.SelectedIndex])));
+                }
+                catch (Exception)
+                {
+                    Errors.ErrorHandler.Invoke(this, new ErrorEventArgs(Errors.ErrorMessages[4]));
+                    return;
+                }
             }
         }
 

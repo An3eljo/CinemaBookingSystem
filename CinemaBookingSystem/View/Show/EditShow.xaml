@@ -6,9 +6,55 @@
       xmlns:local="clr-namespace:CinemaBookingSystem.View.Show"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="EditShow">
+      Title="EditShow"
+      Background="{StaticResource backgroundDefault}">
+
 
     <Grid>
-        
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="16*"/>
+                <RowDefinition Height="4*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2">
+                <TextBlock Text="Edit show" FontWeight="Bold" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Grid>
+            
+            <StackPanel Grid.Column="0" Grid.Row="1" Margin="5">
+                <TextBlock Margin="5" Text="Select show"/>
+                <ComboBox Grid.Column="0" Grid.Row="1" Margin="5" x:Name="ComboBoxShows" SelectionChanged="ComboBoxShows_OnSelectionChanged"/>
+                <TextBlock Margin="5" Text="Select film"/>
+                <ComboBox x:Name="ComboBoxFilm"     Margin="5"/>
+                <TextBlock Margin="5" Text="Select showroom"/>
+                <ComboBox x:Name="ComboBoxShowRoom" Margin="5"/>
+                <TextBlock Margin="5" Text="Price"/>
+                <TextBox  x:Name="TextBoxPrice" Style="{StaticResource WatermarkedTextBox}" Tag="Price" Margin="5"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" Grid.Row="1" Margin="5">
+                <TextBlock Margin="5" Text="Select date"/>
+                <DatePicker Grid.Column="1"  Grid.Row="1" Margin="5" Name="DatePickerSelectDate"/>
+
+                <StackPanel Orientation="Horizontal" Margin="5">
+                    <TextBlock Text="hh" Margin="5" Height="23" Width="60" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap"/>
+                    <TextBlock Text="mm" Margin="5" Height="23" Width="60" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap"/>
+                    <TextBlock Text="ss" Margin="5" Height="23" Width="60" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="5">
+                    <TextBox Margin="5" Tag="Hours"   Style="{StaticResource WatermarkedTextBox}"  x:Name="TextBoxDateHour"   Height="23" Width="60" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap"/>
+                    <TextBox Margin="5" Tag="Minutes" Style="{StaticResource WatermarkedTextBox}"  x:Name="TextBoxDateMinute" Height="23" Width="60" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap"/>
+                    <TextBox Margin="5" Tag="Seconds" Style="{StaticResource WatermarkedTextBox}"  x:Name="TextBoxDateSecond" Height="23" Width="60" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap"/>
+                </StackPanel>
+
+            </StackPanel>
+
+            <Button Content="Apply" Grid.Column="1" Grid.Row="2" x:Name="ButtonCreate" Margin="10" Click="OnCreateClick"/>
+        </Grid>
     </Grid>
 </Page>

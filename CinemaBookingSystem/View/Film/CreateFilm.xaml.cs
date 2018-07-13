@@ -10,7 +10,6 @@ namespace CinemaBookingSystem.View.Film
     /// </summary>
     public partial class CreateFilm : Page
     {
-
         public CreateFilm()
         {
             InitializeComponent();
@@ -65,9 +64,11 @@ namespace CinemaBookingSystem.View.Film
             else
             {
                 Errors.ErrorHandler.Invoke(this, new ErrorEventArgs(Errors.ErrorMessages[1]));
+                return;
             }
-                new Model.Film(title, duration);
-                Navigation.PageChange.Invoke(this,
+
+            new Model.Film(title, duration);
+            Navigation.PageChange.Invoke(this,
                 new PageEventArgs(new ShowFilm(Model.Film.ListOfFilms[Model.Film.ListOfFilms.Count - 1])));
         }
     }

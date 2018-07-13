@@ -30,7 +30,7 @@ namespace CinemaBookingSystem.View.Film
             Init(film);
         }
 
-        private void Init(Model.Film film = null)
+        private void Init(Model.Film film)
         {
             var films = Model.Film.ListOfFilms;
             foreach (var film1 in films)
@@ -45,10 +45,8 @@ namespace CinemaBookingSystem.View.Film
             }
             else
             {
-                TextBoxDurationHours.Text = "0";
-                TextBoxDurationMinutes.Text = "0";
-                TextBoxDurationSeconds.Text = "0";
-                TextBoxTitle.Text = "Title";
+                Errors.ErrorHandler.Invoke(this, new ErrorEventArgs(Errors.ErrorMessages[4]));
+                return;
             }
         }
 
