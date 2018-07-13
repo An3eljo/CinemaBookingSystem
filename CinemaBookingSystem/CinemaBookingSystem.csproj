@@ -63,11 +63,8 @@
     <Compile Include="Model\Init.cs" />
     <Compile Include="Model\Seat.cs" />
     <Compile Include="Model\ShowRoom.cs" />
-	<Compile Include="View\ChooseSeat.xaml.cs">
+    <Compile Include="View\ChooseSeat.xaml.cs">
       <DependentUpon>ChooseSeat.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Customer\CancelCustomer.xaml.cs">
-      <DependentUpon>CancelCustomer.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Customer\CreateCustomer.xaml.cs">
       <DependentUpon>CreateCustomer.xaml</DependentUpon>
@@ -100,7 +97,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-	<Page Include="View\ChooseSeat.xaml">
+    <Page Include="View\ChooseSeat.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -126,10 +123,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="ResourcesDictionary.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Customer\CancelCustomer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
