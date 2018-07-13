@@ -24,7 +24,7 @@ namespace CinemaBookingSystem.View.Show
             var shows = Model.Show.ListOfShows;
             foreach (var show in shows)
             {
-                ComboBoxShows.Items.Add(show.Date.ToString() + ": " + show.Film);
+                ComboBoxShows.Items.Add(show.Date.ToString() + ": " + show.Film.Title);
             }
 
             if (currentShow != null)

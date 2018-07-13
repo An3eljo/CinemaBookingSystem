@@ -58,5 +58,10 @@ namespace CinemaBookingSystem.View.Film
                 Errors.ErrorHandler.Invoke(this, new ErrorEventArgs(Errors.ErrorMessages[4]));
             }
         }
+
+        private void ButtonDelet_OnClick(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
