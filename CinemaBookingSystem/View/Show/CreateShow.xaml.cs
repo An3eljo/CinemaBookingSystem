@@ -27,6 +27,7 @@ namespace CinemaBookingSystem.View.Show
 
         private void Init(Model.Show show = null)
         {
+            DatePickerSelectDate.SelectedDate = DateTime.Now;
             var films = Model.Film.ListOfFilms;
             foreach (var film in films)
             {

@@ -66,9 +66,10 @@ namespace CinemaBookingSystem.View.Film
                 Errors.ErrorHandler.Invoke(this, new ErrorEventArgs(Errors.ErrorMessages[1]));
                 return;
             }
+
             new Model.Film(title, duration);
             Navigation.PageChange.Invoke(this,
-            new PageEventArgs(new ShowFilm(Model.Film.ListOfFilms[Model.Film.ListOfFilms.Count - 1])));
+                new PageEventArgs(new ShowFilm(Model.Film.ListOfFilms[Model.Film.ListOfFilms.Count - 1])));
         }
     }
 }

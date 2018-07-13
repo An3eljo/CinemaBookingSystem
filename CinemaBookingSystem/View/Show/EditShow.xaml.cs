@@ -140,11 +140,16 @@ namespace CinemaBookingSystem.View.Show
             }
         }
 
+        private void FillShowUi(int index)
+        {
+            var show = Model.Show.ListOfShows[index];
+
+        }
+
         private void ComboBoxShows_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var index = ((ComboBox)sender).SelectedIndex;
-            //FillShowUi(index);
-
+            FillShowUi(index);
         }
     }
 }
