@@ -27,16 +27,24 @@
             </Grid>
             
             <StackPanel Grid.Column="0" Grid.Row="1" Margin="5">
+                <TextBlock Margin="5" Text="Select show"/>
                 <ComboBox Grid.Column="0" Grid.Row="1" Margin="5" x:Name="ComboBoxShows" SelectionChanged="ComboBoxShows_OnSelectionChanged"/>
+                <TextBlock Margin="5" Text="Select film"/>
                 <ComboBox x:Name="ComboBoxFilm"     Margin="5"/>
+                <TextBlock Margin="5" Text="Select show"/>
                 <ComboBox x:Name="ComboBoxShowRoom" Margin="5"/>
+                <TextBlock Margin="5" Text="Price"/>
                 <TextBox  x:Name="TextBoxPrice"     Margin="5"/>
             </StackPanel>
 
             <StackPanel Grid.Column="1" Grid.Row="1" Margin="5">
+                <TextBlock Margin="5" Text="Select date"/>
                 <DatePicker Grid.Column="1"  Grid.Row="1" Margin="5" Name="DatePickerSelectDate"/>
+                <TextBlock Margin="5" Text="Select hour"/>
                 <TextBox Tag="Hour"   x:Name="TextBoxDateHour"   Margin="5" Style="{StaticResource WatermarkedTextBox}"/>
+                <TextBlock Margin="5" Text="Select minute"/>
                 <TextBox Tag="Minute" x:Name="TextBoxDateMinute" Margin="5" Style="{StaticResource WatermarkedTextBox}"/>
+                <TextBlock Margin="5" Text="Select select second"/>
                 <TextBox Tag="Second" x:Name="TextBoxDateSecond" Margin="5" Style="{StaticResource WatermarkedTextBox}"/>
             </StackPanel>
 
