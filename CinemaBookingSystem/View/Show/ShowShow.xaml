@@ -26,11 +26,20 @@
             </Grid>
             
             <ComboBox Grid.Column="0" Grid.Row="1" Margin="10" x:Name="ComboBoxShows" SelectionChanged="ComboBoxShows_OnSelectionChanged" HorizontalAlignment="Stretch" VerticalAlignment="Top"/>
-            <StackPanel Grid.Column="1" Grid.Row="1" Margin="10">
-                <TextBox Tag="Film" IsReadOnly="True"  Style="{StaticResource WatermarkedTextBox}" x:Name="TextBlockFilm" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBox Tag="Showroom" IsReadOnly="True"  Style="{StaticResource WatermarkedTextBox}" x:Name="TextBlockShowRoom" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBox Tag="Date" IsReadOnly="True"  Style="{StaticResource WatermarkedTextBox}" x:Name="TextBlockDate" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBox Tag="Price" IsReadOnly="True"  Style="{StaticResource WatermarkedTextBox}" x:Name="TextBlockPrice" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            
+            <StackPanel Grid.Column="1" Grid.Row="1" Margin="5">
+                
+                <TextBlock Margin="5" Text="Film" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                <TextBlock Margin="5" x:Name="TextBlockFilm" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+
+                <TextBlock Margin="5" Text="Showroom" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                <TextBlock Margin="5" x:Name="TextBlockShowRoom" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+
+                <TextBlock Margin="5" Text="Date" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                <TextBlock Margin="5" x:Name="TextBlockDate" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+
+                <TextBlock Margin="5" Text="Price" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                <TextBlock Margin="5" x:Name="TextBlockPrice" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
             </StackPanel>
 
             <Button Content="Edit" x:Name="ButtonEdit" Click="OnEditClick" Margin="10" IsEnabled="False" Grid.Column="1" Grid.Row="2"/>
