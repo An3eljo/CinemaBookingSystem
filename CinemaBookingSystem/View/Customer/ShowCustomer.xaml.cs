@@ -1,17 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using CinemaBookingSystem.Library;
 
 namespace CinemaBookingSystem.View.Customer
@@ -19,24 +9,35 @@ namespace CinemaBookingSystem.View.Customer
     /// <summary>
     /// Interaction logic for CancelCustomer.xaml
     /// </summary>
-    public partial class CancelCustomer : Page
+    public partial class ShowCustomer : Page
     {
-        public CancelCustomer()
+        public ShowCustomer(Model.Customer customer = null)
         {
             InitializeComponent();
-            Init();
+            Init(customer);
         }
 
-        private void Init()
+        private void Init(Model.Customer customer)
         {
             var films = Model.Film.ListOfFilms;
             foreach (var film in films)
             {
                 ComboBoxFilm.Items.Add(film.Title);
             }
+
+            if (customer != null)
+            {
+                InsertShows(Model.Show.ListOfShows.IndexOf(customer.Show));
+                InsertCustomers(Model.Customer.CustomerList.IndexOf(customer));
+            }
         }
 
         private void ComboBoxFilm_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            InsertShows(((ComboBox)sender).SelectedIndex);
+        }
+
+        private void InsertShows(int index)
         {
             ButtonDeleteCustomer.IsEnabled = false;
             ButtonEdit.IsEnabled = false;
@@ -44,7 +45,12 @@ namespace CinemaBookingSystem.View.Customer
             ComboBoxShow.Items.Clear();
             ComboBoxCustomer.Items.Clear();
 
-            var choosenFilm = Model.Film.ListOfFilms[((ComboBox) sender).SelectedIndex];
+            if (index == -1)
+            {
+                Errors.ErrorHandler.Invoke(this, new ErrorEventArgs(Errors.ErrorMessages[5]));
+            }
+
+            var choosenFilm = Model.Film.ListOfFilms[index];
 
             var shows = Model.Show.ListOfShows;
             foreach (var show in shows)
@@ -56,15 +62,18 @@ namespace CinemaBookingSystem.View.Customer
             }
         }
 
-        private void ComboBoxShow_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void InsertCustomers(int index)
         {
             ButtonDeleteCustomer.IsEnabled = false;
             ButtonEdit.IsEnabled = false;
 
             ComboBoxCustomer.Items.Clear();
 
-            var choosenShow = Model.Show.ListOfShows[((ComboBox)sender).SelectedIndex];
-
+            if (index == -1)
+            {
+                return;
+            }
+            var choosenShow = Model.Show.ListOfShows[index];
             var customers = Model.Customer.CustomerList;
             foreach (var customer in customers)
             {
@@ -74,26 +83,43 @@ namespace CinemaBookingSystem.View.Customer
                                                ", " + customer.Prename);
                 }
             }
+
+        }
+
+        private void ComboBoxShow_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            InsertCustomers(((ComboBox)sender).SelectedIndex);
         }
 
         private void ComboBoxCustomer_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (((ComboBox)sender).SelectedIndex == -1)
+            {
+                return;
+            }
+
+            var customer = Model.Customer.CustomerList[((ComboBox) sender).SelectedIndex];
+
+            LabelName.Content = customer.Name;
+            LabelPrename.Content = customer.Prename;
+            LabelShow.Content = customer.Show.Date + ": " + customer.Show.Film.Title;
+            LabelPrice.Content = customer.Show.Price;
+
             ButtonDeleteCustomer.IsEnabled = true;
             ButtonEdit.IsEnabled = true;
         }
 
         private void ButtonDeleteCustomer_OnClick(object sender, RoutedEventArgs e)
         {
-            var choosenCustomer = Model.Customer.CustomerList[((ComboBox)sender).SelectedIndex];
-
-            choosenCustomer.Delete();
+            Model.Customer.CustomerList[ComboBoxCustomer.SelectedIndex].Delete();
+            Navigation.PageChange.Invoke(this, new PageEventArgs(new EmptyPage()));
         }
 
         private void ButtonEdit_OnClick(object sender, RoutedEventArgs e)
         {
-            var choosenCustomer = Model.Customer.CustomerList[((ComboBox)sender).SelectedIndex];
+            var choosenCustomer = Model.Customer.CustomerList[ComboBoxCustomer.SelectedIndex];
 
-            MainWindow.PageChange.Invoke(this, new PageEventArgs(new CreateCustomer(choosenCustomer)));
+            Navigation.PageChange.Invoke(this, new PageEventArgs(new EditCustomer(choosenCustomer)));
         }
     }
 }

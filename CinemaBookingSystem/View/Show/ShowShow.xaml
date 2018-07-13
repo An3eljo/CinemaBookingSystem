@@ -17,14 +17,32 @@
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="4*"/>
-                <RowDefinition Height="20*"/>
+                <RowDefinition Height="16*"/>
+                <RowDefinition Height="4*"/>
             </Grid.RowDefinitions>
-            <ComboBox x:Name="ComboBoxShows" SelectionChanged="ComboBoxShows_OnSelectionChanged"/>
-            <TextBlock x:Name="TextBlockFilm"/>
-            <TextBlock x:Name="TextBlockShowRoom"/>
-            <TextBlock x:Name="TextBlockDate"/>
-            <TextBlock x:Name="TextBlockPrice"/>
-            <Button x:Name="ButtonEdit" Click="OnEditClick" IsEnabled="False"/>
+
+            <Grid Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2">
+                <TextBlock Text="Manage shows" FontWeight="Bold" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Grid>
+            
+            <ComboBox Grid.Column="0" Grid.Row="1" Margin="10" x:Name="ComboBoxShows" SelectionChanged="ComboBoxShows_OnSelectionChanged" HorizontalAlignment="Stretch" VerticalAlignment="Top"/>
+            
+            <StackPanel Grid.Column="1" Grid.Row="1" Margin="5">
+                
+                <TextBlock Margin="5" Text="Film" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                <TextBlock Margin="5" x:Name="TextBlockFilm" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+
+                <TextBlock Margin="5" Text="Showroom" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                <TextBlock Margin="5" x:Name="TextBlockShowRoom" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+
+                <TextBlock Margin="5" Text="Date" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                <TextBlock Margin="5" x:Name="TextBlockDate" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+
+                <TextBlock Margin="5" Text="Price" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                <TextBlock Margin="5" x:Name="TextBlockPrice" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            </StackPanel>
+
+            <Button Content="Edit" x:Name="ButtonEdit" Click="OnEditClick" Margin="10" IsEnabled="False" Grid.Column="1" Grid.Row="2"/>
         </Grid>
     </Grid>
 </Page>

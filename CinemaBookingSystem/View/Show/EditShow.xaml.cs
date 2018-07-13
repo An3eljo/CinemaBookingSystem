@@ -1,24 +1,36 @@
-﻿using System;
-using System.Linq;
-using System.Windows.Controls;
-using CinemaBookingSystem.Library;
+﻿using CinemaBookingSystem.Library;
 using CinemaBookingSystem.Model;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
 
 namespace CinemaBookingSystem.View.Show
 {
     /// <summary>
-    /// Interaction logic for CreateShow.xaml
+    /// Interaktionslogik für EditShow.xaml
     /// </summary>
-    public partial class CreateShow : Page
+    public partial class EditShow : Page
     {
         private Model.Show CurrentShow;
-        public CreateShow()
+
+        public EditShow()
         {
             InitializeComponent();
             Init();
         }
 
-        public CreateShow(Model.Show show)
+        public EditShow(Model.Show show)
         {
             InitializeComponent();
             Init(show);
@@ -27,7 +39,12 @@ namespace CinemaBookingSystem.View.Show
 
         private void Init(Model.Show show = null)
         {
-            DatePickerSelectDate.SelectedDate = DateTime.Now;
+            var shows = Model.Show.ListOfShows;
+            foreach (var show1 in shows)
+            {
+                ComboBoxShows.Items.Add(show1.Date + ": " + show1.Film.Title);
+            }
+
             var films = Model.Film.ListOfFilms;
             foreach (var film in films)
             {
@@ -52,7 +69,7 @@ namespace CinemaBookingSystem.View.Show
 
         private void InitNew()
         {
-            DatePickerSelectDate.DisplayDate = DateTime.Now;
+            DatePickerSelectDate.SelectedDate = DateTime.Now;
             TextBoxDateHour.Text = "0";
             TextBoxDateMinute.Text = "0";
             TextBoxDateSecond.Text = "0";
@@ -64,11 +81,12 @@ namespace CinemaBookingSystem.View.Show
 
         private void InitEdit(Model.Show show)
         {
-            DatePickerSelectDate.DisplayDate = show.Date;
+            DatePickerSelectDate.SelectedDate = show.Date;
             TextBoxDateHour.Text = show.Date.Hour.ToString();
             TextBoxDateMinute.Text = show.Date.Minute.ToString();
             TextBoxDateSecond.Text = show.Date.Minute.ToString();
 
+            ComboBoxShows.SelectedIndex = Model.Show.ListOfShows.IndexOf(show);
             ComboBoxFilm.SelectedIndex = Model.Film.ListOfFilms.IndexOf(show.Film);
             ComboBoxShowRoom.SelectedIndex = ShowRoom.ShowRooms.IndexOf(show.ShowRoom);
         }
@@ -80,7 +98,7 @@ namespace CinemaBookingSystem.View.Show
 
             var film = Model.Film.ListOfFilms.First(flm => flm.Title == ComboBoxFilm.SelectionBoxItem.ToString());
             var showRoom =
-                ShowRoom.ShowRooms.First(showroom => showroom.RoomNumber == (int) ComboBoxShowRoom.SelectionBoxItem);
+                ShowRoom.ShowRooms.First(showroom => showroom.RoomNumber == (int)ComboBoxShowRoom.SelectionBoxItem);
 
             try
             {
@@ -127,6 +145,23 @@ namespace CinemaBookingSystem.View.Show
                 Navigation.PageChange.Invoke(this,
                     new PageEventArgs(new ShowShow(Model.Show.ListOfShows[Model.Show.ListOfShows.Count - 1])));
             }
+        }
+
+        private void FillShowUi(int index)
+        {
+            var show = Model.Show.ListOfShows[index];
+
+            TextBoxPrice.Text = show.Price.ToString();
+            DatePickerSelectDate.SelectedDate = show.Date;
+            TextBoxDateHour.Text = show.Date.Hour.ToString();
+            TextBoxDateMinute.Text = show.Date.Minute.ToString();
+            TextBoxDateSecond.Text = show.Date.Second.ToString();
+        }
+
+        private void ComboBoxShows_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var index = ((ComboBox)sender).SelectedIndex;
+            FillShowUi(index);
         }
     }
 }

@@ -1,17 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using CinemaBookingSystem.Library;
+using CinemaBookingSystem.Model;
 
 namespace CinemaBookingSystem.View.Customer
 {
@@ -20,42 +11,24 @@ namespace CinemaBookingSystem.View.Customer
     /// </summary>
     public partial class CreateCustomer : Page
     {
-        private Model.Customer CurrentCustomer;
-        public CreateCustomer(Model.Customer customer = null)
+        private Seat ChoosenSeat;
+        public CreateCustomer()
         {
             InitializeComponent();
-            CurrentCustomer = customer;
-            Init(customer);
+            Init();
         }
 
-        private void Init(Model.Customer customer = null)
+        private void Init()
         {
             var shows = Model.Show.ListOfShows;
             foreach (var show in shows)
             {
                 ComboBoxShow.Items.Add(show.Date.ToString() + ": " + show.Film.Title);
             }
-
-            if (customer != null)
-            {
-                var index = shows.IndexOf(customer.Show);
-                FillUi(customer, shows[index]);
-                ComboBoxShow.SelectedIndex = index;
-            }
-            else
-            {
-                
-            }
         }
 
-        private void FillUi(Model.Customer customer, Model.Show show)
+        private void FillUi(Model.Show show)
         {
-            if (customer != null)
-            {
-                TextBoxPrename.Text = customer.Prename;
-                TextBoxName.Text = customer.Name;
-            }
-
             if (show != null)
             {
                 TextBlockShowFilmTitle.Text = show.Film.Title;
@@ -67,23 +40,37 @@ namespace CinemaBookingSystem.View.Customer
         private void ComboBoxShow_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var show = Model.Show.ListOfShows[((ComboBox)sender).SelectedIndex];
-            FillUi(null, show);
-        }
-
-        private void ButtonCreate_OnClick(object sender, RoutedEventArgs e)
-        {
-            var prename = TextBoxPrename.Text;
-            var name = TextBoxName.Text;
-            var show = Model.Show.ListOfShows[ComboBoxShow.SelectedIndex];
-
-            //todo: choose seat
-            //var seatsWindow = new SeatsWindow(prename, name, show, CurrentCustomer);
-            //seatsWindow.Show();
+            FillUi(show);
         }
 
         private void ButtonSelectSeat_Click(object sender, RoutedEventArgs e)
         {
+            var show = Model.Show.ListOfShows[ComboBoxShow.SelectedIndex];
 
+            var chooseSeat = new ChooseSeat(show);
+            chooseSeat.ShowDialog();
+
+            if (chooseSeat.ChoosenSeat != null)
+            {
+                ButtonCreate.IsEnabled = true;
+            }
+
+            ChoosenSeat = chooseSeat.ChoosenSeat;
+        }
+
+        private void ButtonCreate_OnClickeate_OnClick(object sender, RoutedEventArgs e)
+        {
+            if (ChoosenSeat == null)
+            {
+                Errors.ErrorHandler.Invoke(this, new ErrorEventArgs(Errors.ErrorMessages[3]));
+            }
+            var prename = TextBoxPrename.Text;
+            var name = TextBoxName.Text;
+            var show = Model.Show.ListOfShows[ComboBoxShow.SelectedIndex];
+
+            var cust = new Model.Customer(ChoosenSeat, show, name, prename);
+
+            Navigation.PageChange.Invoke(this, new PageEventArgs(new ShowCustomer(Model.Customer.CustomerList.Find(cus => cus == cust))));
         }
     }
 }

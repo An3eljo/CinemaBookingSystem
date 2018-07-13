@@ -1,18 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using CinemaBookingSystem.Library;
+using CinemaBookingSystem.View.Customer;
 
 namespace CinemaBookingSystem.View.Film
 {
@@ -22,13 +11,6 @@ namespace CinemaBookingSystem.View.Film
     public partial class ShowFilm : Page
     {
         private Model.Film CurrentFilm;
-
-        public ShowFilm()
-        {
-            InitializeComponent();
-            Init(null);
-        }
-
         public ShowFilm(Model.Film film = null)
         {
             InitializeComponent();
@@ -46,14 +28,15 @@ namespace CinemaBookingSystem.View.Film
 
             if (currentFilm != null)
             {
-                var index = filmList.IndexOf(currentFilm);
-                FillFilmProperties(index);
+                ComboBoxFilms.SelectedIndex = filmList.IndexOf(currentFilm);
             }
         }
 
         private void ComboBoxFilms_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            ButtonEdit.IsEnabled = true;
             var filmIndex = ((ComboBox) sender).SelectedIndex;
+            CurrentFilm = Model.Film.ListOfFilms[filmIndex];
             FillFilmProperties(filmIndex);
         }
 
@@ -68,8 +51,17 @@ namespace CinemaBookingSystem.View.Film
         {
             if (CurrentFilm != null)
             {
-                MainWindow.PageChange.Invoke(this, new PageEventArgs(new CreateFilm()));
+                Navigation.PageChange.Invoke(this, new PageEventArgs(new EditFilm(CurrentFilm)));
             }
+            else
+            {
+                Errors.ErrorHandler.Invoke(this, new ErrorEventArgs(Errors.ErrorMessages[4]));
+            }
+        }
+
+        private void ButtonDelet_OnClick(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
