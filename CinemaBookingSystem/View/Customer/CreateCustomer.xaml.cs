@@ -69,10 +69,5 @@ namespace CinemaBookingSystem.View.Customer
 
             Navigation.PageChange.Invoke(this, new PageEventArgs(new EmptyPage()));
         }
-
-        private void ButtonCreate_OnClick(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

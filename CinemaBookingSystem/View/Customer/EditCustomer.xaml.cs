@@ -21,9 +21,11 @@ namespace CinemaBookingSystem.View.Customer
     /// </summary>
     public partial class EditCustomer : Page
     {
+        private Model.Customer CurrentCustomer;
         public EditCustomer(Model.Customer customer)
         {
             InitializeComponent();
+            CurrentCustomer = customer;
             Init(customer);
         }
 
@@ -75,18 +77,20 @@ namespace CinemaBookingSystem.View.Customer
             
         }
 
-        private void ButtonDeleteCustomer_OnClick(object sender, RoutedEventArgs e)
-        {
-            var choosenCustomer = Model.Customer.CustomerList[((ComboBox)sender).SelectedIndex];
-
-            choosenCustomer.Delete();
-        }
-
         private void ButtonEdit_OnClick(object sender, RoutedEventArgs e)
         {
-            var choosenCustomer = Model.Customer.CustomerList[((ComboBox)sender).SelectedIndex];
 
-            Navigation.PageChange.Invoke(this, new PageEventArgs(new EditCustomer(choosenCustomer)));
+            try
+            {
+                Model.Customer.CustomerList[((ComboBox) sender).SelectedIndex].Show = CurrentCustomer.Show;
+                Model.Customer.CustomerList[((ComboBox) sender).SelectedIndex].Name = TextBoxName.Text;
+                Model.Customer.CustomerList[((ComboBox) sender).SelectedIndex].Prename = TextBoxPrename.Text;
+            }
+            catch (Exception )
+            {
+                Errors.ErrorHandler.Invoke(this, new ErrorEventArgs(Errors.ErrorMessages[4]));
+            }
+            Navigation.PageChange.Invoke(this, new PageEventArgs(new EmptyPage()));
         }
 
         private void ButtonSelectSeat_Click(object sender, RoutedEventArgs e)
