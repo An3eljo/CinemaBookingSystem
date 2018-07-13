@@ -50,6 +50,11 @@ namespace CinemaBookingSystem.View.Customer
             var chooseSeat = new ChooseSeat(show);
             chooseSeat.ShowDialog();
 
+            if (chooseSeat.ChoosenSeat != null)
+            {
+                ButtonCreate.IsEnabled = true;
+            }
+
             ChoosenSeat = chooseSeat.ChoosenSeat;
         }
 

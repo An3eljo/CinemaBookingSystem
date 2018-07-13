@@ -39,6 +39,15 @@ namespace CinemaBookingSystem.View.Customer
             {
                 ComboBoxFilm.Items.Add(film.Title);
             }
+
+            if (customer != null)
+            {
+                ComboBoxFilm.SelectedIndex = Model.Film.ListOfFilms.IndexOf(customer.Show.Film);
+                ComboBoxShow.SelectedIndex = Model.Show.ListOfShows.IndexOf(customer.Show);
+                ComboBoxCustomer.SelectedIndex = Model.Customer.CustomerList.IndexOf(customer);
+                TextBoxName.Text = customer.Name;
+                TextBoxPrename.Text = customer.Prename;
+            }
         }
 
         private void ComboBoxFilm_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
