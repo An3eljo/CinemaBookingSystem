@@ -54,5 +54,10 @@ namespace CinemaBookingSystem.View.Customer
 
             new Model.Customer(seat, show, name, prename);
         }
+
+        private void ButtonCreate_OnClick(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

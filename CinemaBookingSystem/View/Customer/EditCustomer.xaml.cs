@@ -86,7 +86,7 @@ namespace CinemaBookingSystem.View.Customer
         {
             var choosenCustomer = Model.Customer.CustomerList[((ComboBox)sender).SelectedIndex];
 
-            Navigation.PageChange.Invoke(this, new PageEventArgs(new CreateCustomer(choosenCustomer)));
+            Navigation.PageChange.Invoke(this, new PageEventArgs(new EditCustomer(choosenCustomer)));
         }
     }
 }
