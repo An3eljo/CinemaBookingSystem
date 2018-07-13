@@ -7,9 +7,15 @@
         mc:Ignorable="d"
         Title="ChooseSeat" Height="450" Width="800">
     <Grid>
-        <Grid x:Name="GridMain">
-            
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="350*"></RowDefinition>
+                <RowDefinition Height="69*"/>
+            </Grid.RowDefinitions>
+            <Grid x:Name="GridMain" Grid.RowSpan="2">
+
+            </Grid>
+            <Button Content="Create customer" x:Name="ButtonCreate" Click="ButtonCreate_OnClick" IsEnabled="False" Margin="0,0,33,23" Grid.Row="1" HorizontalAlignment="Right" Width="135" Height="42" VerticalAlignment="Bottom"/>
         </Grid>
-        <Button Content="Create customer" x:Name="ButtonCreate" Click="ButtonCreate_OnClick" IsEnabled="False" Margin="624,354,33,23"/>
     </Grid>
 </Window>
