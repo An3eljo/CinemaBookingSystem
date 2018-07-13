@@ -1,17 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using CinemaBookingSystem.Library;
 using CinemaBookingSystem.Model;
 
@@ -96,12 +85,18 @@ namespace CinemaBookingSystem.View.Show
             {
                 var hour = int.Parse(TextBoxDateHour.Text);
                 var minute = int.Parse(TextBoxDateMinute.Text);
-                var second = int.Parse(TextBoxDateSecond.Text);
-                date.AddHours(hour).AddMinutes(minute).AddSeconds(second);
+                var second = 0;
+
+                if (int.TryParse(TextBoxDateSecond.Text, out second))
+                {
+                    date.AddHours(hour).AddMinutes(minute).AddSeconds(second);
+                }
+
+                date.AddHours(hour).AddMinutes(minute);
             }
             catch (Exception)
             {
-                //todo: errorhandling
+                Errors.ErrorHandler.Invoke(this, new ErrorEventArgs(Errors.ErrorMessages[0]));
                 return;
             }
 
@@ -111,7 +106,7 @@ namespace CinemaBookingSystem.View.Show
             }
             catch (Exception)
             {
-                //todo: errorhandling
+                Errors.ErrorHandler.Invoke(this, new ErrorEventArgs(Errors.ErrorMessages[2]));
                 return;
             }
 
@@ -122,13 +117,13 @@ namespace CinemaBookingSystem.View.Show
                 Model.Show.ListOfShows[index].Date = date;
                 Model.Show.ListOfShows[index].Price = price;
                 Model.Show.ListOfShows[index].ShowRoom = showRoom;
-                MainWindow.PageChange.Invoke(this, new PageEventArgs(new ShowShow(Model.Show.ListOfShows[index])));
+                Navigation.PageChange.Invoke(this, new PageEventArgs(new ShowShow(Model.Show.ListOfShows[index])));
             }
             else
             {
                 new Model.Show(film, date, showRoom, price);
 
-                MainWindow.PageChange.Invoke(this,
+                Navigation.PageChange.Invoke(this,
                     new PageEventArgs(new ShowShow(Model.Show.ListOfShows[Model.Show.ListOfShows.Count - 1])));
             }
         }

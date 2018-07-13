@@ -1,17 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using CinemaBookingSystem.Model;
 
 namespace CinemaBookingSystem.View.Customer
 {
@@ -20,11 +10,11 @@ namespace CinemaBookingSystem.View.Customer
     /// </summary>
     public partial class CreateCustomer : Page
     {
-        private Model.Customer CurrentCustomer;
+        //private Model.Customer CurrentCustomer;
         public CreateCustomer(Model.Customer customer = null)
         {
             InitializeComponent();
-            CurrentCustomer = customer;
+            //CurrentCustomer = customer;
             Init(customer);
         }
 
@@ -44,7 +34,7 @@ namespace CinemaBookingSystem.View.Customer
             }
             else
             {
-                
+
             }
         }
 
@@ -76,9 +66,12 @@ namespace CinemaBookingSystem.View.Customer
             var name = TextBoxName.Text;
             var show = Model.Show.ListOfShows[ComboBoxShow.SelectedIndex];
 
-            //todo: choose seat
-            //var seatsWindow = new SeatsWindow(prename, name, show, CurrentCustomer);
-            //seatsWindow.Show();
+            var chooseSeat = new ChooseSeat(show);
+            chooseSeat.ShowDialog();
+
+            var seat = chooseSeat.ChoosenSeat;
+
+            new Model.Customer(seat, show, name, prename);
         }
 
         private void ButtonSelectSeat_Click(object sender, RoutedEventArgs e)
