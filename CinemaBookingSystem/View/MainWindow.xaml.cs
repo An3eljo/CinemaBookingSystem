@@ -13,6 +13,10 @@ namespace CinemaBookingSystem.View
     /// </summary>
     public partial class MainWindow : Window
     {
+        //Cool
+        //todo: return at throw error
+        //todo: errorhandling
+        //Flückiger
         //todo: einheitliches design
         //todo: UI allgemein
         //todo: Create/edit code behind
@@ -42,7 +46,7 @@ namespace CinemaBookingSystem.View
 
         private void LabelCancelBooking_OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            Navigation.PageChange.Invoke(this, new PageEventArgs(new CancelCustomer()));
+            Navigation.PageChange.Invoke(this, new PageEventArgs(new ShowCustomer()));
         }
 
         private void ButtonFilms_OnClick(object sender, RoutedEventArgs e)

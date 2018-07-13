@@ -66,6 +66,9 @@
     <Compile Include="View\ChooseSeat.xaml.cs">
       <DependentUpon>ChooseSeat.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Customer\ShowCustomer.xaml.cs">
+      <DependentUpon>ShowCustomer.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Customer\CreateCustomer.xaml.cs">
       <DependentUpon>CreateCustomer.xaml</DependentUpon>
     </Compile>
@@ -123,6 +126,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="ResourcesDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Customer\ShowCustomer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

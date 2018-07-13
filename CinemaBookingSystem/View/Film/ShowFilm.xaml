@@ -46,9 +46,7 @@
                 <TextBlock Grid.Column="1" Grid.Row="2" x:Name="TextBlockTitleProperty"  Height="23" Width="310" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap"/>
 
             </Grid>
-            
-            <Button Content="Edit" Grid.Column="1" Grid.Row="2" Margin="10" x:Name="ButtonEdit" Click="ButtonEdit_OnClick"></Button>
-            
+            <Button Content="Edit" Grid.Column="1" Grid.Row="2" Margin="10" x:Name="ButtonEdit" Click="ButtonEdit_OnClick" IsEnabled="False"/>            
         </Grid>
     </Grid>
 </Page>

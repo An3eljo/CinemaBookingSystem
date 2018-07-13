@@ -3,6 +3,9 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
+using System.Windows.Media;
+using CinemaBookingSystem.Library;
+using CinemaBookingSystem.Model;
 
 namespace CinemaBookingSystem.View
 {
@@ -11,16 +14,11 @@ namespace CinemaBookingSystem.View
     /// </summary>
     public partial class ChooseSeat : Window
     {
-        private string Prename;
-        private string ChoosenName;
         private Model.Show ChoosenShow;
-        private Model.Customer Customer;
-        public ChooseSeat(string prename, string name, Model.Show show, Model.Customer customer = null)
+        public Seat ChoosenSeat;
+        public ChooseSeat(Model.Show show)
         {
-            this.Prename = prename;
-            this.ChoosenName = name;
             this.ChoosenShow = show;
-            this.Customer = customer;
             InitializeComponent();
             Init(show);
         }
@@ -50,8 +48,15 @@ namespace CinemaBookingSystem.View
                     grid.Margin = new Thickness(5);
 
                     var button = new ToggleButton();
-                    button.Content = i + "/" + j;
+                    button.Content = (i +1) + "/" + (j + 1);
                     button.Click += OnSeatClick;
+
+
+                    Grid.SetColumn(grid, j);
+                    Grid.SetRow(grid, i);
+
+                    grid.Children.Add(button);
+                    GridMain.Children.Add(grid);
                 }
             }
         }
@@ -63,11 +68,14 @@ namespace CinemaBookingSystem.View
             if (sendr.IsChecked == true)
             {
                 ButtonCreate.IsEnabled = true;
-                foreach (var toggleButton in GridMain.Children.Cast<ToggleButton>())
+                foreach (var item in GridMain.Children.OfType<Grid>())
                 {
-                    if (!Equals(toggleButton, sendr))
+                    foreach (var toggleButton in item.Children.OfType<ToggleButton>())
                     {
-                        toggleButton.IsChecked = false;
+                        if (!Equals(toggleButton, sendr))
+                        {
+                            toggleButton.IsChecked = false;
+                        }
                     }
                 }
             }
@@ -79,14 +87,31 @@ namespace CinemaBookingSystem.View
 
         private void ButtonCreate_OnClick(object sender, RoutedEventArgs e)
         {
-            var choosenToggleButton = GridMain.Children.Cast<ToggleButton>().First(chsn => chsn.IsEnabled);
+            int? row = null;
+            int? column = null;
 
-            var row = Grid.GetRow((Grid) choosenToggleButton.Parent);
-            var column = Grid.GetColumn((Grid)choosenToggleButton.Parent);
+            foreach (var grid in GridMain.Children.OfType<Grid>())
+            {
+                foreach (var toggleButton in grid.Children.OfType<ToggleButton>())
+                {
+                    if (toggleButton.IsChecked == true)
+                    {
+                        row = Grid.GetRow(grid);
+                        column = Grid.GetColumn(grid);
+                    }
+                }
+            }
 
-            var choosenSeat = ChoosenShow.ShowRoom.ListOfSeats.First(seat => seat.Column == column && seat.Row == row);
+            if (row != null && column != null)
+            {
+                ChoosenSeat = ChoosenShow.ShowRoom.ListOfSeats.First(seat => seat.Column == column && seat.Row == row);
+            }
+            else
+            {
+                Errors.ErrorHandler.Invoke(this, new ErrorEventArgs(Errors.ErrorMessages[3]));
+            }
 
-            new Model.Customer(choosenSeat, ChoosenShow, ChoosenName, Prename);
+            this.Close();
         }
     }
 }
