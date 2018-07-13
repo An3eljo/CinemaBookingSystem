@@ -91,7 +91,7 @@ namespace CinemaBookingSystem.View.Customer
 
         private void ButtonSelectSeat_Click(object sender, RoutedEventArgs e)
         {
-
+        
         }
     }
 }

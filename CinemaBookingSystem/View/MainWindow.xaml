@@ -72,7 +72,7 @@
             </Grid>
             
             <Grid Margin="0,0,0,10" Grid.Column="1">
-                <Frame Visibility="Visible" Margin="0" Source="Show/CreateShow.xaml" x:Name="FrameDisplayContent"/>
+                <Frame Visibility="Visible" Margin="0" Source="EmptyPage.xaml" x:Name="FrameDisplayContent"/>
             </Grid>
             
         </Grid>
