@@ -10,7 +10,7 @@
       Background="{StaticResource backgroundDefault}">
 
     <Grid>
-        <Grid>
+        <Grid Margin="1,10,-1,-10.4">
             <Grid.RowDefinitions>
                 <RowDefinition Height="4*"/>
                 <RowDefinition Height="20*"/>
@@ -31,7 +31,6 @@
                 <TextBox Tag="Prename" Style="{StaticResource WatermarkedTextBox}" x:Name="TextBoxPrename" VerticalAlignment="Stretch" Margin="5" TextWrapping="Wrap"/>
                 <ComboBox x:Name="ComboBoxShow" Margin="5" VerticalAlignment="Stretch" SelectionChanged="ComboBoxShow_OnSelectionChanged"/>
             </StackPanel>
-
             <StackPanel Margin="5" Grid.Column="1" Grid.Row="1">
                 <TextBlock Text="Title" Margin="5"/>
                 <TextBlock Margin="5" x:Name="TextBlockShowFilmTitle"/>
@@ -46,7 +45,6 @@
             </StackPanel>
 
             <Button Content="Create" Grid.Column="2" Grid.Row="2" Margin="10" x:Name="ButtonCreate" Click="ButtonCreate_OnClickeate_OnClick" IsEnabled="False"/>
-
         </Grid>
     </Grid>
 </Page>

@@ -7,7 +7,13 @@
         mc:Ignorable="d"
         Title="Error" Height="197.899" Width="452.101">
     <Grid>
-        <Label x:Name="LabelError"/>
-        <Button x:Name="ButtonClose" Click="ButtonClose_OnClick"/>
+        <StackPanel>
+            <Label x:Name="LabelError">
+                <Label Content="Label"/>
+            </Label>
+            <Button x:Name="ButtonClose" Click="ButtonClose_OnClick" RenderTransformOrigin="0.086,0.185" Margin="0,0,0.6,0">
+                <Label Content="Label"/>
+            </Button>
+        </StackPanel>
     </Grid>
 </Window>
