@@ -28,7 +28,7 @@
             <StackPanel Grid.Column="0" Grid.Row="1" Margin="5">
                 <TextBlock Margin="5" Text="Select film"/>
                 <ComboBox x:Name="ComboBoxFilm"     Margin="5"/>
-                <TextBlock Margin="5" Text="Select show"/>
+                <TextBlock Margin="5" Text="Select showroom"/>
                 <ComboBox x:Name="ComboBoxShowRoom" Margin="5"/>
                 <TextBlock Margin="5" Text="Price"/>
                 <TextBox  x:Name="TextBoxPrice" Style="{StaticResource WatermarkedTextBox}" Tag="Price" Margin="5"/>
