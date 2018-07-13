@@ -112,6 +112,7 @@ namespace CinemaBookingSystem.View.Customer
         private void ButtonDeleteCustomer_OnClick(object sender, RoutedEventArgs e)
         {
             Model.Customer.CustomerList[((ComboBox)sender).SelectedIndex].Delete();
+            Navigation.PageChange.Invoke(this, new PageEventArgs(new EmptyPage()));
         }
 
         private void ButtonEdit_OnClick(object sender, RoutedEventArgs e)

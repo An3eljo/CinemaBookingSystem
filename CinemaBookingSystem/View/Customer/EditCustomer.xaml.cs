@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CinemaBookingSystem.Library;
+using CinemaBookingSystem.Model;
 
 namespace CinemaBookingSystem.View.Customer
 {
@@ -22,10 +23,12 @@ namespace CinemaBookingSystem.View.Customer
     public partial class EditCustomer : Page
     {
         private Model.Customer CurrentCustomer;
+        private Seat CurrentSeat;
         public EditCustomer(Model.Customer customer)
         {
             InitializeComponent();
             CurrentCustomer = customer;
+            CurrentSeat = customer.Seat;
             Init(customer);
         }
 
@@ -85,17 +88,29 @@ namespace CinemaBookingSystem.View.Customer
                 Model.Customer.CustomerList[((ComboBox) sender).SelectedIndex].Show = CurrentCustomer.Show;
                 Model.Customer.CustomerList[((ComboBox) sender).SelectedIndex].Name = TextBoxName.Text;
                 Model.Customer.CustomerList[((ComboBox) sender).SelectedIndex].Prename = TextBoxPrename.Text;
+                Model.Customer.CustomerList[((ComboBox) sender).SelectedIndex].Seat = CurrentSeat;
+                Navigation.PageChange.Invoke(this, new PageEventArgs(new ShowCustomer(Model.Customer.CustomerList[((ComboBox)sender).SelectedIndex])));
             }
             catch (Exception )
             {
                 Errors.ErrorHandler.Invoke(this, new ErrorEventArgs(Errors.ErrorMessages[4]));
             }
-            Navigation.PageChange.Invoke(this, new PageEventArgs(new EmptyPage()));
         }
 
         private void ButtonSelectSeat_Click(object sender, RoutedEventArgs e)
         {
-        
+            var show = Model.Show.ListOfShows[ComboBoxShow.SelectedIndex];
+
+            var chooseSeat = new ChooseSeat(show);
+            chooseSeat.ShowDialog();
+            var choosenSeat = chooseSeat.ChoosenSeat;
+
+            CurrentCustomer.Show.ShowRoom.ListOfSeats.First(seat => seat == CurrentSeat).IsBooked[
+                    CurrentCustomer.Seat.IsBooked.IndexOf(new Tuple<Model.Show, bool>(CurrentCustomer.Show, true))] =
+                new Tuple<Model.Show, bool>(CurrentCustomer.Show, false);
+
+            CurrentSeat = choosenSeat;
+
         }
     }
 }
