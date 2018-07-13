@@ -45,6 +45,11 @@ namespace CinemaBookingSystem.View.Customer
             ComboBoxShow.Items.Clear();
             ComboBoxCustomer.Items.Clear();
 
+            if (index == -1)
+            {
+                Errors.ErrorHandler.Invoke(this, new ErrorEventArgs(Errors.ErrorMessages[5]));
+            }
+
             var choosenFilm = Model.Film.ListOfFilms[index];
 
             var shows = Model.Show.ListOfShows;
@@ -64,8 +69,11 @@ namespace CinemaBookingSystem.View.Customer
 
             ComboBoxCustomer.Items.Clear();
 
+            if (index == -1)
+            {
+                Errors.ErrorHandler.Invoke(this, new ErrorEventArgs(Errors.ErrorMessages[6]));
+            }
             var choosenShow = Model.Show.ListOfShows[index];
-
             var customers = Model.Customer.CustomerList;
             foreach (var customer in customers)
             {
@@ -75,6 +83,7 @@ namespace CinemaBookingSystem.View.Customer
                                                ", " + customer.Prename);
                 }
             }
+
         }
 
         private void ComboBoxShow_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -102,7 +111,7 @@ namespace CinemaBookingSystem.View.Customer
 
         private void ButtonEdit_OnClick(object sender, RoutedEventArgs e)
         {
-            var choosenCustomer = Model.Customer.CustomerList[((ComboBox)sender).SelectedIndex];
+            var choosenCustomer = Model.Customer.CustomerList[ComboBoxCustomer.SelectedIndex];
 
             Navigation.PageChange.Invoke(this, new PageEventArgs(new EditCustomer(choosenCustomer)));
         }
