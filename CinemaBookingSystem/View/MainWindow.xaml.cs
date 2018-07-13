@@ -71,7 +71,7 @@ namespace CinemaBookingSystem.View
 
         private void LabelAddShow_OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            Navigation.PageChange.Invoke(this, new PageEventArgs(new ShowFilm()));
+            Navigation.PageChange.Invoke(this, new PageEventArgs(new CreateShow()));
         }
 
         private void LabelManageShows_OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)

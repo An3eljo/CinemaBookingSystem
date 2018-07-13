@@ -17,16 +17,28 @@
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="4*"/>
-                <RowDefinition Height="20*"/>
+                <RowDefinition Height="16*"/>
+                <RowDefinition Height="4*"/>
             </Grid.RowDefinitions>
-            <DatePicker Grid.Column="1" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Width="340" Margin="10" Name="DatePickerSelectDate"/>
-            <ComboBox x:Name="ComboBoxFilm"/>
-            <ComboBox x:Name="ComboBoxShowRoom"/>
-            <TextBox x:Name="TextBoxDateHour"/>
-            <TextBox x:Name="TextBoxDateMinute"/>
-            <TextBox x:Name="TextBoxDateSecond"/>
-            <TextBox x:Name="TextBoxPrice"/>
-            <Button x:Name="ButtonCreate" Click="OnCreateClick"/>
+
+            <Grid Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2">
+                <TextBlock Text="Add new show" FontWeight="Bold" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Grid>
+
+            <StackPanel Grid.Column="0" Grid.Row="1" Margin="5">
+                <ComboBox x:Name="ComboBoxFilm"     Margin="5"/>
+                <ComboBox x:Name="ComboBoxShowRoom" Margin="5"/>
+                <TextBox  x:Name="TextBoxPrice"     Margin="5"/>
+            </StackPanel>
+            
+            <StackPanel Grid.Column="1" Grid.Row="1" Margin="5">
+                <DatePicker Grid.Column="1"  Grid.Row="1" Margin="5" Name="DatePickerSelectDate"/>
+                <TextBox Tag="Hour"   x:Name="TextBoxDateHour"   Margin="5" Style="{StaticResource WatermarkedTextBox}"/>
+                <TextBox Tag="Minute" x:Name="TextBoxDateMinute" Margin="5" Style="{StaticResource WatermarkedTextBox}"/>
+                <TextBox Tag="Second" x:Name="TextBoxDateSecond" Margin="5" Style="{StaticResource WatermarkedTextBox}"/>
+            </StackPanel>
+            
+            <Button Content="Creat" Grid.Column="1" Grid.Row="2" x:Name="ButtonCreate" Margin="10" Click="OnCreateClick"/>
         </Grid>
     </Grid>
 </Page>

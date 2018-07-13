@@ -28,7 +28,14 @@
             <StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="1">
                 <TextBlock Text="Select Film" Width="Auto" Height="Auto" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 <ComboBox  x:Name="ComboBoxFilms" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10" SelectionChanged="ComboBoxFilms_OnSelectionChanged"/>
+            </StackPanel>
 
+            <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="1">
+                <StackPanel Orientation="Horizontal" Margin="5">
+                    <TextBlock Text="Title" Margin="5" Height="23" Width="60" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap"/>
+                    <TextBox   Tag="Film Title" Style="{StaticResource WatermarkedTextBox}" x:Name="TextBoxTitle" Margin="5" Height="23" Width="120" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap"/>
+                </StackPanel>
+                <TextBlock Margin="5" Text="Duration"></TextBlock>
                 <StackPanel Orientation="Horizontal" Margin="5">
                     <TextBlock Text="hh" Margin="5" Height="23" Width="60" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap"/>
                     <TextBlock Text="mm" Margin="5" Height="23" Width="60" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap"/>
@@ -41,13 +48,8 @@
                 </StackPanel>
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="1">
-                <TextBlock Text="Title" Margin="5" Height="23" Width="60" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap"/>
-                <TextBox   Tag="Film Title" Style="{StaticResource WatermarkedTextBox}" x:Name="TextBoxTitle" Margin="5" Height="23" Width="120" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap"/>
-            </StackPanel>
 
-
-            <Button Content="Edit" Margin="10" Grid.Column="1" Grid.Row="2" Click="ButtonAdd_OnClick"></Button>
+            <Button Content="Apply" Margin="10" Grid.Column="1" Grid.Row="2" Click="ButtonAdd_OnClick"></Button>
         </Grid>
     </Grid>
 </Page>

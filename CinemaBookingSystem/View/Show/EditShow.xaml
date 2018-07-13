@@ -6,9 +6,41 @@
       xmlns:local="clr-namespace:CinemaBookingSystem.View.Show"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="EditShow">
+      Title="EditShow"
+      Background="{StaticResource backgroundDefault}">
+
 
     <Grid>
-        
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="16*"/>
+                <RowDefinition Height="4*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2">
+                <TextBlock Text="Edit show" FontWeight="Bold" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Grid>
+            
+            <StackPanel Grid.Column="0" Grid.Row="1" Margin="5">
+                <ComboBox Grid.Column="0" Grid.Row="1" Margin="5" x:Name="ComboBoxShows" SelectionChanged="ComboBoxShows_OnSelectionChanged"/>
+                <ComboBox x:Name="ComboBoxFilm"     Margin="5"/>
+                <ComboBox x:Name="ComboBoxShowRoom" Margin="5"/>
+                <TextBox  x:Name="TextBoxPrice"     Margin="5"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" Grid.Row="1" Margin="5">
+                <DatePicker Grid.Column="1"  Grid.Row="1" Margin="5" Name="DatePickerSelectDate"/>
+                <TextBox Tag="Hour"   x:Name="TextBoxDateHour"   Margin="5" Style="{StaticResource WatermarkedTextBox}"/>
+                <TextBox Tag="Minute" x:Name="TextBoxDateMinute" Margin="5" Style="{StaticResource WatermarkedTextBox}"/>
+                <TextBox Tag="Second" x:Name="TextBoxDateSecond" Margin="5" Style="{StaticResource WatermarkedTextBox}"/>
+            </StackPanel>
+
+            <Button Content="Apply" Grid.Column="1" Grid.Row="2" x:Name="ButtonCreate" Margin="10" Click="OnCreateClick"/>
+        </Grid>
     </Grid>
 </Page>
