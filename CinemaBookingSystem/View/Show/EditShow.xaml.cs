@@ -39,6 +39,12 @@ namespace CinemaBookingSystem.View.Show
 
         private void Init(Model.Show show = null)
         {
+            var shows = Model.Show.ListOfShows;
+            foreach (var show1 in shows)
+            {
+                ComboBoxShows.Items.Add(show1.Date + ": " + show1.Film.Title);
+            }
+
             var films = Model.Film.ListOfFilms;
             foreach (var film in films)
             {
@@ -63,7 +69,7 @@ namespace CinemaBookingSystem.View.Show
 
         private void InitNew()
         {
-            DatePickerSelectDate.DisplayDate = DateTime.Now;
+            DatePickerSelectDate.SelectedDate = DateTime.Now;
             TextBoxDateHour.Text = "0";
             TextBoxDateMinute.Text = "0";
             TextBoxDateSecond.Text = "0";
@@ -80,6 +86,7 @@ namespace CinemaBookingSystem.View.Show
             TextBoxDateMinute.Text = show.Date.Minute.ToString();
             TextBoxDateSecond.Text = show.Date.Minute.ToString();
 
+            ComboBoxShows.SelectedIndex = Model.Show.ListOfShows.IndexOf(show);
             ComboBoxFilm.SelectedIndex = Model.Film.ListOfFilms.IndexOf(show.Film);
             ComboBoxShowRoom.SelectedIndex = ShowRoom.ShowRooms.IndexOf(show.ShowRoom);
         }
@@ -140,11 +147,21 @@ namespace CinemaBookingSystem.View.Show
             }
         }
 
+        private void FillShowUi(int index)
+        {
+            var show = Model.Show.ListOfShows[index];
+
+            TextBoxPrice.Text = show.Price.ToString();
+            DatePickerSelectDate.SelectedDate = show.Date;
+            TextBoxDateHour.Text = show.Date.Hour.ToString();
+            TextBoxDateMinute.Text = show.Date.Minute.ToString();
+            TextBoxDateSecond.Text = show.Date.Second.ToString();
+        }
+
         private void ComboBoxShows_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var index = ((ComboBox)sender).SelectedIndex;
-            //FillShowUi(index);
-
+            FillShowUi(index);
         }
     }
 }

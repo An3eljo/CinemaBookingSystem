@@ -28,8 +28,7 @@ namespace CinemaBookingSystem.View.Film
 
             if (currentFilm != null)
             {
-                var index = filmList.IndexOf(currentFilm);
-                FillFilmProperties(index);
+                ComboBoxFilms.SelectedIndex = filmList.IndexOf(currentFilm);
             }
         }
 
@@ -37,6 +36,7 @@ namespace CinemaBookingSystem.View.Film
         {
             ButtonEdit.IsEnabled = true;
             var filmIndex = ((ComboBox) sender).SelectedIndex;
+            CurrentFilm = Model.Film.ListOfFilms[filmIndex];
             FillFilmProperties(filmIndex);
         }
 
@@ -57,6 +57,11 @@ namespace CinemaBookingSystem.View.Film
             {
                 Errors.ErrorHandler.Invoke(this, new ErrorEventArgs(Errors.ErrorMessages[4]));
             }
+        }
+
+        private void ButtonDelet_OnClick(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

@@ -48,7 +48,7 @@ namespace CinemaBookingSystem.View
                     grid.Margin = new Thickness(5);
 
                     var button = new ToggleButton();
-                    button.Content = (i +1) + "/" + (j + 1);
+                    button.Content = (i) + "/" + (j);
                     button.Click += OnSeatClick;
 
 

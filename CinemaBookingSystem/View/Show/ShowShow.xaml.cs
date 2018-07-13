@@ -12,31 +12,26 @@ namespace CinemaBookingSystem.View.Show
     {
         private Model.Show CurrentShow;
 
-        public ShowShow()
-        {
-            InitializeComponent();
-            Init();
-        }
-
-        public ShowShow(Model.Show show)
+        public ShowShow(Model.Show show = null)
         {
             InitializeComponent();
             CurrentShow = show;
             Init(show);
         }
 
-        private void Init(Model.Show currentShow = null)
+        private void Init(Model.Show currentShow)
         {
             var shows = Model.Show.ListOfShows;
             foreach (var show in shows)
             {
-                ComboBoxShows.Items.Add(show.Date.ToString() + ": " + show.Film);
+                ComboBoxShows.Items.Add(show.Date.ToString() + ": " + show.Film.Title);
             }
 
             if (currentShow != null)
             {
-                var index = shows.IndexOf(currentShow);
-                FillShowUi(index);
+                //var index = shows.IndexOf(currentShow);
+                //FillShowUi(index);
+                ComboBoxShows.SelectedIndex = shows.IndexOf(currentShow);
             }
         }
 

@@ -48,6 +48,11 @@ namespace CinemaBookingSystem.Model
 
             new Show(new Film("Jim Knopf und Lukas der Lokomotivführer", new TimeSpan(2, 27, 0)),
                 new DateTime(2018, 05, 25, 18, 45, 0), ShowRoom.ShowRooms[2]);
+
+            new Customer(ShowRoom.ShowRooms[0].ListOfSeats[50], Show.ListOfShows[0], "prename1", "name1");
+            new Customer(ShowRoom.ShowRooms[2].ListOfSeats[20], Show.ListOfShows[3], "prename2", "name2");
+            new Customer(ShowRoom.ShowRooms[0].ListOfSeats[22], Show.ListOfShows[0], "prename3", "name4");
+            new Customer(ShowRoom.ShowRooms[1].ListOfSeats[6], Show.ListOfShows[1], "prename4", "name5");
         }
     }
 }

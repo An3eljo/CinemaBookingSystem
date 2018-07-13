@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CinemaBookingSystem.Library;
+using CinemaBookingSystem.Model;
 
 namespace CinemaBookingSystem.View.Customer
 {
@@ -21,9 +22,13 @@ namespace CinemaBookingSystem.View.Customer
     /// </summary>
     public partial class EditCustomer : Page
     {
+        private Model.Customer CurrentCustomer;
+        private Seat CurrentSeat;
         public EditCustomer(Model.Customer customer)
         {
             InitializeComponent();
+            CurrentCustomer = customer;
+            CurrentSeat = customer.Seat;
             Init(customer);
         }
 
@@ -33,6 +38,15 @@ namespace CinemaBookingSystem.View.Customer
             foreach (var film in films)
             {
                 ComboBoxFilm.Items.Add(film.Title);
+            }
+
+            if (customer != null)
+            {
+                ComboBoxFilm.SelectedIndex = Model.Film.ListOfFilms.IndexOf(customer.Show.Film);
+                ComboBoxShow.SelectedIndex = Model.Show.ListOfShows.IndexOf(customer.Show);
+                ComboBoxCustomer.SelectedIndex = Model.Customer.CustomerList.IndexOf(customer);
+                TextBoxName.Text = customer.Name;
+                TextBoxPrename.Text = customer.Prename;
             }
         }
 
@@ -75,18 +89,37 @@ namespace CinemaBookingSystem.View.Customer
             
         }
 
-        private void ButtonDeleteCustomer_OnClick(object sender, RoutedEventArgs e)
-        {
-            var choosenCustomer = Model.Customer.CustomerList[((ComboBox)sender).SelectedIndex];
-
-            choosenCustomer.Delete();
-        }
-
         private void ButtonEdit_OnClick(object sender, RoutedEventArgs e)
         {
-            var choosenCustomer = Model.Customer.CustomerList[((ComboBox)sender).SelectedIndex];
 
-            Navigation.PageChange.Invoke(this, new PageEventArgs(new EditCustomer(choosenCustomer)));
+            try
+            {
+                Model.Customer.CustomerList[((ComboBox) sender).SelectedIndex].Show = CurrentCustomer.Show;
+                Model.Customer.CustomerList[((ComboBox) sender).SelectedIndex].Name = TextBoxName.Text;
+                Model.Customer.CustomerList[((ComboBox) sender).SelectedIndex].Prename = TextBoxPrename.Text;
+                Model.Customer.CustomerList[((ComboBox) sender).SelectedIndex].Seat = CurrentSeat;
+                Navigation.PageChange.Invoke(this, new PageEventArgs(new ShowCustomer(Model.Customer.CustomerList[((ComboBox)sender).SelectedIndex])));
+            }
+            catch (Exception )
+            {
+                Errors.ErrorHandler.Invoke(this, new ErrorEventArgs(Errors.ErrorMessages[4]));
+            }
+        }
+
+        private void ButtonSelectSeat_Click(object sender, RoutedEventArgs e)
+        {
+            var show = Model.Show.ListOfShows[ComboBoxShow.SelectedIndex];
+
+            var chooseSeat = new ChooseSeat(show);
+            chooseSeat.ShowDialog();
+            var choosenSeat = chooseSeat.ChoosenSeat;
+
+            CurrentCustomer.Show.ShowRoom.ListOfSeats.First(seat => seat == CurrentSeat).IsBooked[
+                    CurrentCustomer.Seat.IsBooked.IndexOf(new Tuple<Model.Show, bool>(CurrentCustomer.Show, true))] =
+                new Tuple<Model.Show, bool>(CurrentCustomer.Show, false);
+
+            CurrentSeat = choosenSeat;
+
         }
     }
 }
